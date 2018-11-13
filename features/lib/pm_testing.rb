@@ -7,4 +7,8 @@ module PMTesting
     Generic.new
   end
 
+  def admin
+    Admin.new
+  end
+
 end
