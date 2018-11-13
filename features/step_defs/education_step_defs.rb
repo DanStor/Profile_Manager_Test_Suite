@@ -1,9 +1,11 @@
 Given("I am on the education page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit('/')
+  
+  pm_education.click_education_page
 end
 
 When("I click on add education") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.click_add_education
 end
 
 When("I fill in the institution") do
