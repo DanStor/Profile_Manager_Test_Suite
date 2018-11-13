@@ -7,9 +7,24 @@ Scenario: I should be able to add a new profile
   And I click on new profile
   And I enter a summary
   And I select a stream
-  And I enter a degree of more than 5 characters
+  And I select a team
+  And I enter a degree
+  And I click on modules
   And I click save
   Then a profile should be created
+
+Scenario: I should be able to check no degree
+  Given I am logged in as a Trainee or Admin
+  And have a profile set up
+  When I am on the Sparta profile
+  And I click on new profile
+  And I enter a summary
+  And I select a stream
+  And I select a team
+  And I click on no degree
+  And I click save
+  Then a profile should be created
+  And it should say not applicable under university degree
 
 Scenario: Deleting a profile
   Given I am logged in as a Trainee or Admin
