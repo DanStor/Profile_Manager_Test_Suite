@@ -23,7 +23,7 @@ Feature: Education
   @education
   Scenario: I should be able to edit education
     Given I am on the education page
-    When I click on the name of the institution
+    When I click on the name or the edit button
     And I fill in the institution
     And I fill in the course
     And I choose a start date
@@ -36,11 +36,21 @@ Feature: Education
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy
-    And I click save
+    And I click confirm
     Then the education should be removed
     And a confirmation message should appear
 
+<<<<<<< HEAD
   @education
+=======
+  Scenario: I should be able to cancel a delete of an education
+    Given I am on the education page
+    When I click on destroy
+    And I click cancel
+    Then the education should not be removed
+    And I should still be able to see the education
+
+>>>>>>> 3c35476d408652473dc98192635b6adabc02bdad
   Scenario: I should get an error
     Given I am on the education page
     When I click on add education
@@ -58,7 +68,18 @@ Feature: Education
     And I choose an end date after the current day
     And I fill in the description
     And I click save
-    Then I should get an error
+    Then I should get an error about the end date
+
+  Scenario: I shouldnt be able to enter an end date before the start date
+    Given I am on the education page
+    When I click on add education
+    And I fill in the institution
+    And I fill in the course
+    And I choose a start date
+    And I choose an end date before the start date
+    And I fill in the description
+    And I click save
+    Then I should get an errors about the start and end dates
 
   @education
   Scenario: The remaining characters should change
@@ -66,3 +87,9 @@ Feature: Education
     When I click on add education
     And I fill in the institution
     Then the remaining characters should reduce
+
+  Scenario: The remaining words should change
+    Given I am on the education page
+    When I click on add education
+    And I fill in the description
+    Then the remaining words should reduce
