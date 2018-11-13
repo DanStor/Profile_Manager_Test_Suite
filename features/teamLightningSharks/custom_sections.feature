@@ -13,7 +13,7 @@ Feature: Custom Sections
   | section |
   | volunteering |
   | hobbies |
-  | languages | 
+  | languages |
 
   # ADD IN THE DATA TABLE THING
   # ADDITIONAL POINT TO MAKE IS THAT THIS IS SUPPOSED TO BE A DROP DOWN RATHER THAN AN INPUT TEXT FIELD SO RAISE THIS ISSUE
@@ -54,9 +54,8 @@ Feature: Custom Sections
 
   Given I am on the custom page
   When I press the destroy button for a specific item
-  And I click the confirm button on the delete entry alert
-  Then the custom was successfully destroyed message is displayed
-  And the targeted item should no longer be displayed on the custom page
+  And I click the cancel button on the delete entry alert
+  Then the targeted item remains on the custom page
 
   Scenario: PM-190 User must be able to edit a custom section
 
