@@ -7,4 +7,8 @@ module PMTesting
     Generic.new
   end
 
+  def comments
+    Comments.new
+  end
+
 end
