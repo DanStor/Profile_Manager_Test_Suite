@@ -13,6 +13,12 @@ class Comments
     click_button('submit')
   end
 
+  def sign_in_student
+    fill_in('email', :with => 'eng16student@spartaglobal.com')
+    fill_in('password', :with => 'Password123')
+    click_button('submit')
+  end
+
   def click_on_students_profile
     click_link('eng16 student')
     # find(:xpath, '//*[@id="profile-index-stream-3"]').click

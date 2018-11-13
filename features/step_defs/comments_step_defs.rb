@@ -15,7 +15,10 @@ Given("that comments have been made to a users profile") do
 end
 
 When("the changes are saved") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page
+  expect(current_url).to eq 'http://localhost:3000/login'
+  comments.sign_in_student
+  expect(current_url).to eq 'http://localhost:3000/'
 end
 
 Then("a notification is sent to the relevant student") do
