@@ -1,5 +1,5 @@
 Given("I am logged in as a Trainee or Admin") do
-  pending # Write code here that turns the phrase above into concrete actions
+
 end
 
 When("I am on the profile page") do
@@ -15,7 +15,7 @@ When("I enter a summary") do
 end
 
 When("I select a stream") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.select_stream
 end
 
 When("I select a team") do
@@ -23,7 +23,7 @@ When("I select a team") do
 end
 
 When("I enter a degree") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.enter_degree "Technical Consultant"
 end
 
 When("I click on modules") do

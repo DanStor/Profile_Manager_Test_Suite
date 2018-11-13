@@ -4,6 +4,8 @@ class Profiles
 
   NEW_BUTTON_ID = 'new-button'
   SUMMARY_FIELD_ID = 'profile-form-summary'
+  STREAM_FIELD_ID = 'profile_stream'
+  DEGREE_FIELD_ID = 'profile-form-degree'
 
   def visit_profile_page
     visit('/profiles')
@@ -15,6 +17,17 @@ class Profiles
 
   def enter_summary summary
     fill_in(SUMMARY_FIELD_ID, with: summary)
+  end
 
+  def select_stream
+    select('SDET', :from => STREAM_FIELD_ID)
+  end
+
+  def select_team
+    #need to create function for select a team
+  end
+
+  def enter_degree degree
+    fill_in(DEGREE_FIELD_ID, with: degree)
   end
 end

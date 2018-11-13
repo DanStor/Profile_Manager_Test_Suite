@@ -1,5 +1,5 @@
 Given("I'm on the Certifications page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.visit_certifications
 end
 
 When("I press new Certification") do
