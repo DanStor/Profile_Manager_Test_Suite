@@ -1,0 +1,305 @@
+Feature: Custom Sections
+
+  # ADD IN THE DATA TABLE THING
+  # ADDITIONAL POINT TO MAKE IS THAT THIS IS SUPPOSED TO BE A DROP DOWN RATHER THAN AN INPUT TEXT FIELD SO RAISE THIS ISSUE
+  Scenario: PM-179 17M- User must be able to view custom sections              # features/teamLightningSharks/custom_sections.feature:21
+    Given I am on the custom page                                              # features/teamLightningSharks/custom_sections.feature:23
+    When I click a listed custom item                                          # features/teamLightningSharks/custom_sections.feature:24
+    Then I should be taken to the corresponding show page for that custom item # features/teamLightningSharks/custom_sections.feature:25
+
+  # WILL FAIL AS TAKES YOU TO THE EDIT PAGE FOR THAT CUSTOM ITEM
+  # SHOW PAGE DES EXIST HOWEVER HAVE TO MANUALLY ACCESS SUCH A PAGE
+  Scenario: PM-180 18M-User must be able to create a custom section # features/teamLightningSharks/custom_sections.feature:30
+    Given I am on the custom page                                   # features/teamLightningSharks/custom_sections.feature:32
+    When I click the new custom section button                      # features/teamLightningSharks/custom_sections.feature:33
+    And I am on the create new custom page                          # features/teamLightningSharks/custom_sections.feature:34
+    And I add valid custom section details                          # features/teamLightningSharks/custom_sections.feature:35
+    And I press the save button                                     # features/teamLightningSharks/custom_sections.feature:36
+    Then the newly made custom item is listed                       # features/teamLightningSharks/custom_sections.feature:37
+
+  Scenario: PM-134 Verify that the drop-down menu in the Custom Section shows ‘Hobbies’, ‘Volunteering’ and ‘Languages # features/teamLightningSharks/custom_sections.feature:40
+    Given I am on the create new custom page                                                                           # features/teamLightningSharks/custom_sections.feature:42
+    When I click the dropdown bar for the title section                                                                # features/teamLightningSharks/custom_sections.feature:43
+      # TEST FAILS HERE AS NO DROPDOWN BAR IS PRESENT
+    Then hobbies, volunteering and languages are listed in the dropdown menu                                           # features/teamLightningSharks/custom_sections.feature:45
+
+  Scenario: PM-182 19M-User must be able to delete a custom section        # features/teamLightningSharks/custom_sections.feature:47
+    Given I am on the custom page                                          # features/teamLightningSharks/custom_sections.feature:49
+    When I press the destroy button for a specific item                    # features/teamLightningSharks/custom_sections.feature:50
+    And I click the confirm button on the delete entry alert               # features/teamLightningSharks/custom_sections.feature:51
+    Then the custom was successfully destroyed message is displayed        # features/teamLightningSharks/custom_sections.feature:52
+    And the targeted item should no longer be displayed on the custom page # features/teamLightningSharks/custom_sections.feature:53
+    Given I am on the custom page                                          # features/teamLightningSharks/custom_sections.feature:55
+    When I press the destroy button for a specific item                    # features/teamLightningSharks/custom_sections.feature:56
+    And I click the cancel button on the delete entry alert                # features/teamLightningSharks/custom_sections.feature:57
+    Then the targeted item remains on the custom page                      # features/teamLightningSharks/custom_sections.feature:58
+
+  Scenario: PM-190 User must be able to edit a custom section     # features/teamLightningSharks/custom_sections.feature:60
+    Given I am on the edit page for a custom item                 # features/teamLightningSharks/custom_sections.feature:62
+    When I add valid custom section details                       # features/teamLightningSharks/custom_sections.feature:63
+    And I click the save button                                   # features/teamLightningSharks/custom_sections.feature:64
+    Then I am on the custom page                                  # features/teamLightningSharks/custom_sections.feature:65
+    And I see the custom section was successfully updated message # features/teamLightningSharks/custom_sections.feature:66
+
+Feature: Employment History
+
+  Scenario: PM-191 - As a user, I must be able to view employment history item # features/teamLightningSharks/employment_history.feature:3
+    Given I am on the employment page                                          # features/teamLightningSharks/employment_history.feature:5
+    When I click on an item                                                    # features/teamLightningSharks/employment_history.feature:6
+    Then I am now on the show page for that specific item                      # features/teamLightningSharks/employment_history.feature:7
+
+  Scenario: PM-192 As a user, I must be able to create a new employment history item              # features/teamLightningSharks/employment_history.feature:9
+    Given I am on the employment page                                                             # features/teamLightningSharks/employment_history.feature:11
+    When I click the new employment button                                                        # features/teamLightningSharks/employment_history.feature:12
+    And I enter valid details                                                                     # features/teamLightningSharks/employment_history.feature:13
+    And I click the save button                                                                   # features/teamLightningSharks/employment_history.feature:14
+    Then I am redirected to the employment show page                                              # features/teamLightningSharks/employment_history.feature:15
+    And I see the employment was successfully created message                                     # features/teamLightningSharks/employment_history.feature:16
+    And I press the back button                                                                   # features/teamLightningSharks/employment_history.feature:17
+    And I see the employment page                                                                 # features/teamLightningSharks/employment_history.feature:18
+    And I can see the new item                                                                    # features/teamLightningSharks/employment_history.feature:19
+    Given I am on the employment page                                                             # features/teamLightningSharks/employment_history.feature:21
+    When I click the new employment button                                                        # features/teamLightningSharks/employment_history.feature:22
+    And I enter no details                                                                        # features/teamLightningSharks/employment_history.feature:23
+    And I click the save button                                                                   # features/teamLightningSharks/employment_history.feature:24
+    Then I see eleven error messages displayed                                                    # features/teamLightningSharks/employment_history.feature:25
+    Given I have recieved error messages when creating a new employment item with invalid details # features/teamLightningSharks/employment_history.feature:27
+    When I click the back button                                                                  # features/teamLightningSharks/employment_history.feature:28
+    Then I should not see a new item                                                              # features/teamLightningSharks/employment_history.feature:29
+
+  Scenario: PM-193 As a user, I must be able to delete an employment history item # features/teamLightningSharks/employment_history.feature:31
+    Given I am on the employment page                                             # features/teamLightningSharks/employment_history.feature:33
+    When I press the destroy button for a specific item                           # features/teamLightningSharks/employment_history.feature:34
+    And I click the confirm button on the delete entry alert                      # features/teamLightningSharks/employment_history.feature:35
+    Then the targeted item should no longer be displayed on the employment page   # features/teamLightningSharks/employment_history.feature:36
+    And I see a successfully destroyed message                                    # features/teamLightningSharks/employment_history.feature:37
+    Given I am on the employment page                                             # features/teamLightningSharks/employment_history.feature:39
+    When I press the destroy button for a specific item                           # features/teamLightningSharks/employment_history.feature:40
+    And I click the cancel button on the delete entry alert                       # features/teamLightningSharks/employment_history.feature:41
+    Then the targeted item remains on the employment page                         # features/teamLightningSharks/employment_history.feature:42
+
+  Scenario: PM-194 As a user, I must be able to edit an employment history item # features/teamLightningSharks/employment_history.feature:44
+    Given I am on the edit page for an employment item                          # features/teamLightningSharks/employment_history.feature:46
+    When I enter valid details                                                  # features/teamLightningSharks/employment_history.feature:47
+    And I click the save button                                                 # features/teamLightningSharks/employment_history.feature:48
+    Then I am redirected to the employment show page                            # features/teamLightningSharks/employment_history.feature:49
+    And I see the employment was successfully updated message                   # features/teamLightningSharks/employment_history.feature:50
+
+  Scenario: PM-196 As a user, when I am adding employment history I should be able to select an option that I am currently employed. # features/teamLightningSharks/employment_history.feature:52
+    Given I am on the new employment form page                                                                                       # features/teamLightningSharks/employment_history.feature:54
+    When I enter valid details                                                                                                       # features/teamLightningSharks/employment_history.feature:55
+    And I click the currently employed checkbox                                                                                      # features/teamLightningSharks/employment_history.feature:56
+    Then the currently employed checkbox should be selected                                                                          # features/teamLightningSharks/employment_history.feature:57
+
+  Scenario: PM-202 As a user, I shouldn't be able to put a date after the current date, in the employments page, unless I check the still employed box. # features/teamLightningSharks/employment_history.feature:59
+    Given I am on the new employment form page                                                                                                          # features/teamLightningSharks/employment_history.feature:61
+    When I enter valid details                                                                                                                          # features/teamLightningSharks/employment_history.feature:62
+    And I click the currently employed checkbox                                                                                                         # features/teamLightningSharks/employment_history.feature:63
+    And I edit the end date to a date after the current date                                                                                            # features/teamLightningSharks/employment_history.feature:64
+      # Fails at this stage as the end date input field becomes untargetable
+    Then the end date should display the date that was just input                                                                                       # features/teamLightningSharks/employment_history.feature:66
+
+  Scenario: PM-203 Failed Test - User is able to enter a data after the current date when the still employed option is not clicked, in the employments page # features/teamLightningSharks/employment_history.feature:68
+    Given I am on the new employment form page                                                                                                              # features/teamLightningSharks/employment_history.feature:70
+    When I enter valid details                                                                                                                              # features/teamLightningSharks/employment_history.feature:71
+    And the still employed button has not been clicked                                                                                                      # features/teamLightningSharks/employment_history.feature:72
+    Then I should not be able to edit the end date to a date after the current date                                                                         # features/teamLightningSharks/employment_history.feature:73
+
+12 scenarios (12 undefined)
+73 steps (73 undefined)
+0m0.055s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Given("I am on the custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click a listed custom item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should be taken to the corresponding show page for that custom item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the new custom section button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I am on the create new custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I add valid custom section details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I press the save button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the newly made custom item is listed") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I am on the create new custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the dropdown bar for the title section") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("hobbies, volunteering and languages are listed in the dropdown menu") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I press the destroy button for a specific item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the confirm button on the delete entry alert") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the custom was successfully destroyed message is displayed") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the targeted item should no longer be displayed on the custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the cancel button on the delete entry alert") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the targeted item remains on the custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I am on the edit page for a custom item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the save button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I am on the custom page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see the custom section was successfully updated message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I am on the employment page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click on an item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I am now on the show page for that specific item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the new employment button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I enter valid details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I am redirected to the employment show page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see the employment was successfully created message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I press the back button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see the employment page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I can see the new item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I enter no details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see eleven error messages displayed") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I have recieved error messages when creating a new employment item with invalid details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the back button") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should not see a new item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the targeted item should no longer be displayed on the employment page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see a successfully destroyed message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the targeted item remains on the employment page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I am on the edit page for an employment item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I see the employment was successfully updated message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("I am on the new employment form page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the currently employed checkbox") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the currently employed checkbox should be selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I edit the end date to a date after the current date") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the end date should display the date that was just input") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("the still employed button has not been clicked") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should not be able to edit the end date to a date after the current date") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
