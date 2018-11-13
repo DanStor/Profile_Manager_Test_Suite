@@ -27,7 +27,7 @@ When("I enter a degree") do
 end
 
 When("I click on modules") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_save_button
 end
 
 When("I click save") do
