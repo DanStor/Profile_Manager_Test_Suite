@@ -62,7 +62,7 @@ Scenario: I should be shown an error message when I don't enter a degree
   And I select a stream
   And I don't enter a degree
   And I click save
-  Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 5 characters)
+  Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 1 characters)
 
 
 Scenario: I should be able to edit a profile
