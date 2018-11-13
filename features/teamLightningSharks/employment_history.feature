@@ -3,8 +3,8 @@ Feature:  Employment History
   Scenario: PM-191 - As a user, I must be able to view employment history item
 
   Given I am on the employment page
-  When I click on an employment item
-  Then I am now on the show page for that specific employment item
+  When I click on an item
+  Then I am now on the show page for that specific item
 
   Scenario: PM-192 As a user, I must be able to create a new employment history item
 
@@ -12,11 +12,11 @@ Feature:  Employment History
   When I click the new employment button
   And I enter valid details
   And I click the save button
-  Then I am redirected to the success page
+  Then I am redirected to the employment show page
   And I see the employment was successfully created message
   And I press the back button
   And I see the employment page
-  And I can see the new employment item
+  And I can see the new item
 
   Given I am on the employment page
   When I click the new employment button
@@ -26,27 +26,27 @@ Feature:  Employment History
 
   Given I have recieved error messages when creating a new employment item with invalid details
   When I click the back button
-  Then I should not see a new employment item
+  Then I should not see a new item
 
   Scenario: PM-193 As a user, I must be able to delete an employment history item
 
   Given I am on the employment page
-  When I press the destroy button for a specific employment item
+  When I press the destroy button for a specific item
   And I click the confirm button on the delete entry alert
-  Then the targeted employment item should no longer be displayed on the employment page
+  Then the targeted item should no longer be displayed on the employment page
   And I see a successfully destroyed message
 
   Given I am on the employment page
-  When I press the destroy button for a specific employment item
+  When I press the destroy button for a specific item
   And I click the cancel button on the delete entry alert
-  Then the targeted employment item remains on the employment page
+  Then the targeted item remains on the employment page
 
   Scenario: PM-194 As a user, I must be able to edit an employment history item
 
   Given I am on the edit page for an employment item
   When I enter valid details
   And I click the save button
-  Then I am redirected to the success page
+  Then I am redirected to the employment show page
   And I see the employment was successfully updated message
 
   Scenario: PM-196 As a user, when I am adding employment history I should be able to select an option that I am currently employed.
