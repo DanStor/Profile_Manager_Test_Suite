@@ -1,5 +1,6 @@
 Feature: Skills
 
+  @skills
   Scenario: I should be able to add a skill
     Given I am on the skills page
     When I click on create skill
@@ -7,6 +8,7 @@ Feature: Skills
     And I press save
     Then a skill should be created
 
+  @skills
   Scenario: I should be able to add a skill to my profile
     Given I have created a skill
     And I have a profile
@@ -15,6 +17,7 @@ Feature: Skills
     And check the skill box
     Then the skill should be added to my profile
 
+  @skills
   Scenario: I should get an error when I dont enter a skill
     Given I am on the skills page
     When I click on create skill

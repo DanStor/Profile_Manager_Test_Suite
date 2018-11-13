@@ -1,5 +1,6 @@
 Feature: Profiles
 
+@profiles
 Scenario: I should be able to add a new profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -12,6 +13,7 @@ Scenario: I should be able to add a new profile
   And I click save
   Then a profile should be created
 
+@profiles
 Scenario: I should be able to check no degree
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -24,6 +26,7 @@ Scenario: I should be able to check no degree
   Then a profile should be created
   And it should say not applicable under university degree
 
+@profiles
 Scenario: Deleting a profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -32,6 +35,7 @@ Scenario: Deleting a profile
   Then I can no longer access the profile link
   And A confirmation message will appear
 
+@profiles
 Scenario: Deleting a profile and aborting deletion
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -39,7 +43,7 @@ Scenario: Deleting a profile and aborting deletion
   And I click the cancel button on the pop up
   Then I can still view the profile link on the profile page
 
-
+@profiles
 Scenario: I should be shown an error message when I don't enter a summary
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -50,6 +54,7 @@ Scenario: I should be shown an error message when I don't enter a summary
   And I click save
   Then an error should appear saying: Summary can't be blank
 
+@profiles
 Scenario: I should be shown an error message when I don't enter a degree
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -60,7 +65,7 @@ Scenario: I should be shown an error message when I don't enter a degree
   And I click save
   Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 1 characters)
 
-
+@profiles
 Scenario: I should be able to edit a profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -72,6 +77,7 @@ Scenario: I should be able to edit a profile
   Then a profile should create an updated profile
   And not change the old profile
 
+@profiles
 Scenario: Edit profile page to check word count remains the same
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -79,7 +85,7 @@ Scenario: Edit profile page to check word count remains the same
   And I do not add more words to the description
   Then the word count for description should remain the same
 
-
+@profiles
 Scenario: Edit profile page to check word count decreases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -87,6 +93,7 @@ Scenario: Edit profile page to check word count decreases
   And I add more words to the description
   Then the word count for description should decrease
 
+@profiles
 Scenario: Edit profile page to check word count increases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -94,12 +101,14 @@ Scenario: Edit profile page to check word count increases
   And I take some words out from the description
   Then the word count for description should increase
 
+@profiles
 Scenario: I should be able to view as a pdf
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
   And I click on pdf
   Then I should be taken to the pdf of the profile
 
+@profiles
 Scenario: Status should be pending
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -110,6 +119,7 @@ Scenario: Status should be pending
   And I press save
   Then the status of profile should appear as pending in the profiles page
 
+@profiles
 Scenario: Status should be Draft
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -120,6 +130,7 @@ Scenario: Status should be Draft
   And I press save
   Then the status of profile should appear as Draft in the profiles page
 
+@profiles
 Scenario: Eight skills should be selected by default
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
