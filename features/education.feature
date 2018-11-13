@@ -1,5 +1,6 @@
 Feature: Education
 
+  @education
   Scenario: I should be able to add an education
     Given I am on the education page
     When I click on add education
@@ -11,6 +12,7 @@ Feature: Education
     And I click save
     Then I should be able to see an eduction
 
+  @education
   Scenario: I should be able to add education to my profile
     Given I am on the profiles page
     When I click on edit
@@ -18,6 +20,7 @@ Feature: Education
     And I click save
     Then I should be able to see the education on my profile
 
+  @education
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
@@ -29,6 +32,7 @@ Feature: Education
     And I click save
     Then I should be able to see my education on my profile
 
+  @education
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy
@@ -36,6 +40,7 @@ Feature: Education
     Then the education should be removed
     And a confirmation message should appear
 
+  @education
   Scenario: I should be able to cancel a delete of an education
     Given I am on the education page
     When I click on destroy
@@ -43,6 +48,7 @@ Feature: Education
     Then the education should not be removed
     And I should still be able to see the education
 
+  @education
   Scenario: I should get an error
     Given I am on the education page
     When I click on add education
@@ -50,6 +56,7 @@ Feature: Education
     And I click save
     Then I should get 12 errors
 
+  @education
   Scenario: I shouldnt be able to enter an end date after the current day
     Given I am on the education page
     When I click on add education
@@ -72,6 +79,7 @@ Feature: Education
     And I click save
     Then I should get an errors about the start and end dates
 
+  @education
   Scenario: The remaining characters should change
     Given I am on the education page
     When I click on add education
