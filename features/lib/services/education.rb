@@ -1,5 +1,5 @@
 require "capybara"
 
-class Profiles
+class Education
 
 end
