@@ -33,6 +33,7 @@ Feature: Admin Features
   And pending is selected
   Then user should only see profiles with a status of pending
 
+
   Scenario: PM-130 Verify that the ‘Status’ option ‘DRAFT’ shows the profiles that are in ‘Draft’.
   Given a user is logged in as an admin
   And the profiles section has been selected
