@@ -33,7 +33,7 @@ Feature: Certifications
     Given I'm on the Certifications page
     When I press new Certification
     And I add a valid title
-    And I add an invalid description (character length greater than 600)
+    And I add an invalid description (word count  greater than 100)
     And I press save
     Then an error is displayed
 
@@ -41,27 +41,25 @@ Feature: Certifications
   Scenario: Adding Certifications with invalid description length
     Given I'm on the Certifications page
     When I press new Certification
-    And I add an invalid title (less than 5 characters)
+    And I add an invalid title (greater than 100 characters)
     And I add a valid description
     And I press save
     Then an error is displayed
 
-  #character count display incrase
-  Scenario: Adding characters to the description for certification should increase character count displayed.
+  #Word count display incrase
+  Scenario: Adding words to the description for certification should decrease word count displayed.
     Given I'm on the Certifications page
     When I press new Certification
-    And I add a valid title
-    And I add some characters to the description
-    Then the character count should increase
+    When I add some characters to the description
+    Then the word count should decrease
 
-    #character count display descrease
-    Scenario: Adding characters to the description for certification should decrease character count displayed.
-      Given I'm on the Certifications page
-      When I press new Certification
-      And I add a valid title
-      And I add some characters to the description
-      And I remove some characters from the description
-      Then the character count should decrease
+  #Word count display descrease
+  Scenario: Removing words from the description for certification should increase word count displayed.
+    Given I'm on the Certifications page
+    When I press new Certification
+    When I remove some words from the description
+    Then the word count should increase
+
 
   Scenario: Viewing Certifications
     Given I'm on the Certifications page
