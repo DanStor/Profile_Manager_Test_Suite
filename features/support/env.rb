@@ -11,11 +11,7 @@ Capybara.configure do |config|
   config.default_max_wait_time = 10
   config.match = :prefer_exact
   config.default_driver = :chrome
-<<<<<<< HEAD
-  config.app_host = "http://localhost:3000/profiles"
-=======
   config.app_host = "http://localhost:3000/"
->>>>>>> 2911ca7991f075eb53c0c1e3a782ef4f5128ec97
 end
 
 # Sets up the module from super class- Means we dont have
