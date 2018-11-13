@@ -89,3 +89,15 @@ Scenario: I should be able to view as a pdf
   When I am on the Sparta profile
   And I click on pdf
   Then I should be taken to the pdf of the profile
+
+Scenario: Status should be pending
+  Given I am in a profile link
+  And I select Pending radio button from the Status options
+  And I press save
+  Then the status of profile should appear as pending in the profiles page
+
+Scenario: Status should be Draft
+  Given I am in a profile link
+  And I select Draft radio button from the Status options
+  And I press save
+  Then the status of profile should appear as Draft in the profiles page
