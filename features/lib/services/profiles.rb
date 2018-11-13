@@ -7,6 +7,7 @@ class Profiles
   STREAM_FIELD_ID = 'profile_stream'
   DEGREE_FIELD_ID = 'profile-form-degree'
   SAVE_BUTTON = 'save-button'
+  NO_DEGREE_BUTTON = 'profile-form-no-degree'
 
   def visit_profile_page
     visit('/profiles')
@@ -38,5 +39,9 @@ class Profiles
 
   def click_save_button
     click_on(SAVE_BUTTON)
+  end
+
+  def select_no_degree
+    check(NO_DEGREE_BUTTON)
   end
 end
