@@ -46,6 +46,23 @@ Feature: Certifications
     And I press save
     Then an error is displayed
 
+  #character count display incrase
+  Scenario: Adding characters to the description for certification should increase character count displayed.
+    Given I'm on the Certifications page
+    When I press new Certification
+    And I add a valid title
+    And I add some characters to the description
+    Then the character count should increase
+
+    #character count display descrease
+    Scenario: Adding characters to the description for certification should decrease character count displayed.
+      Given I'm on the Certifications page
+      When I press new Certification
+      And I add a valid title
+      And I add some characters to the description
+      And I remove some characters from the description
+      Then the character count should decrease
+
   Scenario: Viewing Certifications
     Given I'm on the Certifications page
     Then I should be able to view certifications
