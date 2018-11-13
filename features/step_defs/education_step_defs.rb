@@ -1,9 +1,11 @@
 Given("I am on the education page") do
-  education.visit_education_page
+  visit('/')
+  
+  pm_education.click_education_page
 end
 
 When("I click on add education") do
-  education.click_add_education
+  pm_education.click_add_education
 end
 
 When("I fill in the institution") do
