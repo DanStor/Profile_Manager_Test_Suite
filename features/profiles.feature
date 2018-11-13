@@ -2,8 +2,7 @@ Feature: Profiles
 
 Scenario: I should be able to add a new profile
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click on new profile
   And I enter a summary
   And I select a stream
@@ -15,8 +14,7 @@ Scenario: I should be able to add a new profile
 
 Scenario: I should be able to check no degree
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click on new profile
   And I enter a summary
   And I select a stream
@@ -44,8 +42,7 @@ Scenario: Deleting a profile and aborting deletion
 
 Scenario: I should be shown an error message when I don't enter a summary
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click on new profile
   And I don't enter a summary
   And I select a stream
@@ -55,8 +52,7 @@ Scenario: I should be shown an error message when I don't enter a summary
 
 Scenario: I should be shown an error message when I don't enter a degree
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click on new profile
   And I enter a summary
   And I select a stream
@@ -67,8 +63,7 @@ Scenario: I should be shown an error message when I don't enter a degree
 
 Scenario: I should be able to edit a profile
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click the edit button on a selected profile
   And I enter a summary
   And I select a stream
@@ -101,19 +96,32 @@ Scenario: Edit profile page to check word count increases
 
 Scenario: I should be able to view as a pdf
   Given I am logged in as a Trainee or Admin
-  And have a profile set up
-  When I am on the Sparta profile
+  When I am on the profile page
   And I click on pdf
   Then I should be taken to the pdf of the profile
 
 Scenario: Status should be pending
-  Given I am in a profile link
+  Given I am logged in as a Trainee or Admin
+  When I am on the profile page
+  And I click on new profile
+  And I enter a summary
+  And I enter a degree
   And I select Pending radio button from the Status options
   And I press save
   Then the status of profile should appear as pending in the profiles page
 
 Scenario: Status should be Draft
-  Given I am in a profile link
+  Given I am logged in as a Trainee or Admin
+  When I am on the profile page
+  And I click on new profile
+  And I enter a summary
+  And I enter a degree
   And I select Draft radio button from the Status options
   And I press save
   Then the status of profile should appear as Draft in the profiles page
+
+Scenario: Eight skills should be selected by default
+  Given I am logged in as a Trainee or Admin
+  When I am on the profile page
+  And I click on new profile
+  Then 8 skills should be selected
