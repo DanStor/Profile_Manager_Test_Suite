@@ -7,18 +7,6 @@ class Comments
     visit('/')
   end
 
-  def sign_in_admin
-    fill_in('email', :with => 'eng16admin@spartaglobal.com')
-    fill_in('password', :with => 'Password123')
-    click_button('submit')
-  end
-
-  def sign_in_student
-    fill_in('email', :with => 'eng16student@spartaglobal.com')
-    fill_in('password', :with => 'Password123')
-    click_button('submit')
-  end
-
   def click_on_students_profile
     click_link('eng16 student')
     # find(:xpath, '//*[@id="profile-index-stream-3"]').click
@@ -47,5 +35,14 @@ class Comments
   def log_out
     click_link('Logout')
   end
+
+  def comments_checkbox
+    check('sum4')
+  end
+
+  def comments_save
+    click_button('Save')
+  end
+
 
 end
