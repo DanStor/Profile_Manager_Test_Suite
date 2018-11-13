@@ -1,21 +1,21 @@
 Given("I am logged in as a Trainee or Admin") do
-  
+
 end
 
 When("I am on the profile page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.visit_profile_page
 end
 
 When("I click on new profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_create_profile
 end
 
 When("I enter a summary") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.enter_summary "This is a summary"
 end
 
 When("I select a stream") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.select_stream
 end
 
 When("I select a team") do
