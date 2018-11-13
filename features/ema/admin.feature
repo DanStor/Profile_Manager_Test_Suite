@@ -1,5 +1,6 @@
 Feature: Admin Features
 
+<<<<<<< HEAD:features/features/admin.feature
   Scenario: PM-116 As an admin user, I should be able to add members to any group.
   Given the user is logged in and is an admin
   When a user clicks to add a member
@@ -72,3 +73,6 @@ Feature: Admin Features
   And details have been input
   And I have pressed save
   Then new section is added
+=======
+  Scenario: 
+>>>>>>> bcff7d371997f7e7a7f1ef2a78d23d80b4e595c7:features/ema/admin.feature
