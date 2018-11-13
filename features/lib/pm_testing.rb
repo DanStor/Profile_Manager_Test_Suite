@@ -11,4 +11,8 @@ module PMTesting
     Admin.new
   end
 
+  def comments
+    Comments.new
+  end
+
 end
