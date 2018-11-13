@@ -15,4 +15,9 @@ Feature: Skills
     And check the skill box
     Then the skill should be added to my profile
 
-    
+  Scenario: I should get an error when I dont enter a skill
+    Given I am on the skills page
+    When I click on create skill
+    And I dont enter a skill
+    And I press save
+    Then the error should be displayed
