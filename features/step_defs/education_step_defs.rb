@@ -42,7 +42,7 @@ Then("I should be able to see the education on my profile") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When("I click on the name of the institution") do
+When("I click on the name or the edit button") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -54,11 +54,27 @@ When("I click on destroy") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
+When("I click confirm") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Then("the education should be removed") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("a confirmation message should appear") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click cancel") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the education should not be removed") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("I should still be able to see the education") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -74,7 +90,7 @@ When("I choose an end date after the current day") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I should get an error") do
+Then("I should get an error about the end date") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

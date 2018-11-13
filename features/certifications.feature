@@ -37,7 +37,7 @@ Feature: Certifications
     Given I'm on the Certifications page
     When I press new Certification
     And I add a valid title
-    And I add an invalid description (word count  greater than 100)
+    And I add an invalid description word count  greater than 100
     And I press save
     Then an error is displayed
 
@@ -46,7 +46,7 @@ Feature: Certifications
   Scenario: Adding Certifications with invalid description length
     Given I'm on the Certifications page
     When I press new Certification
-    And I add an invalid title (greater than 100 characters)
+    And I add an invalid title greater than 100 characters
     And I add a valid description
     And I press save
     Then an error is displayed
