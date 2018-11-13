@@ -1,5 +1,6 @@
 Feature: Profiles
 
+
   Scenario: I should be able to add a new profile
     Given: I am logged in as a Trainee or Admin
     And have a profile set up
