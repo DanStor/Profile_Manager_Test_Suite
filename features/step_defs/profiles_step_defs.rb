@@ -31,7 +31,7 @@ When("I click on modules") do
 end
 
 When("I click save") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_save_button
 end
 
 Then("a profile should be created") do
@@ -39,7 +39,7 @@ Then("a profile should be created") do
 end
 
 When("I click on no degree") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.select_no_degree
 end
 
 Then("it should say not applicable under university degree") do
