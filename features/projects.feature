@@ -1,5 +1,6 @@
 Feature: Projects
 
+  @projects
   Scenario: I should be able to add a project
     Given I am on the projects page
     When I click on add project
@@ -10,12 +11,14 @@ Feature: Projects
     And I click save
     Then a project should be created
 
+@projects
   Scenario: I should get errors if I dont enter details
     Given I am on the projects page
     When I click on add project
     And I click save
     Then I should be displayed with 10 errors
 
+@projects
   Scenario: I can add a project to my profile
     Given I am on the profiles page
     When I click on edit
