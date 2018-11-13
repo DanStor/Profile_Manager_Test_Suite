@@ -40,9 +40,7 @@ Feature: Education
     Then the education should be removed
     And a confirmation message should appear
 
-<<<<<<< HEAD
   @education
-=======
   Scenario: I should be able to cancel a delete of an education
     Given I am on the education page
     When I click on destroy
@@ -50,7 +48,7 @@ Feature: Education
     Then the education should not be removed
     And I should still be able to see the education
 
->>>>>>> 3c35476d408652473dc98192635b6adabc02bdad
+  @education
   Scenario: I should get an error
     Given I am on the education page
     When I click on add education
