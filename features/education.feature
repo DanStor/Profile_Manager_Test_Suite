@@ -9,7 +9,14 @@ Feature: Education
     And I choose an end date
     And I fill in the description
     And I click save
-    Then I should be able to see my education on my profile
+    Then I should be able to see an eduction
+
+  Scenario: I should be able to add education to my profile
+    Given I am on the profiles page
+    When I click on edit
+    And I check the education box
+    And I click save
+    Then I should be able to see the education on my profile
 
   Scenario: I should be able to edit education
     Given I am on the education page
@@ -34,7 +41,7 @@ Feature: Education
     When I click on add education
     And I do not enter any details
     And I click save
-    Then I should get 11 errors
+    Then I should get 12 errors
 
   Scenario: I shouldnt be able to enter an end date after the current day
     Given I am on the education page
