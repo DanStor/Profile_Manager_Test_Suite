@@ -1,3 +1,4 @@
+@all
 Feature: Custom Sections
 
   Scenario Outline: PM-98 As a user, when I am adding in a new section to my profile page in the custom section, I should be able to add volunteering, hobbies, and languages to my profile.
@@ -6,7 +7,7 @@ Feature: Custom Sections
   When I add a <section> to my profile
   And I add valid custom section details
   And I press the save button
-  Then I am on the custom page
+  Then I am taken to the custom page
   And the newly made custom item is listed
   And the custom was successfully created message is displayed
 
@@ -26,12 +27,12 @@ Feature: Custom Sections
 
   # WILL FAIL AS TAKES YOU TO THE EDIT PAGE FOR THAT CUSTOM ITEM
   # SHOW PAGE DES EXIST HOWEVER HAVE TO MANUALLY ACCESS SUCH A PAGE
-
+  @valid_custom_form
   Scenario: PM-180 18M-User must be able to create a custom section
 
   Given I am on the custom page
   When I click the new custom section button
-  And I am on the create new custom page
+  And I am taken to the the create new custom page
   And I add valid custom section details
   And I press the save button
   Then the newly made custom item is listed
@@ -62,5 +63,5 @@ Feature: Custom Sections
   Given I am on the edit page for a custom item
   When I add valid custom section details
   And I click the save button
-  Then I am on the custom page
+  Then I am taken to the custom page
   And I see the custom section was successfully updated message
