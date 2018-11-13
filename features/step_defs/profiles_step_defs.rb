@@ -23,7 +23,7 @@ When("I select a team") do
 end
 
 When("I enter a degree") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.enter_degree "Technical Consultant"
 end
 
 When("I click on modules") do
