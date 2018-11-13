@@ -84,5 +84,5 @@ Feature: Certifications
   @certification
   Scenario: Deleting Certifications
     Given I'm on the Certifications page
-    When I press destroy for a spcecific certification
+    When I press destroy for a single certification
     Then the certification should be removed
