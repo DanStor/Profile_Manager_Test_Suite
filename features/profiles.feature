@@ -59,7 +59,8 @@ Scenario: I should be able to edit a profile
   And I select a stream
   And I enter a degree of more than 5 characters
   And I click save
-  Then a profile should be updated
+  Then a profile should create an updated profile
+  And not change the old profile
 
 Scenario: Edit profile page to check word count remains the same
   Given I am logged in as a Trainee or Admin
