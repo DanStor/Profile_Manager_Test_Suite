@@ -1,7 +1,5 @@
 Given("I am on the education page") do
-  visit('/')
-  
-  pm_education.click_education_page
+  pm_education.visit_education_nav
 end
 
 When("I click on add education") do
