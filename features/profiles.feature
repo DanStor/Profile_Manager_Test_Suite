@@ -49,7 +49,7 @@ Scenario: I should be shown an error message when I don't enter a summary
   And I click on new profile
   And I don't enter a summary
   And I select a stream
-  And I enter a degree of more than 5 characters
+  And I enter a degree
   And I click save
   Then an error should appear saying: Summary can't be blank
 
@@ -60,7 +60,7 @@ Scenario: I should be shown an error message when I don't enter a degree
   And I click on new profile
   And I enter a summary
   And I select a stream
-  And I don't enter a degree of more than 5 characters
+  And I don't enter a degree
   And I click save
   Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 5 characters)
 
@@ -72,7 +72,7 @@ Scenario: I should be able to edit a profile
   And I click the edit button on a selected profile
   And I enter a summary
   And I select a stream
-  And I enter a degree of more than 5 characters
+  And I enter a degree
   And I click save
   Then a profile should create an updated profile
   And not change the old profile
