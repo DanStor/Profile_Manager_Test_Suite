@@ -1,89 +1,5 @@
-Given("I am on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click a listed custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I should be taken to the corresponding show page for that custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the new custom section button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I am on the create new custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I add valid custom section details") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I press the save button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the newly made custom item is listed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("I am on the create new custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the dropdown bar for the title section") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("hobbies, volunteering and languages are listed in the dropdown menu") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I press the destroy button for a specific item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the confirm button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the custom was successfully destroyed message is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the targeted item should no longer be displayed on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the cancel button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the targeted item remains on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("I am on the edit page for a custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the save button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I am on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I see the custom section was successfully updated message") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Given("I am on the employment page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  employment.cabbage
 end
 
 When("I click on an item") do
@@ -99,6 +15,10 @@ When("I click the new employment button") do
 end
 
 When("I enter valid details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the save button") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -142,11 +62,23 @@ Then("I should not see a new item") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
+When("I press the destroy button for a specific item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the confirm button on the delete entry alert") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Then("the targeted item should no longer be displayed on the employment page") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("I see a successfully destroyed message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the cancel button on the delete entry alert") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

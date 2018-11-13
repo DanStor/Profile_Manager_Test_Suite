@@ -1,46 +1,3 @@
-Feature: Custom Sections
-
-  # ADD IN THE DATA TABLE THING
-  # ADDITIONAL POINT TO MAKE IS THAT THIS IS SUPPOSED TO BE A DROP DOWN RATHER THAN AN INPUT TEXT FIELD SO RAISE THIS ISSUE
-  Scenario: PM-179 17M- User must be able to view custom sections              # features/teamLightningSharks/custom_sections.feature:21
-    Given I am on the custom page                                              # features/teamLightningSharks/custom_sections.feature:23
-    When I click a listed custom item                                          # features/teamLightningSharks/custom_sections.feature:24
-    Then I should be taken to the corresponding show page for that custom item # features/teamLightningSharks/custom_sections.feature:25
-
-  # WILL FAIL AS TAKES YOU TO THE EDIT PAGE FOR THAT CUSTOM ITEM
-  # SHOW PAGE DES EXIST HOWEVER HAVE TO MANUALLY ACCESS SUCH A PAGE
-  Scenario: PM-180 18M-User must be able to create a custom section # features/teamLightningSharks/custom_sections.feature:30
-    Given I am on the custom page                                   # features/teamLightningSharks/custom_sections.feature:32
-    When I click the new custom section button                      # features/teamLightningSharks/custom_sections.feature:33
-    And I am on the create new custom page                          # features/teamLightningSharks/custom_sections.feature:34
-    And I add valid custom section details                          # features/teamLightningSharks/custom_sections.feature:35
-    And I press the save button                                     # features/teamLightningSharks/custom_sections.feature:36
-    Then the newly made custom item is listed                       # features/teamLightningSharks/custom_sections.feature:37
-
-  Scenario: PM-134 Verify that the drop-down menu in the Custom Section shows ‘Hobbies’, ‘Volunteering’ and ‘Languages # features/teamLightningSharks/custom_sections.feature:40
-    Given I am on the create new custom page                                                                           # features/teamLightningSharks/custom_sections.feature:42
-    When I click the dropdown bar for the title section                                                                # features/teamLightningSharks/custom_sections.feature:43
-      # TEST FAILS HERE AS NO DROPDOWN BAR IS PRESENT
-    Then hobbies, volunteering and languages are listed in the dropdown menu                                           # features/teamLightningSharks/custom_sections.feature:45
-
-  Scenario: PM-182 19M-User must be able to delete a custom section        # features/teamLightningSharks/custom_sections.feature:47
-    Given I am on the custom page                                          # features/teamLightningSharks/custom_sections.feature:49
-    When I press the destroy button for a specific item                    # features/teamLightningSharks/custom_sections.feature:50
-    And I click the confirm button on the delete entry alert               # features/teamLightningSharks/custom_sections.feature:51
-    Then the custom was successfully destroyed message is displayed        # features/teamLightningSharks/custom_sections.feature:52
-    And the targeted item should no longer be displayed on the custom page # features/teamLightningSharks/custom_sections.feature:53
-    Given I am on the custom page                                          # features/teamLightningSharks/custom_sections.feature:55
-    When I press the destroy button for a specific item                    # features/teamLightningSharks/custom_sections.feature:56
-    And I click the cancel button on the delete entry alert                # features/teamLightningSharks/custom_sections.feature:57
-    Then the targeted item remains on the custom page                      # features/teamLightningSharks/custom_sections.feature:58
-
-  Scenario: PM-190 User must be able to edit a custom section     # features/teamLightningSharks/custom_sections.feature:60
-    Given I am on the edit page for a custom item                 # features/teamLightningSharks/custom_sections.feature:62
-    When I add valid custom section details                       # features/teamLightningSharks/custom_sections.feature:63
-    And I click the save button                                   # features/teamLightningSharks/custom_sections.feature:64
-    Then I am on the custom page                                  # features/teamLightningSharks/custom_sections.feature:65
-    And I see the custom section was successfully updated message # features/teamLightningSharks/custom_sections.feature:66
-
 Feature: Employment History
 
   Scenario: PM-191 - As a user, I must be able to view employment history item # features/teamLightningSharks/employment_history.feature:3
@@ -105,95 +62,11 @@ Feature: Employment History
     And the still employed button has not been clicked                                                                                                      # features/teamLightningSharks/employment_history.feature:72
     Then I should not be able to edit the end date to a date after the current date                                                                         # features/teamLightningSharks/employment_history.feature:73
 
-12 scenarios (12 undefined)
-73 steps (73 undefined)
-0m0.055s
+7 scenarios (7 undefined)
+47 steps (47 undefined)
+0m0.077s
 
 You can implement step definitions for undefined steps with these snippets:
-
-Given("I am on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click a listed custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I should be taken to the corresponding show page for that custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the new custom section button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I am on the create new custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I add valid custom section details") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I press the save button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the newly made custom item is listed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("I am on the create new custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the dropdown bar for the title section") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("hobbies, volunteering and languages are listed in the dropdown menu") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I press the destroy button for a specific item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the confirm button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the custom was successfully destroyed message is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the targeted item should no longer be displayed on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the cancel button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the targeted item remains on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("I am on the edit page for a custom item") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I click the save button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I am on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I see the custom section was successfully updated message") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
 Given("I am on the employment page") do
   pending # Write code here that turns the phrase above into concrete actions
@@ -212,6 +85,10 @@ When("I click the new employment button") do
 end
 
 When("I enter valid details") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the save button") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -255,11 +132,23 @@ Then("I should not see a new item") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
+When("I press the destroy button for a specific item") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the confirm button on the delete entry alert") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Then("the targeted item should no longer be displayed on the employment page") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("I see a successfully destroyed message") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I click the cancel button on the delete entry alert") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
