@@ -72,6 +72,42 @@ class Admin
 
 # Scenario 5
   def confirm_admin_login
-    click_link('Welcome , eng16 admin (Admin)')
+    find_link('Welcome , eng16 admin (Admin)').visible?
   end
+
+  def visit_profile_page
+    visit('/profiles')
+  end
+
+  def filter_teams
+    select('testing team 1', :from => 'team')
+  end
+
+# _____ Scenario 6 _____
+  def profiles_page
+    click_link('Profiles')
+  end
+
+  def status_drop_down
+    select('Status', :from => 'status')
+  end
+
+  def pending_drop_down
+    select('Pending', :from => 'status')
+  end
+
+  def show_pending_profiles
+    within "#approved" do
+      if has_css?(".Approved")
+        return false
+      elsif has_css?(".Rejected")
+        return false
+      elsif has_css?(".Draft")
+        return false
+      else (".Pending")
+        return true
+      end
+    end
+  end
+
 end
