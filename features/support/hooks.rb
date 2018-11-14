@@ -55,6 +55,8 @@ Before("@education") do
   NOTICE_CLASS = '.notice'
   PROFILES_NAV_ID = 'header-profiles'
   ERRORS_ID = '#error_explanation'
+  INSTITUTION_CHAR_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[1]/p'
+  DESCRIPTION_WORD_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[4]/p'
 
   visit('/')
   sign_in.sign_in_student

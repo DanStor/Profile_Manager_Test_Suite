@@ -130,6 +130,19 @@ Then("I should get an errors about the start and end dates") do
   expect(pm_education.get_errors).to eq 2
 end
 
+When("I press the backspace") do
+  @current_characters = pm_education.get_characters_remaining
+  pm_education.enter_institution :backspace
+end
+
 Then("the remaining characters should reduce") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_characters_remaining).to be < 100
+end
+
+Then("the remaining characters should increase") do
+  expect(pm_education.get_characters_remaining).to be > @current_characters
+end
+
+Then("the remaining words should reduce") do
+  expect(pm_education.get_words_remaining).to be < 100
 end

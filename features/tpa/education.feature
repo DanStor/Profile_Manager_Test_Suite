@@ -27,11 +27,6 @@ Feature: Education
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
-    And I fill in the institution
-    And I fill in the course
-    And I choose a start date
-    And I choose an end date
-    And I fill in the description
     And I click on save
     Then I should be able to see an eduction was updated
 
@@ -88,12 +83,24 @@ Feature: Education
     Then I should get an errors about the start and end dates
 
   @education
+  @education_char_count
   Scenario: The remaining characters should change
     Given I am on the education page
     When I click on add education
     And I fill in the institution
     Then the remaining characters should reduce
 
+  @education
+  @education_backspace
+  Scenario: The remaining characters should change
+    Given I am on the education page
+    When I click on add education
+    And I fill in the institution
+    And I press the backspace
+    Then the remaining characters should increase
+
+  @education
+  @education_word_count
   Scenario: The remaining words should change
     Given I am on the education page
     When I click on add education

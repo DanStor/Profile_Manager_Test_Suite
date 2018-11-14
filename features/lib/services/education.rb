@@ -12,7 +12,7 @@ class Education
   end
 
   def enter_institution institution
-    fill_in(INSTITUTION_FIELD_ID, with: institution)
+    find_field(INSTITUTION_FIELD_ID).send_keys(institution)
   end
 
   def get_institution_field
@@ -44,7 +44,7 @@ class Education
   end
 
   def enter_description description
-    find(:xpath, DESCRIPTION_FIELD_XPATH).set(description)
+    find(:xpath, DESCRIPTION_FIELD_XPATH).send_keys(description)
 
   end
 
@@ -100,5 +100,11 @@ class Education
     find(ERRORS_ID).text.chars.first(2).join.to_i
   end
 
+  def get_characters_remaining
+    find(:xpath, INSTITUTION_CHAR_COUNT_XPATH).text.split(": ").last.to_i
+  end
 
+  def get_words_remaining
+    find(:xpath, DESCRIPTION_WORD_COUNT_XPATH).text.split(": ").last.to_i
+  end
 end
