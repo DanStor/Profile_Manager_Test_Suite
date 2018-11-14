@@ -25,7 +25,7 @@ class Admin
   end
 
   def drop_down_menu
-    select('Team two', :from => 'profile_team')
+    select('testing team', :from => 'profile_team')
   end
 #_____Scenario 2_____
   def profile_delete_button

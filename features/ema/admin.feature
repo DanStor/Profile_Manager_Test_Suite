@@ -82,7 +82,6 @@ Feature: Admin Features
   And I have pressed save
   Then new section is added
 
-  # Failed test - should not add section
   @admin12
   Scenario: PM-173 Test - That Admins are able to add blank sections
   Given you are logged in as an admin
