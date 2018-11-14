@@ -4,7 +4,7 @@ require_relative "services/skills.rb"
 require_relative "services/education.rb"
 require_relative "services/generic.rb"
 require_relative "services/comments.rb"
-
+require_relative "services/projects.rb"
 
 module PMTesting
 
@@ -26,6 +26,10 @@ module PMTesting
 
   def pm_education
     Education.new
+  end
+
+  def pm_projects
+    Projects.new
   end
 
   def generic
