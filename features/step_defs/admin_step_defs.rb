@@ -1,7 +1,7 @@
 # _____ Scenario 1 _____
 Given("the user is logged in and is an admin") do
   admin.visit_login
-  admin.log_in_email
+  admin.admin_log_in_email
   admin.log_in_password
   admin.submit
   sleep 5
@@ -29,31 +29,44 @@ Then("the member should no longer be displayed in that group") do
   expect(admin.profile_removed).to eq '*Profile was successfully destroyed.'
   sleep 3
 end
+#_____ Scenario 3 _____
+When("the user creates a group") do
+  admin.add_group_as_admin
+  admin.create_new_group
+  admin.new_team_name
+  admin.click_create_team
+  # sleep 2
+end
+
+Then("the group should be added to the database") do
+  expect(admin.check_message).to eq 'Team was successfully created.'
+end
+
+# _____ Scenario 4 _____
+When("the user clicks to remove a group") do
+  admin.add_group_as_admin
+  admin.destroy_team
+  sleep 2
+  admin.confirm_team_destroy
+  sleep 2
+end
+
+Then("the entire group should not be displayed, and the member disassociated with the group") do
+  expect(admin.check_message).to eq 'Team was successfully destroyed.'
+end
+
+# _____ Scenario 5 _____
+Given("that the user is logged in") do
+  admin.visit_login
+  admin.admin_log_in_email
+  admin.log_in_password
+  admin.submit
+  sleep 3
+end
 #
-# When("the user creates a group") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the group should be added to the database") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the user clicks to remove a group") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the entire group should not be displayed, and the member disassociated with the group") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("that the user is logged in") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("is an admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+And("is an admin") do
+
+end
 #
 # When("navigating through the profile list") do
 #   pending # Write code here that turns the phrase above into concrete actions
