@@ -1,5 +1,13 @@
 education_url = 'http://localhost:3000/educations'
 new_education_url = 'http://localhost:3000/educations/new'
+valid_institution = 'Exeter University'
+valid_course = 'Engineering'
+valid_start_date = '01/09/2014'
+expected_start_date = '2014-09-01'
+valid_end_date = '01/06/2018'
+expected_end_date = '2018-06-01'
+description = 'This is a description'
+success_notice = '*Education was successfully created.'
 
 Given("I am on the education page") do
   pm_education.visit_education_nav
@@ -12,27 +20,36 @@ When("I click on add education") do
 end
 
 When("I fill in the institution") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_institution valid_institution
+  expect(pm_education.get_institution_field).to eq valid_institution
 end
 
 When("I fill in the course") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_course valid_course
+  expect(pm_education.get_course_field).to eq valid_course
 end
 
 When("I choose a start date") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_start_date valid_start_date
+  expect(pm_education.get_start_date_field).to eq expected_start_date
 end
 
 When("I choose an end date") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_end_date valid_end_date
+  expect(pm_education.get_end_date_field).to eq expected_end_date
 end
 
 When("I fill in the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_description description
+  # expect(pm_education.get_description_field).to eq description
+end
+
+When("I click on save") do
+  pm_education.click_save_button
 end
 
 Then("I should be able to see an eduction") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_notice).to eq success_notice
 end
 
 When("I click on edit") do

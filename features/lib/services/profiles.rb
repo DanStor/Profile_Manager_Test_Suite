@@ -38,7 +38,7 @@ class Profiles
   end
 
   def click_save_button
-    click_on(SAVE_BUTTON)
+    click_button(SAVE_BUTTON)
   end
 
   def select_no_degree
