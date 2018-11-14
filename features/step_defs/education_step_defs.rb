@@ -1,9 +1,14 @@
+education_url = 'http://localhost:3000/educations'
+new_education_url = 'http://localhost:3000/educations/new'
+
 Given("I am on the education page") do
   pm_education.visit_education_nav
+  expect(current_url).to eq education_url
 end
 
 When("I click on add education") do
   pm_education.click_add_education
+  expect(current_url).to eq new_education_url
 end
 
 When("I fill in the institution") do
