@@ -80,7 +80,7 @@ class Admin
   end
 
   def filter_teams
-    select('testing team 1', :from => 'team')
+    select('testing team', :from => 'team')
   end
 
 # _____ Scenario 6 _____
