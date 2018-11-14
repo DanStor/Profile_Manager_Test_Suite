@@ -13,6 +13,7 @@ end
 
 Then("I should be able to view the what I have typed") do
   expect(generic.checkIfTitleIsHobbies).to eq "Title: Hobbies"
+  generic.deleteSection
 end
 
 Given("I am logged in") do

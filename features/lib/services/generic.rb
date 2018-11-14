@@ -41,7 +41,8 @@ class Generic
 
   def deleteSection
     click_on("Back")
-    click_on("Destroy")
+    find(:css, "#delete-Hobbies").click
+    click_on("Confirm")
   end
 
   def checkIfLinkCorrect linktext
