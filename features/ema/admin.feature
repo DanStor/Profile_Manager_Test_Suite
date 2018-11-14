@@ -55,7 +55,7 @@ Feature: Admin Features
   And the title of the section to add a comment to is selected
   And the text box is selected
   And a comment is input
-  And then verify “Comment was created successfully” shows in green at the top of the screen when the comment has been made
+  And then verify “Comment was successfully created.” shows in green at the top of the screen when the comment has been made
   Then Go back to the profile that you made a comment on and check that the comment is visible underneath the section that you commented on
 
   @admin9
