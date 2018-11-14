@@ -7,6 +7,11 @@ require_relative "services/comments.rb"
 
 
 module PMTesting
+
+  def sign_in
+    SignIn.new
+  end
+
   def pm_profiles
     Profiles.new
   end
