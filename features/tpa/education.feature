@@ -1,6 +1,7 @@
 Feature: Education
 
   @education
+  @education_add
   Scenario: I should be able to add an education
     Given I am on the education page
     When I click on add education
@@ -9,7 +10,7 @@ Feature: Education
     And I choose a start date
     And I choose an end date
     And I fill in the description
-    And I click save
+    And I click on save
     Then I should be able to see an eduction
 
   @education
@@ -17,7 +18,7 @@ Feature: Education
     Given I am on the profiles page
     When I click on edit
     And I check the education box
-    And I click save
+    And I click on save
     Then I should be able to see the education on my profile
 
   @education
@@ -29,7 +30,7 @@ Feature: Education
     And I choose a start date
     And I choose an end date
     And I fill in the description
-    And I click save
+    And I click on save
     Then I should be able to see my education on my profile
 
   @education
@@ -53,7 +54,7 @@ Feature: Education
     Given I am on the education page
     When I click on add education
     And I do not enter any details
-    And I click save
+    And I click on save
     Then I should get 12 errors
 
   @education
@@ -65,7 +66,7 @@ Feature: Education
     And I choose a start date
     And I choose an end date after the current day
     And I fill in the description
-    And I click save
+    And I click on save
     Then I should get an error about the end date
 
   Scenario: I shouldnt be able to enter an end date before the start date
@@ -76,7 +77,7 @@ Feature: Education
     And I choose a start date
     And I choose an end date before the start date
     And I fill in the description
-    And I click save
+    And I click on save
     Then I should get an errors about the start and end dates
 
   @education
