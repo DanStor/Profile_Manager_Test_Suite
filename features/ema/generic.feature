@@ -11,4 +11,4 @@ Scenario: PM-198 Failed Test - Cannot view PDF version of page
 Given I am logged in as a "eng16student@spartaglobal.com"
 And I am on the page of profiles
 When I open PDF of the first profile
-Then I should not see the PDF
+Then I should see the PDF

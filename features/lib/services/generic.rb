@@ -56,7 +56,11 @@ class Generic
     click_on("PDF")
   end
 
-  def checkForErrorMessage
-    find("//title").text
+  def checkIfPDF
+    # switch_to_window { title == 'SpartaProfiles' }
+    if !page.has_css?('toolbar')
+      return false
+    end
+    return true
   end
 end

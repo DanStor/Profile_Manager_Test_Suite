@@ -27,10 +27,10 @@ end
 
 When("I open PDF of the first profile") do
   generic.openPDFOfProfile
-  sleep 4
 end
 
-Then("I should not see the PDF") do
-  expect(generic.title).to eq "Action Controller: Exception caught"
+Then("I should see the PDF") do
+  generic.checkIfPDF
+  expect(generic.checkIfPDF).to eq true
   sleep 4
 end
