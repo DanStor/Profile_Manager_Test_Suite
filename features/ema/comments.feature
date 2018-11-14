@@ -1,6 +1,6 @@
 Feature: Comments Section
 
-  @comments
+  @comments1
   Scenario: PM-105 As a user, I should be notified of comments made on my profile
     Given that comments have been made to a users profile
     When the changes are saved

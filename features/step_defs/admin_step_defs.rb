@@ -65,37 +65,41 @@ Given("that the user is logged in") do
 end
 #
 And("is an admin") do
-
+  admin.confirm_admin_login
 end
 
 When("navigating through the profile list") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.visit_profile_page
+  sleep 2
 end
 
 Then("the admin should be able to filter the profiles by teams.") do
-
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.filter_teams
+  sleep 2
 end
 
+# _____ Scenario 6 _____
 Given("an admin is logged in") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.visit_login
+  admin.admin_log_in_email
+  admin.log_in_password
+  admin.submit
 end
 
-Given("profiles has been selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+And("profiles has been selected") do
+  admin.profiles_page
 end
 
-Given("status is selected from the drop down menu") do
-  pending # Write code here that turns the phrase above into concrete actions
+And("status is selected from the drop down menu") do
+  admin.status_drop_down
 end
 
 Given("pending is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.pending_drop_down
 end
 
 Then("user should only see profiles with a status of pending") do
-
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.show_pending_profiles
 end
 
 # _____ Scenario 7 _____
@@ -160,11 +164,7 @@ Then("Go back to the profile that you made a comment on and check that the comme
   expect(admin.checkCommentPresent).to eq true
 end
 
-# _____ Scenario 9 _____
-Given("the user goes to the site URL") do
-  admin.visit_login
-end
-
+# ____ Scenario 9 ______
 Given("logs into the admin profiles") do
   sign_in.sign_in_admin
 end
@@ -183,82 +183,54 @@ Then("as Pending is selected as a status, profiles with Draft status are shown a
   sleep 5
 end
 
+# ____ Scenario 10 ______
+Given("the user goes to the site URL") do
+  admin.visit_login
+end
+
 Given("has logged in on an admin account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  sign_in.sign_in_admin
 end
 
-Given("profiles is selected") do
-
-  pending # Write code here that turns the phrase above into concrete actions
+When("draft has been selected from the drop down menu") do
+  admin.drop_down_menu_status
 end
 
-Given("status has been clicked from the drop down menu") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft status") do
+  expect(admin.show_all_draft_status).to be true
 end
 
-Given("draft has been selected") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft s
-tatus") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
+#_____ Scenario 11 _____
 Given("you are logged in as an admin") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.visit_login
+  sign_in.sign_in_admin
 end
-
 
 Given("you go into sections") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_sections_link
 end
 
 When("new section is clicked") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_new_section
 end
 
 When("details have been input") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.fill_in_new_section
 end
 
 When("I have pressed save") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.save_new_section
 end
 
 Then("new section is added") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(admin.check_if_section_added).to eq '*Section was successfully created.'
 end
 
+# ____ Scenario 12 _____
 When("details have been left blank") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.fill_in_new_section_blank
 end
 
 Then("new section is not added") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("that comments have been made to a users profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("the changes are saved") do
-  pending # Write code here that turns the phrase above into concrete actions
-
-end
-
-Then("a notification is sent to the relevant student") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given("that the user is logged in and is viewing their own profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("the profile is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the user should be able to see the comments made and by which admin") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(admin.check_if_section_added).to eq '*Section was not successfully created.'
 end
