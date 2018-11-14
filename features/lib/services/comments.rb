@@ -44,5 +44,15 @@ class Comments
     click_button('Save')
   end
 
+  # Section added so I can create a profile- incase it is deleted via the admin.rb
+  def click_new_profile
+    click_link('Create a profile')
+  end
+
+  def fill_in_new_profile
+    fill_in('profile-form-summary', with: 'Please write a summary for your profile.')
+    select('DevOps', :from => 'Stream')
+    fill_in('profile-form-degree', with: 'Computer Science')
+  end
 
 end

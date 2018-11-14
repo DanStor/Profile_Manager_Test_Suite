@@ -2,8 +2,11 @@ Given("that there is a user made") do
   comments.visit_page
   expect(current_url).to eq 'http://localhost:3000/login'
   sign_in.sign_in_student
-
-
+  comments.click_new_profile
+  comments.fill_in_new_profile
+  comments.comments_save
+  comments.log_out
+  sleep 1
 end
 
 Given("that comments have been made to a users profile") do
@@ -19,7 +22,7 @@ Given("that comments have been made to a users profile") do
   comments.click_create_comment
   expect(comments.check_if_comment_added).to eq 'Comment was successfully created.'
   comments.log_out
-  sleep 5
+  sleep 1
 end
 
 When("the changes are saved") do
@@ -37,7 +40,7 @@ end
 
 Then("a notification is sent to the relevant student") do
   expect(comments.check_if_comment_added).to eq 'Comment was successfully updated.'
-  sleep 5
+  sleep 3
 end
 
 Given("that the user is logged in and is viewing their own profile") do
