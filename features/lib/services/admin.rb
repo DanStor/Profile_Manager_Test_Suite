@@ -19,7 +19,7 @@ class Admin
     click_button('submit')
   end
 
-# Scenario 1
+#_____Scenario 1_____
   def create_profile_button
     click_link('new-button')
   end
@@ -27,7 +27,7 @@ class Admin
   def drop_down_menu
     select('Team two', :from => 'profile_team')
   end
-# Scenario 2
+#_____Scenario 2_____
   def profile_delete_button
     click_link('Delete')
   end
@@ -40,7 +40,7 @@ class Admin
     find('.notice').text
   end
 
-# Scenario 3
+#_____Scenario 3_____
   def add_group_as_admin
     click_link('Teams')
   end
@@ -61,7 +61,7 @@ class Admin
     find('.notice').text
   end
 
-# Scenario 4
+#_____Scenario 4_____
   def destroy_team
     click_link('Destroy')
   end
@@ -70,9 +70,44 @@ class Admin
     click_button('Confirm')
   end
 
-  # Scenario 5
+#_____Scenario 5_____
   def confirm_admin_login
-    click_link('Welcome , eng16 admin (Admin)')
+    find_link('Welcome , eng16 admin (Admin)').visible?
+  end
+
+  def visit_profile_page
+    visit('/profiles')
+  end
+
+  def filter_teams
+    select('testing team 1', :from => 'team')
+  end
+
+# _____ Scenario 6 _____
+  def profiles_page
+    click_link('Profiles')
+  end
+
+  def status_drop_down
+    select('Status', :from => 'status')
+  end
+
+  def pending_drop_down
+    select('Pending', :from => 'status')
+  end
+
+  def show_pending_profiles
+    within "#approved" do
+      if has_css?(".Approved")
+        return false
+      elsif has_css?(".Rejected")
+        return false
+      elsif has_css?(".Draft")
+        return false
+      else (".Pending")
+        return true
+      end
+    end
   end
 
 # Scenario 10

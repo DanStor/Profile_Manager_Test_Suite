@@ -65,38 +65,42 @@ Given("that the user is logged in") do
 end
 #
 And("is an admin") do
-  expect(admin.confirm_admin_login).to eq 'Welcome , eng16 admin (Admin)'
+  admin.confirm_admin_login
 end
-#
-# When("navigating through the profile list") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the admin should be able to filter the profiles by teams.") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("an admin is logged in") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("profiles has been selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("status is selected from the drop down menu") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("pending is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("user should only see profiles with a status of pending") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+
+When("navigating through the profile list") do
+  admin.visit_profile_page
+  sleep 2
+end
+
+Then("the admin should be able to filter the profiles by teams.") do
+  admin.filter_teams
+  sleep 2
+end
+
+# _____ Scenario 5 _____
+Given("an admin is logged in") do
+  admin.visit_login
+  admin.admin_log_in_email
+  admin.log_in_password
+  admin.submit
+end
+
+And("profiles has been selected") do
+  admin.profiles_page
+end
+
+And("status is selected from the drop down menu") do
+  admin.status_drop_down
+end
+
+Given("pending is selected") do
+  admin.pending_drop_down
+end
+
+Then("user should only see profiles with a status of pending") do
+  admin.show_pending_profiles
+end
 #
 # Given("a user is logged in as an admin") do
 #   pending # Write code here that turns the phrase above into concrete actions
