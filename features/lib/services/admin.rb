@@ -71,5 +71,7 @@ class Admin
   end
 
 # Scenario 5
-
+  def confirm_admin_login
+    click_link('Welcome , eng16 admin (Admin)')
+  end
 end
