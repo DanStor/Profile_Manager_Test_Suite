@@ -13,7 +13,7 @@ Scenario: I should be able to add a new profile
   And I click save
   Then a profile should be created
 
-@profiles
+@profiles2
 Scenario: I should be able to check no degree
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
