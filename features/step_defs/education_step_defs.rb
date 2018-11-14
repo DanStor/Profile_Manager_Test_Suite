@@ -83,6 +83,7 @@ Then("I should be able to see an eduction was updated") do
 end
 
 When("I click on destroy") do
+  @last_id = pm_education.get_last_id
   pm_education.click_destroy
 end
 
@@ -91,7 +92,7 @@ When("I click confirm") do
 end
 
 Then("the education should be removed") do
-  expect(pm_education.education_list valid_institution).to be false
+  expect(pm_education.get_last_id).to_not eq @last_id
 end
 
 Then("a confirmation message should appear") do
@@ -103,7 +104,7 @@ When("I click cancel") do
 end
 
 Then("the education should not be removed") do
-  expect(pm_education.education_list valid_institution).to eq true
+  expect(pm_education.get_last_id).to eq @last_id
 end
 
 When("I do not enter any details") do

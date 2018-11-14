@@ -79,3 +79,21 @@ Before("@skills") do
   sign_in.sign_in_student
   sleep 2
 end
+
+Before("@education_requires_created") do
+  valid_institution = 'Exeter University'
+  valid_course = 'Engineering'
+  valid_start_date = '01/09/2014'
+  valid_end_date = '01/06/2018'
+  description = 'This is a description'
+
+
+  pm_education.visit_education_nav
+  pm_education.click_add_education
+  pm_education.enter_institution valid_institution
+  pm_education.enter_course valid_course
+  pm_education.enter_start_date valid_start_date
+  pm_education.enter_end_date valid_end_date
+  pm_education.enter_description description
+  pm_education.click_save_button
+end
