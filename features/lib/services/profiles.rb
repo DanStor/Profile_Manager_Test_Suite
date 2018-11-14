@@ -5,10 +5,12 @@ class Profiles
   NEW_BUTTON_ID = 'new-button'
   SUMMARY_FIELD_ID = 'profile-form-summary'
   STREAM_FIELD_ID = 'profile_stream'
+  SELECT_TEAM = "profile_team"
   DEGREE_FIELD_ID = 'profile-form-degree'
   SAVE_BUTTON = 'save-button'
   NO_DEGREE_BUTTON = 'profile-form-no-degree'
   STATUS_PENDING = 'profile_status_pending'
+  STATUS_DRAFT = 'profile_status_draft'
 
   def visit_profile_page
     visit('/profiles')
@@ -27,7 +29,7 @@ class Profiles
   end
 
   def select_team
-    #need to create function for select a team
+    SELECT_TEAM.all(select())
   end
 
   def enter_degree degree
@@ -42,8 +44,16 @@ class Profiles
     click_button(SAVE_BUTTON)
   end
 
+  def profile_created
+    #need to add code here
+  end
+
   def select_no_degree
     check(NO_DEGREE_BUTTON)
+  end
+
+  def degree_not_applicable
+    page.has_content?("Not Applicable")
   end
 
   def delete_profile_button
@@ -59,7 +69,7 @@ class Profiles
   end
 
   def delete_confirmation_message
-    #need to add code for this
+    page.has_content?("Profile was successully destroyed.")
   end
 
   def click_cancel_button
@@ -74,7 +84,7 @@ class Profiles
     click_link('PDF')
   end
 
-  def PDF_page
+  def pdf_page
     #need to add code for this
   end
 
@@ -83,7 +93,15 @@ class Profiles
   end
 
   def pending_status
-    #need to add code for this
+    page.has_content?("Pending")
+  end
+
+  def choose_draft
+    choose(STATUS_DRAFT)
+  end
+
+  def draft_status
+    page.has_content?("Draft")
   end
 
 end
