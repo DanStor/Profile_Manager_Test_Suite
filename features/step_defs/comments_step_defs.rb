@@ -33,13 +33,19 @@ Then("a notification is sent to the relevant student") do
 end
 
 Given("that the user is logged in and is viewing their own profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page
+  expect(current_url).to eq 'http://localhost:3000/login'
+  sign_in.sign_in_student
+  expect(current_url).to eq 'http://localhost:3000/'
 end
 
 When("the profile is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.click_on_students_profile
+  comments.click_comments_button
+  sleep 1
 end
 
 Then("the user should be able to see the comments made and by which admin") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.click_comments_section
+  sleep 5
 end
