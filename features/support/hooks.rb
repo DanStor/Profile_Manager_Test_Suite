@@ -6,9 +6,13 @@ Before('@all') do
 end
 
 Before('@valid_custom_form') do
-  TITLE = "Volunteering"
+  TITLE = "Test Title"
   HEADING = "Charity"
-  BODY = "I was doing some charity work bro"
+  BODY = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
+end
 
+Before('@delete') do
+  DELETED_MESSAGE = "*Custom was successfully destroyed."
+  TITLE = "Test Title"
 end

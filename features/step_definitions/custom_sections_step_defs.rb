@@ -33,11 +33,17 @@ When("I press the save button") do
 end
 
 Then("the newly made custom item is listed") do
+  sleep 2
   expect(current_url).to eq 'http://localhost:3000/customs'
+  expect(custom_section_page.find_custom_section TITLE).to be true
+  expect(custom_section_page.find_notice_message).to eq  CUSTOM_CREATED_MESSAGE
+
 end
 
 Given("I am on the create new custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  custom_section_page.visit_custom_section_page
+  custom_section_page.click_new_custom_section
+  expect(current_url).to eq 'http://localhost:3000/customs/new'
 end
 
 When("I click the dropdown bar for the title section") do
@@ -49,27 +55,29 @@ Then("hobbies, volunteering and languages are listed in the dropdown menu") do
 end
 
 When("I press the destroy button for a specific item") do
-  pending # Write code here that turns the phrase above into concrete actions
+  custom_section_page.destroy_section TITLE
+  sleep 2
 end
 
 When("I click the confirm button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
+  custom_section_page.click_cancel
+  sleep 2
 end
 
 Then("the custom was successfully destroyed message is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(custom_section_page.find_notice_message).to eq  DELETED_MESSAGE
 end
 
 Then("the targeted item should no longer be displayed on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(find_custom_section TITLE).to be false
 end
 
 When("I click the cancel button on the delete entry alert") do
-  pending # Write code here that turns the phrase above into concrete actions
+  custom_section_page.click_cancel
 end
 
 Then("the targeted item remains on the custom page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(custom_section_page.find_custom_section TITLE).to be true
 end
 
 Given("I am on the edit page for a custom item") do

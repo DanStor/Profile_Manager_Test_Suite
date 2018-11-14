@@ -46,6 +46,7 @@ Feature: Custom Sections
    # TEST FAILS HERE AS NO DROPDOWN BAR IS PRESENT
   Then hobbies, volunteering and languages are listed in the dropdown menu
 
+  @destroy
   Scenario: PM-182 19M-User must be able to delete a custom section
 
   Given I am on the custom page
