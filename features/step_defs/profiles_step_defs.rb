@@ -19,7 +19,7 @@ When("I select a stream") do
 end
 
 When("I select a team") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.select_team
 end
 
 When("I enter a degree") do
@@ -27,7 +27,7 @@ When("I enter a degree") do
 end
 
 When("I click on modules") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_on_modules
 end
 
 When("I click save") do
@@ -35,7 +35,7 @@ When("I click save") do
 end
 
 Then("a profile should be created") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.profile_created
 end
 
 When("I click on no degree") do
@@ -43,7 +43,7 @@ When("I click on no degree") do
 end
 
 Then("it should say not applicable under university degree") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.degree_not_applicable
 end
 
 When("I click the delete button on a selected profile") do
@@ -55,11 +55,11 @@ When("I click the confirm button on the pop up") do
 end
 
 Then("I can no longer access the profile link") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.profile_link_not_available
 end
 
 Then("A confirmation message will appear") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.delete_confirmation_message
 end
 
 When("I click the cancel button on the pop up") do
@@ -67,7 +67,7 @@ When("I click the cancel button on the pop up") do
 end
 
 Then("I can still view the profile link on the profile page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.profile_link_available
 end
 
 When("I don't enter a summary") do
@@ -127,7 +127,7 @@ When("I click on pdf") do
 end
 
 Then("I should be taken to the pdf of the profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.pdf_page
 end
 
 When("I select Pending radio button from the Status options") do
@@ -135,15 +135,15 @@ When("I select Pending radio button from the Status options") do
 end
 
 Then("the status of profile should appear as pending in the profiles page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.pending_status
 end
 
 When("I select Draft radio button from the Status options") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.choose_draft
 end
 
 Then("the status of profile should appear as Draft in the profiles page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.draft_status
 end
 
 Then("{int} skills should be selected") do |int|
