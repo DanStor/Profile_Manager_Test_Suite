@@ -4,7 +4,9 @@ require_relative "services/skills.rb"
 require_relative "services/education.rb"
 require_relative "services/generic.rb"
 require_relative "services/comments.rb"
-
+require_relative "services/homepage.rb"
+require_relative "services/employment.rb"
+require_relative "services/custom_section_page.rb"
 
 module PMTesting
 
@@ -38,6 +40,14 @@ module PMTesting
 
   def comments
     Comments.new
+  end
+
+  def custom_section_page
+    CustomSectionPage.new
+  end
+
+  def employment
+    Employment.new
   end
 
 end
