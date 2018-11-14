@@ -1,3 +1,11 @@
+Given("that there is a user made") do
+  comments.visit_page
+  expect(current_url).to eq 'http://localhost:3000/login'
+  sign_in.sign_in_student
+
+
+end
+
 Given("that comments have been made to a users profile") do
   comments.visit_page
   expect(current_url).to eq 'http://localhost:3000/login'
