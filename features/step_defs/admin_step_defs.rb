@@ -67,37 +67,37 @@ end
 And("is an admin") do
 
 end
-#
-# When("navigating through the profile list") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the admin should be able to filter the profiles by teams.") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("an admin is logged in") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("profiles has been selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("status is selected from the drop down menu") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("pending is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("user should only see profiles with a status of pending") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
+
+When("navigating through the profile list") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the admin should be able to filter the profiles by teams.") do
+
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("an admin is logged in") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("profiles has been selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("status is selected from the drop down menu") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("pending is selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("user should only see profiles with a status of pending") do
+
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 # _____ Scenario 7 _____
 Given("a user is logged in as an admin") do
   admin.visit_login
@@ -182,83 +182,83 @@ Then("as Pending is selected as a status, profiles with Draft status are shown a
   expect(admin.isOnlyDraftAndPending).to eq true
   sleep 5
 end
-#
-# Given("has logged in on an admin account") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("profiles is selected") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("status has been clicked from the drop down menu") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("draft has been selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft s
-# tatus") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("you are logged in as an admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-#
-# Given("you go into sections") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("new section is clicked") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("details have been input") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("I have pressed save") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("new section is added") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("details have been left blank") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("new section is not added") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("that comments have been made to a users profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the changes are saved") do
-#   pending # Write code here that turns the phrase above into concrete actions
-#
-# end
-#
-# Then("a notification is sent to the relevant student") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("that the user is logged in and is viewing their own profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the profile is displayed") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the user should be able to see the comments made and by which admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+
+Given("has logged in on an admin account") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("profiles is selected") do
+
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("status has been clicked from the drop down menu") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("draft has been selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft s
+tatus") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("you are logged in as an admin") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+Given("you go into sections") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("new section is clicked") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("details have been input") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("I have pressed save") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("new section is added") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("details have been left blank") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("new section is not added") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that comments have been made to a users profile") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("the changes are saved") do
+  pending # Write code here that turns the phrase above into concrete actions
+
+end
+
+Then("a notification is sent to the relevant student") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given("that the user is logged in and is viewing their own profile") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("the profile is displayed") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("the user should be able to see the comments made and by which admin") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
