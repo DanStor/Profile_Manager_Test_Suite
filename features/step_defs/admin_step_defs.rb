@@ -98,60 +98,63 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 #
-# Given("a user is logged in as an admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("the profiles section has been selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("from the drop down status is clicked") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("draft is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the user should only see profiles with a status of draft.") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("a user is on sparta profiles") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-# When("a profile is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("comments button is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the title of the section to add a comment to is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-#
-# When("the text box is selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("a comment is input") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-# When("then verify “Comment was created successfully” shows in green at the top of the screen when the comment has been made"
-# ) do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("Go back to the profile that you made a comment on and check that the comment is visible underneath the section that yo
-# u commented on") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
+# _____ Scenario 7 _____
+Given("a user is logged in as an admin") do
+  admin.visit_login
+  sign_in.sign_in_admin
+end
+
+Given("the profiles section has been selected") do
+  #Already selected
+end
+
+Given("from the drop down status is clicked") do
+  admin.click_profiles_status
+end
+
+Given("draft is selected") do
+  admin.click_draft_option
+end
+
+Then("the user should only see profiles with a status of draft.") do
+  expect(admin.isOnlyDraft).to eq true
+end
+
+# _____ Scenario 8 _____
+Given("a user is on sparta profiles") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+When("a profile is selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("comments button is selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("the title of the section to add a comment to is selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+When("the text box is selected") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When("a comment is input") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+When("then verify “Comment was created successfully” shows in green at the top of the screen when the comment has been made"
+) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("Go back to the profile that you made a comment on and check that the comment is visible underneath the section that yo
+u commented on") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+# _____ Scenario 9 _____
 # Given("the user goes to the site URL") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end

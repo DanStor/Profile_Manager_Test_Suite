@@ -72,4 +72,29 @@ class Admin
 
 # Scenario 5
 
+
+# Scenario 7
+  def click_profiles_status
+    find(:css, "#status").click
+  end
+
+  def click_draft_option
+    select "Draft", :from => "status"
+  end
+
+  def isOnlyDraft
+    within "#approved" do
+      if has_css?(".Approved")
+        return false
+      elsif has_css?(".Rejected")
+        return false
+      elsif has_css?(".Pending")
+        return false
+      elsif has_css?(".Draft")
+        return true
+      end
+    end
+  end
+
+
 end
