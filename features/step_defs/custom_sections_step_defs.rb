@@ -76,9 +76,9 @@ Given("I am on the edit page for a custom item") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When("I click the save button") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I click the save button") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 Then("I am taken to the custom page") do
   pending # Write code here that turns the phrase above into concrete actions

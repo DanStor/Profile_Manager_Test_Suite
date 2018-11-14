@@ -28,6 +28,12 @@ Before("@skills") do
   sleep 2
 end
 
+Before("@danRhys") do
+  visit('/')
+  sign_in.sign_in_student
+  sleep 2
+end
+
 Before('@all') do
   visit('/')
   fill_in('email', :with => 'eng16student@spartaglobal.com')
