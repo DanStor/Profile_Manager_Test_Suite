@@ -148,4 +148,63 @@ class Admin
     find('.notice').text
   end
 
+
+# Scenario 7
+  def click_profiles_status
+    find(:css, "#status").click
+  end
+
+  def click_draft_option
+    select "Draft", :from => "status"
+  end
+
+  def isOnlyDraft
+    within "#approved" do
+      if has_css?(".Approved")
+        return false
+      elsif has_css?(".Rejected")
+        return false
+      elsif has_css?(".Pending")
+        return false
+      elsif has_css?(".Draft")
+        return true
+      end
+    end
+  end
+
+# Scenario 8
+  def click_on_profile
+    within "#approved" do
+      within ".name" do
+        find("a").click
+      end
+    end
+  end
+
+  def click_on_comments
+    click_button("Comments")
+  end
+
+  def checkCommentPresent
+    has_content?("text")
+  end
+
+# Scenario 9
+
+  def click_pending_option
+    select "Pending", :from => "status"
+  end
+
+  def isOnlyDraftAndPending
+    incorrect = true
+    within "#approved" do
+      if has_css?(".Approved")
+        incorrect = false
+      elsif has_css?(".Rejected")
+        incorrect = false
+      end
+    end
+    return incorrect
+  end
+
 end

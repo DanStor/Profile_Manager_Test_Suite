@@ -101,80 +101,86 @@ end
 Then("user should only see profiles with a status of pending") do
   admin.show_pending_profiles
 end
-# START OF MIKES
 
+# _____ Scenario 7 _____
 Given("a user is logged in as an admin") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.visit_login
+  sign_in.sign_in_admin
 end
 
 Given("the profiles section has been selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  # Already on page
 end
 
 Given("from the drop down status is clicked") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_profiles_status
 end
 
 Given("draft is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_draft_option
 end
 
 Then("the user should only see profiles with a status of draft.") do
-
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(admin.isOnlyDraft).to eq true
 end
 
+# _____ Scenario 8 _____
 Given("a user is on sparta profiles") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.visit_login
+  sign_in.sign_in_admin
 end
+
 When("a profile is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_on_profile
 end
 
 When("comments button is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_on_comments
+  sleep 1
 end
 
 When("the title of the section to add a comment to is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.click_comments_section
 end
 
-
 When("the text box is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+
 end
 
 When("a comment is input") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-When("then verify “Comment was created successfully” shows in green at the top of the screen when the comment has been made"
-) do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.fill_in_comment
+  comments.click_create_comment
 end
 
-Then("Go back to the profile that you made a comment on and check that the comment is visible underneath the section that yo
-u commented on") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("then verify “Comment was successfully created.” shows in green at the top of the screen when the comment has been made") do
+expect(comments.check_if_comment_added).to eq "Comment was successfully created."
 end
 
-Given("the user goes to the site URL") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("Go back to the profile that you made a comment on and check that the comment is visible underneath the section that you commented on") do
+  admin.click_on_profile
+  admin.click_on_comments
+  sleep 1
+  comments.click_comments_section
+  expect(admin.checkCommentPresent).to eq true
 end
 
-
+# ____ Scenario 9 ______
 Given("logs into the admin profiles") do
-  pending # Write code here that turns the phrase above into concrete actions
+  sign_in.sign_in_admin
 end
 
 Given("clicks on profiles") do
-  pending # Write code here that turns the phrase above into concrete actions
+  # Already on page
 end
+
 Given("the status drop down menu is selected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  admin.click_profiles_status
+  admin.click_pending_option
 end
 
 Then("as Pending is selected as a status, profiles with Draft status are shown as well as profiles with Pending status") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(admin.isOnlyDraftAndPending).to eq true
+  sleep 5
 end
 
 # ____ Scenario 10 ______
