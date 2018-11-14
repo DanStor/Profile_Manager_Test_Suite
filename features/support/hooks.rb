@@ -14,6 +14,30 @@ Before("@certification_invalid_description") do
   sleep 1
 end
 
+Before("@certification_word_count_decrease") do
+  visit('/')
+  sign_in.sign_in_student
+
+  @certificate_added_message = "*Certification was successfully created."
+  sleep 1
+end
+
+Before("@certification_word_count_increase") do
+  visit('/')
+  sign_in.sign_in_student
+
+  @certificate_added_message = "*Certification was successfully created."
+  sleep 1
+end
+
+Before("@certification_view") do
+  visit('/')
+  sign_in.sign_in_student
+
+  @certificate_added_message = "*Certification was successfully created."
+  sleep 1
+end
+
 
 After("@certification") do
   sleep 2

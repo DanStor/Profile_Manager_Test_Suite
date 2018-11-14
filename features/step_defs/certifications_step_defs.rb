@@ -35,20 +35,21 @@ Then("an error is displayed") do
   expect(pm_certifications.error?).to be true
 end
 
-When("I add some characters to the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I add some words to the description") do
+  pm_certifications.add_word 0
+  sleep 2
 end
 
 Then("the word count should decrease") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_word_count.to_i).to eq 99
 end
 
 When("I remove some words from the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.remove_word
 end
 
 Then("the word count should increase") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_word_count.to_i).to eq 100
 end
 
 Then("I should be able to view certifications") do

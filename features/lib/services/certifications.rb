@@ -13,6 +13,10 @@ class Certifications
 
   DESCRIPTION_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/trix-editor"
 
+  WORD_COUNT_DISPLAY_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/p"
+
+  THREE_LETTER_WORDS = ["dog","cat","pig"]
+
   include Capybara::DSL
 
   def visit_certifications
@@ -51,5 +55,23 @@ class Certifications
     within(:css, '#error_explanation') do
       find(:css, 'h2').visible?
     end
+  end
+
+  def add_word i
+    path = find(:xpath, DESCRIPTION_XPATH)
+    path.set("#{path.text} #{THREE_LETTER_WORDS[i]}")
+  end
+
+  def remove_word
+    path = find(:xpath, DESCRIPTION_XPATH)
+
+    (0..3).each do
+      path.send_keys(:backspace)
+    end
+
+  end
+
+  def get_word_count
+    find(:xpath, WORD_COUNT_DISPLAY_XPATH).text.split(": ").last
   end
 end

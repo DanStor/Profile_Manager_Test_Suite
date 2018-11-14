@@ -51,23 +51,24 @@ Feature: Certifications
     And I press save
     Then an error is displayed
 
-  #Word count display incrase
-  @certification
+  #Word count display decrease
+  @certification_word_count_decrease
   Scenario: Adding words to the description for certification should decrease word count displayed.
     Given I'm on the Certifications page
     When I press new Certification
-    When I add some characters to the description
+    When I add some words to the description
     Then the word count should decrease
 
-  #Word count display descrease
-  @certification
+  #Word count display increase
+  @certification_word_count_increase
   Scenario: Removing words from the description for certification should increase word count displayed.
     Given I'm on the Certifications page
     When I press new Certification
-    When I remove some words from the description
+    When I add some words to the description
+    And I remove some words from the description
     Then the word count should increase
 
-  @certification
+  @certification_view
   Scenario: Viewing Certifications
     Given I'm on the Certifications page
     Then I should be able to view certifications
