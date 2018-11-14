@@ -31,7 +31,7 @@ When("I click on modules") do
 end
 
 When("I click save") do
-  profiles.click_save_button
+  pm_profiles.click_save_button
 end
 
 Then("a profile should be created") do
