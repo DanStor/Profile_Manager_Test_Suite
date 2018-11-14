@@ -32,21 +32,21 @@ Feature: Certifications
     Then an error is displayed
 
   # Only invalid description
-  @certification
+  @certification_invalid_description
   Scenario: Adding Certifications with invalid description length
     Given I'm on the Certifications page
     When I press new Certification
     And I add a valid title
-    And I add an invalid description word count  greater than 100
+    And I add an invalid description
     And I press save
     Then an error is displayed
 
   #Only invalid title
   @certification
-  Scenario: Adding Certifications with invalid description length
+  Scenario: Adding Certifications with invalid title length
     Given I'm on the Certifications page
     When I press new Certification
-    And I add an invalid title greater than 100 characters
+    And I add an invalid title
     And I add a valid description
     And I press save
     Then an error is displayed

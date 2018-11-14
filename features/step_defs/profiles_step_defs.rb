@@ -1,73 +1,89 @@
-Given("I am logged in as a Trainee or Admin") do
+login_url = 'http://localhost:3000/login'
+profile_url = 'http://localhost:3000/profiles'
+new_profile_url = 'http://localhost:3000/profiles/new'
+form_summary = "This is a summary"
+form_degree = "Technical Consultant"
+stream_option = 'BS Test Analyst'
+saveButton = 'Save'
 
+Given("I am logged in as a Trainee or Admin") do
+  pm_profiles.visit_home
+  sign_in.sign_in_student
+  expect(current_url).to eq login_url
 end
 
 When("I am on the profile page") do
-  profiles.visit_profile_page
+  pm_profiles.visit_profile_page
+  expect(current_url).to eq profile_url
 end
 
 When("I click on new profile") do
-  profiles.click_create_profile
+  pm_profiles.click_create_profile
+  expect(current_url).to eq new_profile_url
 end
 
 When("I enter a summary") do
-  profiles.enter_summary "This is a summary"
+  pm_profiles.enter_summary form_summary
+  expect(pm_profiles.get_summary_value).to eq form_summary
 end
 
 When("I select a stream") do
-  profiles.select_stream
+  pm_profiles.select_stream
+  expect(pm_profiles.select_stream).to eq stream_option
 end
 
 When("I select a team") do
-  profiles.select_team
+  pm_profiles.select_team
 end
 
 When("I enter a degree") do
-  profiles.enter_degree "Technical Consultant"
+  pm_profiles.enter_degree form_degree
+  expect(pm_profiles.get_degree_value).to eq form_degree
 end
 
 When("I click on modules") do
-  profiles.click_on_modules
+  pm_profiles.click_on_modules
 end
 
 When("I click save") do
   pm_profiles.click_save_button
+  expect(pm_profiles.click_save_button).to eq saveButton
 end
 
 Then("a profile should be created") do
-  profiles.profile_created
+  pm_profiles.profile_created
 end
 
 When("I click on no degree") do
-  profiles.select_no_degree
+  pm_profiles.select_no_degree
 end
 
 Then("it should say not applicable under university degree") do
-  profiles.degree_not_applicable
+  pm_profiles.degree_not_applicable
 end
 
 When("I click the delete button on a selected profile") do
-  profiles.delete_profile_button
+  pm_profiles.delete_profile_button
 end
 
 When("I click the confirm button on the pop up") do
-  profiles.confirm_delete_button
+  pm_profiles.confirm_delete_button
 end
 
 Then("I can no longer access the profile link") do
-  profiles.profile_link_not_available
+  pm_profiles.profile_link_not_available
 end
 
 Then("A confirmation message will appear") do
-  profiles.delete_confirmation_message
+  pm_profiles.delete_confirmation_message
 end
 
 When("I click the cancel button on the pop up") do
-  profiles.click_cancel_button
+  pm_profiles.click_cancel_button
 end
 
 Then("I can still view the profile link on the profile page") do
-  profiles.profile_link_available
+  pm_profiles.profile_link_available
 end
 
 When("I don't enter a summary") do
@@ -75,7 +91,7 @@ When("I don't enter a summary") do
 end
 
 Then("an error should appear saying: Summary can't be blank") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_profiles.summary_error_message
 end
 
 When("I don't enter a degree") do
@@ -123,27 +139,27 @@ end
 # end
 
 When("I click on pdf") do
-  profiles.click_PDF_link
+  pm_profiles.click_PDF_link
 end
 
 Then("I should be taken to the pdf of the profile") do
-  profiles.pdf_page
+  pm_profiles.pdf_page
 end
 
 When("I select Pending radio button from the Status options") do
-  profiles.choose_pending
+  pm_profiles.choose_pending
 end
 
 Then("the status of profile should appear as pending in the profiles page") do
-  profiles.pending_status
+  pm_profiles.pending_status
 end
 
 When("I select Draft radio button from the Status options") do
-  profiles.choose_draft
+  pm_profiles.choose_draft
 end
 
 Then("the status of profile should appear as Draft in the profiles page") do
-  profiles.draft_status
+  pm_profiles.draft_status
 end
 
 Then("{int} skills should be selected") do |int|
