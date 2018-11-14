@@ -60,5 +60,37 @@ class Education
     find(NOTICE_CLASS).text
   end
 
+  def visit_profile_nav
+    click_on(PROFILES_NAV_ID)
+  end
+
+  def click_edit
+    click_link('Edit')
+  end
+
+  def check_education_box option
+    check(option)
+  end
+
+  def get_selected_education option
+    find_field(option).checked?
+  end
+
+  def find_education option
+    find('h4', :text => option).visible?
+  end
+
+  def click_destroy
+    click_link('Destroy')
+  end
+
+  def click_cancel
+    click_button('Cancel')
+  end
+
+  def education_visible
+    find('#title-0').visible?
+  end
+
 
 end

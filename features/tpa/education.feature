@@ -11,17 +11,19 @@ Feature: Education
     And I choose an end date
     And I fill in the description
     And I click on save
-    Then I should be able to see an eduction
+    Then I should be able to see an eduction was created
 
   @education
+  @education_add_to_profile
   Scenario: I should be able to add education to my profile
-    Given I am on the profiles page
-    When I click on edit
+    Given I go to the profiles page
+    When I click on edit a profile
     And I check the education box
     And I click on save
     Then I should be able to see the education on my profile
 
   @education
+  @education_edit
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
@@ -31,7 +33,15 @@ Feature: Education
     And I choose an end date
     And I fill in the description
     And I click on save
-    Then I should be able to see my education on my profile
+    Then I should be able to see an eduction was updated
+
+  @education
+  @education_destroy
+  Scenario: I should be able to cancel a delete of an education
+    Given I am on the education page
+    When I click on destroy
+    And I click cancel
+    Then the education should not be removed
 
   @education
   Scenario: I should be able to delete an education
@@ -40,14 +50,6 @@ Feature: Education
     And I click confirm
     Then the education should be removed
     And a confirmation message should appear
-
-  @education
-  Scenario: I should be able to cancel a delete of an education
-    Given I am on the education page
-    When I click on destroy
-    And I click cancel
-    Then the education should not be removed
-    And I should still be able to see the education
 
   @education
   Scenario: I should get an error
