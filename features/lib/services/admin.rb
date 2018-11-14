@@ -75,11 +75,42 @@ class Admin
     click_link('Welcome , eng16 admin (Admin)')
   end
 
-
-
 # Scenario 10
   def drop_down_menu_status
     select('Draft', :from => 'status')
   end
-  
+
+  def show_all_draft_status
+    page.has_content?('Draft')
+  end
+
+  # Scenario 11
+  def click_sections_link
+    click_link('Sections')
+  end
+
+  def click_new_section
+    click_link('New Section')
+  end
+
+  def fill_in_new_section
+    fill_in('title', with: 'New Section')
+    find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("This description is for a new section which is being added")
+    fill_in('skills', with: 'There are many skills to master')
+  end
+
+  def fill_in_new_section_blank
+    fill_in('title', with: '')
+    find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("")
+    fill_in('skills', with: '')
+  end
+
+  def save_new_section
+    click_button('Save')
+  end
+
+  def check_if_section_added
+    find('.notice').text
+  end
+
 end

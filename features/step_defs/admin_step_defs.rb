@@ -173,86 +173,53 @@ end
 # end
 #
 # ____ Scenario 10 ______
-# Given("has logged in on an admin account") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("profiles is selected") do
-#
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("status has been clicked from the drop down menu") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("draft has been selected") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft s
-# tatus") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Given("the user goes to the site URL") do
+  admin.visit_login
+end
+
+Given("has logged in on an admin account") do
+  sign_in.sign_in_admin
+end
+
+When("draft has been selected from the drop down menu") do
+  admin.drop_down_menu_status
+end
+
+Then("Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft status") do
+  expect(admin.show_all_draft_status).to be true
+end
 
 #_____ Scenario 11 _____
-# Given("you are logged in as an admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-#
-# Given("you go into sections") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("new section is clicked") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("details have been input") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("I have pressed save") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("new section is added") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Given("you are logged in as an admin") do
+  admin.visit_login
+  sign_in.sign_in_admin
+end
+
+Given("you go into sections") do
+  admin.click_sections_link
+end
+
+When("new section is clicked") do
+  admin.click_new_section
+end
+
+When("details have been input") do
+  admin.fill_in_new_section
+end
+
+When("I have pressed save") do
+  admin.save_new_section
+end
+
+Then("new section is added") do
+  expect(admin.check_if_section_added).to eq '*Section was successfully created.'
+end
 
 # ____ Scenario 12 _____
-# When("details have been left blank") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("new section is not added") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
+When("details have been left blank") do
+  admin.fill_in_new_section_blank
+end
 
-# ____ I DONT EVEN KNOW ______
-# Given("that comments have been made to a users profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the changes are saved") do
-#   pending # Write code here that turns the phrase above into concrete actions
-#
-# end
-#
-# Then("a notification is sent to the relevant student") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Given("that the user is logged in and is viewing their own profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# When("the profile is displayed") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the user should be able to see the comments made and by which admin") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Then("new section is not added") do
+  expect(admin.check_if_section_added).to eq '*Section was not successfully created.'
+end

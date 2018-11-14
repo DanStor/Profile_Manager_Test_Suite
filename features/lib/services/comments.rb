@@ -37,7 +37,11 @@ class Comments
   end
 
   def comments_checkbox
-    check('sum4')
+    check('sum1')
+  end
+
+  def comments_uncheckbox
+    uncheck('sum1')
   end
 
   def comments_save

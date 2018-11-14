@@ -70,9 +70,7 @@ Feature: Admin Features
   Scenario: PM-152 Draft is selected as a status, all profiles, regardless of allocated status are shown as well
   Given the user goes to the site URL
   And has logged in on an admin account
-  And profiles is selected
-  And status has been clicked from the drop down menu
-  And draft has been selected
+  When draft has been selected from the drop down menu
   Then Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft status
 
   @admin11
