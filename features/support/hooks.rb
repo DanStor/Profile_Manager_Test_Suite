@@ -26,6 +26,8 @@ Before("@skills") do
   visit('/')
   sign_in.sign_in_student
   sleep 2
+end
+
 Before('@all') do
   visit('/')
   fill_in('email', :with => 'eng16student@spartaglobal.com')
@@ -38,5 +40,4 @@ Before('@valid_custom_form') do
   HEADING = "Charity"
   BODY = "I was doing some charity work bro"
   CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
-
 end
