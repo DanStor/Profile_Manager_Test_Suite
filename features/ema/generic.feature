@@ -8,7 +8,7 @@ Then I should be able to view the what I have typed
 
 @generic2
 Scenario: PM-198 Failed Test - Cannot view PDF version of page
-Given I am logged in as a "eng16student@spartaglobal.com"
+Given I am logged in
 And I am on the page of profiles
 When I open PDF of the first profile
 Then I should see the PDF
