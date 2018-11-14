@@ -15,6 +15,7 @@ Before("@education") do
   SAVE_BUTTON_ID = 'save-button'
   NOTICE_CLASS = '.notice'
   PROFILES_NAV_ID = 'header-profiles'
+  ERRORS_ID = '#error_explanation'
 
   visit('/')
   sign_in.sign_in_student

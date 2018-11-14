@@ -36,7 +36,7 @@ Feature: Education
     Then I should be able to see an eduction was updated
 
   @education
-  @education_destroy
+
   Scenario: I should be able to cancel a delete of an education
     Given I am on the education page
     When I click on destroy
@@ -44,6 +44,7 @@ Feature: Education
     Then the education should not be removed
 
   @education
+  @education_destroy
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy
@@ -52,6 +53,7 @@ Feature: Education
     And a confirmation message should appear
 
   @education
+  @education_error
   Scenario: I should get an error
     Given I am on the education page
     When I click on add education
@@ -60,6 +62,7 @@ Feature: Education
     Then I should get 12 errors
 
   @education
+  @education_end_date
   Scenario: I shouldnt be able to enter an end date after the current day
     Given I am on the education page
     When I click on add education
@@ -71,6 +74,8 @@ Feature: Education
     And I click on save
     Then I should get an error about the end date
 
+  @education
+  @education_before_start
   Scenario: I shouldnt be able to enter an end date before the start date
     Given I am on the education page
     When I click on add education

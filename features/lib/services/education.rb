@@ -88,8 +88,16 @@ class Education
     click_button('Cancel')
   end
 
-  def education_visible
-    find('#title-0').visible?
+  def education_list link
+    has_link?(link)
+  end
+
+  def click_confirm
+    click_button('Confirm')
+  end
+
+  def get_errors
+    find(ERRORS_ID).text.chars.first(2).join.to_i
   end
 
 
