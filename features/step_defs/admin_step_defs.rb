@@ -78,7 +78,7 @@ Then("the admin should be able to filter the profiles by teams.") do
   sleep 2
 end
 
-# _____ Scenario 5 _____
+# _____ Scenario 6 _____
 Given("an admin is logged in") do
   admin.visit_login
   admin.admin_log_in_email
