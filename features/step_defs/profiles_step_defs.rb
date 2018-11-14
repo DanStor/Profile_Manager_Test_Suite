@@ -47,11 +47,11 @@ Then("it should say not applicable under university degree") do
 end
 
 When("I click the delete button on a selected profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.delete_profile_button
 end
 
 When("I click the confirm button on the pop up") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.confirm_delete_button
 end
 
 Then("I can no longer access the profile link") do
@@ -63,7 +63,7 @@ Then("A confirmation message will appear") do
 end
 
 When("I click the cancel button on the pop up") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_cancel_button
 end
 
 Then("I can still view the profile link on the profile page") do
@@ -98,32 +98,32 @@ Then("not change the old profile") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-When("I do not add more words to the description") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I do not add more words to the description") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-Then("the word count for description should remain the same") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("the word count for description should remain the same") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-When("I add more words to the description") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I add more words to the description") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("the word count for description should decrease") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-Then("the word count for description should decrease") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I take some words out from the description") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("the word count for description should increase") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I take some words out from the description") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("the word count for description should increase") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 When("I click on pdf") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.click_PDF_link
 end
 
 Then("I should be taken to the pdf of the profile") do
@@ -131,7 +131,7 @@ Then("I should be taken to the pdf of the profile") do
 end
 
 When("I select Pending radio button from the Status options") do
-  pending # Write code here that turns the phrase above into concrete actions
+  profiles.choose_pending
 end
 
 Then("the status of profile should appear as pending in the profiles page") do
