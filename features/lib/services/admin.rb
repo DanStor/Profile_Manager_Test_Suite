@@ -72,4 +72,9 @@ class Admin
 
 # Scenario 5
 
+
+# Scenario 10
+  def drop_down_menu_status
+    select('Draft', :from => 'status')
+  end
 end
