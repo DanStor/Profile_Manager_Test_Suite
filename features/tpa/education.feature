@@ -15,6 +15,7 @@ Feature: Education
 
   @education
   @education_add_to_profile
+  @education_requires_created
   Scenario: I should be able to add education to my profile
     Given I go to the profiles page
     When I click on edit a profile
@@ -24,19 +25,15 @@ Feature: Education
 
   @education
   @education_edit
+  @education_requires_created
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
-    And I fill in the institution
-    And I fill in the course
-    And I choose a start date
-    And I choose an end date
-    And I fill in the description
     And I click on save
     Then I should be able to see an eduction was updated
 
   @education
-
+  @education_requires_created
   Scenario: I should be able to cancel a delete of an education
     Given I am on the education page
     When I click on destroy
@@ -45,6 +42,7 @@ Feature: Education
 
   @education
   @education_destroy
+  @education_requires_created
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy
@@ -88,12 +86,24 @@ Feature: Education
     Then I should get an errors about the start and end dates
 
   @education
+  @education_char_count
   Scenario: The remaining characters should change
     Given I am on the education page
     When I click on add education
     And I fill in the institution
     Then the remaining characters should reduce
 
+  @education
+  @education_backspace
+  Scenario: The remaining characters should change
+    Given I am on the education page
+    When I click on add education
+    And I fill in the institution
+    And I press the backspace
+    Then the remaining characters should increase
+
+  @education
+  @education_word_count
   Scenario: The remaining words should change
     Given I am on the education page
     When I click on add education
