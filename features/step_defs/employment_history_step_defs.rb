@@ -54,20 +54,40 @@ Then("I can see the new item") do
   expect(has_link?("A Business")).to eq true
 end
 
-When("I enter no details") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I see eleven error messages displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I see ten error messages displayed") do
+  content = find("#error_explanation").find_all("li")
+  expect(content[0].text).to eq "Company is too short (minimum is 1 character)"
+  expect(content[1].text).to eq "Company can't be blank"
+  expect(content[2].text).to eq "Role is too short (minimum is 1 character)"
+  expect(content[3].text).to eq "Role can't be blank"
+  expect(content[4].text).to eq "Start date can't be blank"
+  expect(content[5].text).to eq "Start date is not a valid date"
+  expect(content[6].text).to eq "Start date is not a valid datetime"
+  expect(content[7].text).to eq "Description can't be blank"
+  expect(content[8].text).to eq "End date can't be blank"
+  expect(content[9].text).to eq "Still employed can't be blank"
 end
 
 Given("I have recieved error messages when creating a new employment item with invalid details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit("http://localhost:3000/employments/new")
+
+  click_on("Save")
+
+  content = find("#error_explanation").find_all("li")
+  expect(content[0].text).to eq "Company is too short (minimum is 1 character)"
+  expect(content[1].text).to eq "Company can't be blank"
+  expect(content[2].text).to eq "Role is too short (minimum is 1 character)"
+  expect(content[3].text).to eq "Role can't be blank"
+  expect(content[4].text).to eq "Start date can't be blank"
+  expect(content[5].text).to eq "Start date is not a valid date"
+  expect(content[6].text).to eq "Start date is not a valid datetime"
+  expect(content[7].text).to eq "Description can't be blank"
+  expect(content[8].text).to eq "End date can't be blank"
+  expect(content[9].text).to eq "Still employed can't be blank"
 end
 
 When("I click the back button") do
-  pending # Write code here that turns the phrase above into concrete actions
+  click_on("Back")
 end
 
 Then("I should not see a new item") do

@@ -17,15 +17,14 @@ Feature:  Employment History
   And I click the save button
   Then I am redirected to the employment show page
   And I see the employment was successfully created message
-  And I press the back button
+  And I click the back button
   And I see the employment page
   And I can see the new item
 
   Given I am on the employment page
   When I click the new employment button
-  And I enter no details
   And I click the save button
-  Then I see eleven error messages displayed
+  Then I see ten error messages displayed
 
   Given I have recieved error messages when creating a new employment item with invalid details
   When I click the back button
