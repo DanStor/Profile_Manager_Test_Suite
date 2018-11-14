@@ -11,6 +11,10 @@ class Generic
     visit("sections")
   end
 
+  def visitProfiles
+    visit("profiles")
+  end
+
   def clickOnNewSection
     visit("sections/new")
   end
@@ -19,15 +23,44 @@ class Generic
     fill_in("title", :with => text)
   end
 
-  def logInAsAdmin
-    fill_in("email", :with => "eng16admin@spartaglobal.com")
+  def logIn email
+    fill_in("email", :with => email)
     fill_in("password", :with => "Password123")
     click_on("submit")
   end
 
-  def checkIfTitlePresent
+  def checkIfTitleIsHobbies
     within(:css,".content-main") do
       find('p').text
     end
+  end
+
+  def saveNewSection
+    click_on("Save")
+  end
+
+  def deleteSection
+    click_on("Back")
+    click_on("Destroy")
+  end
+
+  def checkIfLinkCorrect linktext
+    if find('a', text: linktext, exact: true)
+      return true
+    else
+      return false
+    end
+  end
+
+  def openPDFOfProfile
+    click_on("PDF")
+  end
+
+  def checkIfPDF
+    # switch_to_window { title == 'SpartaProfiles' }
+    if !page.has_css?('toolbar')
+      return false
+    end
+    return true
   end
 end

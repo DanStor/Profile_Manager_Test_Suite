@@ -1,31 +1,36 @@
 Given("I am typing an entry") do
   generic.visitLoginPage
-  generic.logInAsAdmin
+  generic.logIn "eng16admin@spartaglobal.com"
+  expect(generic.checkIfLinkCorrect "Welcome , eng16 admin (Admin)").to eq true
   generic.visitSections
   generic.clickOnNewSection
 end
 
 When("I am typing an entry which is larger than the text field") do
   generic.inputTextinNewSection "Hobbies"
+  generic.saveNewSection
 end
 
 Then("I should be able to view the what I have typed") do
-  # expect(generic.checkIfTitlePresent).to eq true
-  # sleep 3
+  expect(generic.checkIfTitleIsHobbies).to eq "Title: Hobbies"
+  # generic.deleteSection
 end
 
-Given("I am logged in as a user") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I am logged in as a {string}") do |string|
+  generic.visitLoginPage
+  generic.logIn string
 end
 
-Given("I am on the profiles page") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I am on the page of profiles") do
+  generic.visitProfiles
 end
 
 When("I open PDF of the first profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  generic.openPDFOfProfile
 end
 
-Then("I should not see the PDF") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I should see the PDF") do
+  generic.checkIfPDF
+  expect(generic.checkIfPDF).to eq true
+  sleep 4
 end
