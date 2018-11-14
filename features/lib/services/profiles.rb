@@ -1,16 +1,21 @@
 require "capybara"
 
 class Profiles
+  include Capybara::DSL
 
   NEW_BUTTON_ID = 'new-button'
   SUMMARY_FIELD_ID = 'profile-form-summary'
-  STREAM_FIELD_ID = 'profile_stream'
+  STREAM_FIELD_ID = 'Stream'
   SELECT_TEAM = "profile_team"
   DEGREE_FIELD_ID = 'profile-form-degree'
   SAVE_BUTTON = 'save-button'
   NO_DEGREE_BUTTON = 'profile-form-no-degree'
   STATUS_PENDING = 'profile_status_pending'
   STATUS_DRAFT = 'profile_status_draft'
+
+  def visit_home
+    visit('/')
+  end
 
   def visit_profile_page
     visit('/profiles')
@@ -24,8 +29,12 @@ class Profiles
     fill_in(SUMMARY_FIELD_ID, with: summary)
   end
 
+  def get_summary_value
+    find_field(SUMMARY_FIELD_ID).value
+  end
+
   def select_stream
-    select('SDET', :from => STREAM_FIELD_ID)
+    select('BS Test Analyst', :from => STREAM_FIELD_ID)
   end
 
   def select_team
@@ -34,6 +43,10 @@ class Profiles
 
   def enter_degree degree
     fill_in(DEGREE_FIELD_ID, with: degree)
+  end
+
+  def get_degree_value
+    find_field(DEGREE_FIELD_ID).value
   end
 
   def click_on_modules
@@ -78,6 +91,10 @@ class Profiles
 
   def profile_link_available
     #need to add code for this
+  end
+
+  def summary_error_message
+    page.has_content?("Summary can't be blank")
   end
 
   def click_PDF_link

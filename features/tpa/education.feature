@@ -11,17 +11,19 @@ Feature: Education
     And I choose an end date
     And I fill in the description
     And I click on save
-    Then I should be able to see an eduction
+    Then I should be able to see an eduction was created
 
   @education
+  @education_add_to_profile
   Scenario: I should be able to add education to my profile
-    Given I am on the profiles page
-    When I click on edit
+    Given I go to the profiles page
+    When I click on edit a profile
     And I check the education box
     And I click on save
     Then I should be able to see the education on my profile
 
   @education
+  @education_edit
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
@@ -31,9 +33,18 @@ Feature: Education
     And I choose an end date
     And I fill in the description
     And I click on save
-    Then I should be able to see my education on my profile
+    Then I should be able to see an eduction was updated
 
   @education
+
+  Scenario: I should be able to cancel a delete of an education
+    Given I am on the education page
+    When I click on destroy
+    And I click cancel
+    Then the education should not be removed
+
+  @education
+  @education_destroy
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy
@@ -42,14 +53,7 @@ Feature: Education
     And a confirmation message should appear
 
   @education
-  Scenario: I should be able to cancel a delete of an education
-    Given I am on the education page
-    When I click on destroy
-    And I click cancel
-    Then the education should not be removed
-    And I should still be able to see the education
-
-  @education
+  @education_error
   Scenario: I should get an error
     Given I am on the education page
     When I click on add education
@@ -58,6 +62,7 @@ Feature: Education
     Then I should get 12 errors
 
   @education
+  @education_end_date
   Scenario: I shouldnt be able to enter an end date after the current day
     Given I am on the education page
     When I click on add education
@@ -69,6 +74,8 @@ Feature: Education
     And I click on save
     Then I should get an error about the end date
 
+  @education
+  @education_before_start
   Scenario: I shouldnt be able to enter an end date before the start date
     Given I am on the education page
     When I click on add education

@@ -1,5 +1,6 @@
 education_url = 'http://localhost:3000/educations'
 new_education_url = 'http://localhost:3000/educations/new'
+profiles_url = 'http://localhost:3000/profiles'
 valid_institution = 'Exeter University'
 valid_course = 'Engineering'
 valid_start_date = '01/09/2014'
@@ -7,7 +8,11 @@ expected_start_date = '2014-09-01'
 valid_end_date = '01/06/2018'
 expected_end_date = '2018-06-01'
 description = 'This is a description'
-success_notice = '*Education was successfully created.'
+success_notice_created = '*Education was successfully created.'
+success_notice_updated = '*Education was successfully updated.'
+success_notice_destroyed = '*Education was successfully destroyed.'
+end_after_current = '01/01/2020'
+end_before_start = '01/01/2001'
 
 Given("I am on the education page") do
   pm_education.visit_education_nav
@@ -41,79 +46,88 @@ end
 
 When("I fill in the description") do
   pm_education.enter_description description
-  # expect(pm_education.get_description_field).to eq description
 end
 
 When("I click on save") do
   pm_education.click_save_button
 end
 
-Then("I should be able to see an eduction") do
-  expect(pm_education.get_notice).to eq success_notice
+Then("I should be able to see an eduction was created") do
+  expect(pm_education.get_notice).to eq success_notice_created
 end
 
-When("I click on edit") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I go to the profiles page") do
+  pm_education.visit_profile_nav
+  expect(current_url).to eq profiles_url
+end
+
+When("I click on edit a profile") do
+  pm_education.click_edit
 end
 
 When("I check the education box") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.check_education_box valid_institution
+  expect(pm_education.get_selected_education valid_institution).to eq true
 end
 
 Then("I should be able to see the education on my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.find_education valid_institution).to eq true
 end
 
 When("I click on the name or the edit button") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.click_edit
 end
 
-Then("I should be able to see my education on my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I should be able to see an eduction was updated") do
+  expect(pm_education.get_notice).to eq success_notice_updated
 end
 
 When("I click on destroy") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.click_destroy
 end
 
 When("I click confirm") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.click_confirm
 end
 
 Then("the education should be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.education_list valid_institution).to be false
 end
 
 Then("a confirmation message should appear") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_notice).to eq success_notice_destroyed
 end
 
 When("I click cancel") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.click_cancel
 end
 
 Then("the education should not be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("I should still be able to see the education") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.education_list valid_institution).to eq true
 end
 
 When("I do not enter any details") do
-  pending # Write code here that turns the phrase above into concrete actions
+
 end
 
 Then("I should get {int} errors") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_errors).to eq int
 end
 
 When("I choose an end date after the current day") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_education.enter_end_date end_after_current
+end
+
+When("I choose an end date before the start date") do
+  pm_education.enter_end_date end_before_start
 end
 
 Then("I should get an error about the end date") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_errors).to eq 1
+end
+
+Then("I should get an errors about the start and end dates") do
+  expect(pm_education.get_errors).to eq 2
 end
 
 Then("the remaining characters should reduce") do
