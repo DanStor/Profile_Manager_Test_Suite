@@ -70,11 +70,16 @@ class Admin
     click_button('Confirm')
   end
 
-# Scenario 5
+  # Scenario 5
+  def confirm_admin_login
+    click_link('Welcome , eng16 admin (Admin)')
+  end
+
 
 
 # Scenario 10
   def drop_down_menu_status
     select('Draft', :from => 'status')
   end
+  
 end

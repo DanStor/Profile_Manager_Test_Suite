@@ -65,7 +65,7 @@ Given("that the user is logged in") do
 end
 #
 And("is an admin") do
-
+  expect(admin.confirm_admin_login).to eq 'Welcome , eng16 admin (Admin)'
 end
 #
 # When("navigating through the profile list") do
@@ -172,6 +172,7 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 #
+# ____ Scenario 10 ______
 # Given("has logged in on an admin account") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
@@ -193,7 +194,8 @@ end
 # tatus") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
-#
+
+#_____ Scenario 11 _____
 # Given("you are logged in as an admin") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
@@ -218,7 +220,8 @@ end
 # Then("new section is added") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
-#
+
+# ____ Scenario 12 _____
 # When("details have been left blank") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
@@ -227,6 +230,8 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 #
+
+# ____ I DONT EVEN KNOW ______
 # Given("that comments have been made to a users profile") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
