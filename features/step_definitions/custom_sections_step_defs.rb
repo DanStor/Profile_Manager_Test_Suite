@@ -1,13 +1,6 @@
 Given("I am on the custom page") do
   custom_section_page.visit_custom_section_page
-  # sleep 2
 end
-
-# When("I click a listed custom item") do
-#   custom_section_page.click_custom_section "hobbies"
-#   # sleep 2
-# end
-
 
 When("I click the new custom section button") do
   custom_section_page.click_new_custom_section
@@ -21,21 +14,16 @@ When("I add valid custom section details") do
   custom_section_page.input_title TITLE
   custom_section_page.input_heading HEADING
   custom_section_page.input_body BODY
-  # sleep 2
 end
 
 When("I press the save button") do
-  sleep 2
   custom_section_page.click_save
-  # sleep 2
 end
 
 Then("the newly made custom item is listed") do
-  # sleep 2
   expect(current_url).to eq 'http://localhost:3000/customs'
   expect(custom_section_page.find_custom_section TITLE).to be true
   expect(custom_section_page.find_notice_message).to eq  CUSTOM_CREATED_MESSAGE
-
 end
 
 Given("I am on the create new custom page") do
@@ -54,7 +42,6 @@ end
 
 When("I press the destroy button for a specific item") do
   custom_section_page.destroy_section TITLE
-  # sleep 2
 end
 
 When("I click the confirm button on the delete entry alert") do
@@ -62,7 +49,6 @@ When("I click the confirm button on the delete entry alert") do
 end
 
 Then("the custom was successfully destroyed message is displayed") do
-  sleep 3
   expect(custom_section_page.find_notice_message).to eq  DELETED_MESSAGE
 end
 

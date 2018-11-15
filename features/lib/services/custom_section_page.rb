@@ -33,7 +33,6 @@ class CustomSectionPage
     i=0
     while i<n do
       if titles[i].text == name
-        puts titles[i].text
         click_on(find("a[data-id=destroy-#{i/3}]").text)
         break
       end
@@ -65,5 +64,4 @@ class CustomSectionPage
   def click_save
     click_on('save-button')
   end
-
 end
