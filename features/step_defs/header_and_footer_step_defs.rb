@@ -41,7 +41,8 @@ end
 
 # Scenario 2
 Given("I am logged in") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page #Arun added for his tests to work
+  sign_in.sign_in_student #Arun added for his tests to work
 end
 
 When("I click the left top sparta sign") do
@@ -95,65 +96,65 @@ end
 
 # Scenario 8
 When("I click the certifications tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_certifications
 end
 
 Then("I am directed to the certifications page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/certifications'
 end
 
 # Scenario 9
 When("I click the customs section tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_customs_section
 end
 
 Then("I am directed to the customs section page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/customs'
 end
 
 # Scenario 10
 When("I click the welcome username tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_welcome_name
 end
 
 # Scenario 11
 When("I click the logout tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.log_out
 end
 
 Then("I am directed to the login page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/login'
 end
 
 # Scenario 12
 Given("I am on the page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page
 end
 
 When("I click on the bottom left sparta logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_sparta_logo
 end
 
 Then("I will be redirected to the sparta global site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'https://www.spartaglobal.com/'
 end
 
 # Scenario 13
 When("I click on the bottom instagram logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_instagram_logo
 end
 
 Then("I will be redirected to the sparta global instagram site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'https://www.instagram.com/spartaglobal/?hl=en'
 end
 
 # Scenario 14
 When("I click on the bottom twitter logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_twitter_logo
 end
 
 Then("I will be redirected to the sparta global twitter site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'https://twitter.com/spartaglobal?lang=en'
 end
 
 # Scenario 15
@@ -215,6 +216,6 @@ When("I click the bottom links") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
