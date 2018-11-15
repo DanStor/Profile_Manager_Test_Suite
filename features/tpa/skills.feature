@@ -22,5 +22,5 @@ Feature: Skills
     Given I am on the skills page
     When I click on create skill
     And I dont enter a skill
-    And I press save
+    And I press save skill
     Then the error should be displayed
