@@ -4,6 +4,7 @@ require_relative "services/skills.rb"
 require_relative "services/education.rb"
 require_relative "services/generic.rb"
 require_relative "services/comments.rb"
+require_relative "services/login.rb"
 
 
 module PMTesting
@@ -38,6 +39,10 @@ module PMTesting
 
   def comments
     Comments.new
+  end
+
+  def login
+    Login.new
   end
 
 end
