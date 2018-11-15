@@ -56,10 +56,10 @@ module PMTesting
 
   def employment
     Employment.new
+  end
 
   def login
     Login.new
-
   end
 
 end
