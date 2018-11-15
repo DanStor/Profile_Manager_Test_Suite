@@ -74,4 +74,63 @@ class Certifications
   def get_word_count
     find(:xpath, WORD_COUNT_DISPLAY_XPATH).text.split(": ").last
   end
+
+  def certificates_visible?
+    find('#certification-index-table').visible?
+  end
+
+  def click_title title
+    click_link(title)
+  end
+
+  def input_edit_title title
+    fill_in('title', :with => title)
+  end
+
+  def input_edit_description description
+    find(:xpath, DESCRIPTION_XPATH).set(description)
+  end
+
+  def click_last_edit
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit').click
+    end
+  end
+
+  def check_edit_title
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find('a', :text => /.*/).text
+    end
+  end
+
+  def check_edit_description
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find('div', :text => /.*/).text
+    end
+  end
+
+  def delete_certificate
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      click_link('Destroy')
+    end
+  end
+
+  def get_last_id
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit')[:id]
+    end
+  end
+
+  def click_confirm
+    click_button('Confirm')
+  end
+
+  def click_cancel
+    click_button('Cancel')
+  end
 end

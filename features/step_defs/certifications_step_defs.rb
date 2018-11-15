@@ -53,29 +53,47 @@ Then("the word count should increase") do
 end
 
 Then("I should be able to view certifications") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.certificates_visible?).to be true
 end
 
-When("I press the title of a specific certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I press edit for a specific certification") do
+  #Edit latest certificate
+  pm_certifications.click_last_edit
 end
 
 When("I edit the title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_edit_title @edit_title_text
 end
 
 When("I edit the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_edit_description @edit_description_text
 end
 
 Then("the changes should be reflected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.visit_certifications
+  expect(pm_certifications.check_edit_title).to eq @edit_title_text
+  # expect(pm_certifications.check_edit_description).to eq @edit_description_text
+  sleep 2
+  # Delete the certification
 end
 
 When("I press destroy for a single certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @last_id = pm_certifications.get_last_id
+  pm_certifications.delete_certificate
+end
+
+When("I press cancel") do
+  pm_certifications.click_cancel
+end
+
+When("I press confirm") do
+  pm_certifications.click_confirm
 end
 
 Then("the certification should be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_last_id).to_not eq @last_id
+end
+
+Then("the certification should not be removed") do
+  expect(pm_certifications.get_last_id).to eq @last_id
 end
