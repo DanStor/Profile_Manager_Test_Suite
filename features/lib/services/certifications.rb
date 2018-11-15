@@ -133,4 +133,5 @@ class Certifications
   def click_cancel
     click_button('Cancel')
   end
+  
 end
