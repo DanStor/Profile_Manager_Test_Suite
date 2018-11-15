@@ -1,15 +1,17 @@
-login_url = 'http://localhost:3000/login'
+index_url = 'http://localhost:3000/'
 profile_url = 'http://localhost:3000/profiles'
 new_profile_url = 'http://localhost:3000/profiles/new'
 form_summary = "This is a summary"
 form_degree = "Technical Consultant"
 stream_option = 'BS Test Analyst'
 saveButton = 'Save'
+profile_created = "*Profile was successfully created."
+profile_destroyed = "*Profile was successfully destroyed."
 
 Given("I am logged in as a Trainee or Admin") do
   pm_profiles.visit_home
   sign_in.sign_in_student
-  expect(current_url).to eq login_url
+  expect(current_url).to eq index_url
 end
 
 When("I am on the profile page") do
@@ -45,17 +47,19 @@ When("I click on modules") do
   pm_profiles.click_on_modules
 end
 
-When("I click save") do
+When("I click save on profiles") do
   pm_profiles.click_save_button
-  expect(pm_profiles.click_save_button).to eq saveButton
+  # expect(pm_profiles.click_save_button).to eq saveButton
 end
 
 Then("a profile should be created") do
-  pm_profiles.profile_created
+  # expect(current_url).to eq profile_url
+  pm_profiles.profile_created_message
 end
 
 When("I click on no degree") do
   pm_profiles.select_no_degree
+  # expect(pm_profiles.select_no_degree).have_checked_field 'profile-form-no-degree'
 end
 
 Then("it should say not applicable under university degree") do
@@ -71,7 +75,7 @@ When("I click the confirm button on the pop up") do
 end
 
 Then("I can no longer access the profile link") do
-  pm_profiles.profile_link_not_available
+  expect(pm_profiles.profile_link_not_available).to eq profile_destroyed
 end
 
 Then("A confirmation message will appear") do

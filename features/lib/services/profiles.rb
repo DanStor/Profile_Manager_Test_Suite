@@ -8,10 +8,14 @@ class Profiles
   STREAM_FIELD_ID = 'Stream'
   SELECT_TEAM = "profile_team"
   DEGREE_FIELD_ID = 'profile-form-degree'
+  MODULE_ID = "profile_section_ids_2"
   SAVE_BUTTON = 'save-button'
   NO_DEGREE_BUTTON = 'profile-form-no-degree'
   STATUS_PENDING = 'profile_status_pending'
   STATUS_DRAFT = 'profile_status_draft'
+  TEAM_LABEL = 'Team'
+
+
 
   def visit_home
     visit('/')
@@ -34,11 +38,12 @@ class Profiles
   end
 
   def select_stream
-    select('BS Test Analyst', :from => STREAM_FIELD_ID)
+    select('BS Test Analyst', :from => STREAM_FIELD_ID).text
   end
 
   def select_team
-    SELECT_TEAM.all(select())
+    teamArray = find('#profile_team').all('option').collect(&:text)
+    teamArray[-1]
   end
 
   def enter_degree degree
@@ -50,11 +55,15 @@ class Profiles
   end
 
   def click_on_modules
-    #need to create function for select a team
+    check(MODULE_ID)
   end
 
   def click_save_button
-    click_button(SAVE_BUTTON)
+    click_on(SAVE_BUTTON)
+  end
+
+  def profile_created_message
+    page.has_content?("*Profile was successfully created.")
   end
 
   def profile_created
@@ -78,7 +87,7 @@ class Profiles
   end
 
   def profile_link_not_available
-    #need to add code here
+    page.has_content?("*Profile was successfully destroyed.")
   end
 
   def delete_confirmation_message
