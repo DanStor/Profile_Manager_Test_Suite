@@ -56,34 +56,15 @@ end
 
 Then("I see ten error messages displayed") do
   content = find("#error_explanation").find_all("li")
-  expect(content[0].text).to eq "Company is too short (minimum is 1 character)"
-  expect(content[1].text).to eq "Company can't be blank"
-  expect(content[2].text).to eq "Role is too short (minimum is 1 character)"
-  expect(content[3].text).to eq "Role can't be blank"
-  expect(content[4].text).to eq "Start date can't be blank"
-  expect(content[5].text).to eq "Start date is not a valid date"
-  expect(content[6].text).to eq "Start date is not a valid datetime"
-  expect(content[7].text).to eq "Description can't be blank"
-  expect(content[8].text).to eq "End date can't be blank"
-  expect(content[9].text).to eq "Still employed can't be blank"
+  expect(employment.errorMessagesPresent? content, [0,1,2,3,4,5,6,7,8,9]).to eq true
 end
 
 Given("I have recieved error messages when creating a new employment item with invalid details") do
   visit("http://localhost:3000/employments/new")
-
   click_on("Save")
 
   content = find("#error_explanation").find_all("li")
-  expect(content[0].text).to eq "Company is too short (minimum is 1 character)"
-  expect(content[1].text).to eq "Company can't be blank"
-  expect(content[2].text).to eq "Role is too short (minimum is 1 character)"
-  expect(content[3].text).to eq "Role can't be blank"
-  expect(content[4].text).to eq "Start date can't be blank"
-  expect(content[5].text).to eq "Start date is not a valid date"
-  expect(content[6].text).to eq "Start date is not a valid datetime"
-  expect(content[7].text).to eq "Description can't be blank"
-  expect(content[8].text).to eq "End date can't be blank"
-  expect(content[9].text).to eq "Still employed can't be blank"
+  expect(employment.errorMessagesPresent? content, [0,1,2,3,4,5,6,7,8,9]).to eq true
 end
 
 When("I click the back button") do
@@ -120,9 +101,11 @@ Then("the targeted item remains on the employment page") do
 end
 
 Given("I am on the edit page for an employment item") do
-  visit("http://localhost:3000/employments/1/edit")
+  visit("http://localhost:3000/employments")
   sleep 2
-  expect(current_url).to eq "http://localhost:3000/employments/1/edit"
+  row = employment.getCompanyRowAndName
+  employment.clickRowEdit row
+  # expect(current_url).to eq "http://localhost:3000/employments/1/edit"
 end
 
 Then("I see the employment was successfully updated message") do

@@ -28,7 +28,7 @@ Before("@skills") do
   sleep 2
 end
 
-Before("@danRhys") do
+Before("@emp") do
   visit('/')
   sign_in.sign_in_student
   sleep 2
