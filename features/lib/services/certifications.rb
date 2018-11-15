@@ -112,6 +112,24 @@ class Certifications
   end
 
   def delete_certificate
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      click_link('Destroy')
+    end
+  end
 
+  def get_last_id
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit')[:id]
+    end
+  end
+
+  def click_confirm
+    click_button('Confirm')
+  end
+
+  def click_cancel
+    click_button('Cancel')
   end
 end

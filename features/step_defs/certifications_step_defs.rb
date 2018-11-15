@@ -86,11 +86,24 @@ Then("the changes should be reflected") do
 end
 
 When("I press destroy for a single certification") do
-  pm_delete_certificate
-  pending
+  @last_id = pm_certifications.get_last_id
+  pm_certifications.delete_certificate
+end
+
+When("I press confirm") do
+  pm_certifications.click_confirm
+end
+
+When("I press cancel") do
+  pm_certifications.click_cancel
 end
 
 Then("the certification should be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
-  # Check exists
+  #Press confirm
+  pm_certifications.click_confirm
+  expect(pm_certifications.get_last_id).to_not eq @last_id
+end
+
+Then("the certification should not be removed") do
+  expect(pm_certifications.get_last_id).to eq @last_id
 end
