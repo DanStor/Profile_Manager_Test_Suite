@@ -76,6 +76,10 @@ end
 
 When("I click on the name or the edit button") do
   pm_education.click_edit
+  expect(pm_education.get_institution_field).to eq valid_institution
+  expect(pm_education.get_course_field).to eq valid_course
+  expect(pm_education.get_start_date_field).to eq expected_start_date
+  expect(pm_education.get_end_date_field).to eq expected_end_date
 end
 
 Then("I should be able to see an eduction was updated") do
