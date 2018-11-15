@@ -1,87 +1,108 @@
 Given("I'm on the Certifications page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.visit_certifications
+  expect(current_url).to eq "http://localhost:3000/certifications"
 end
 
 When("I press new Certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.click_new_certification
 end
 
 When("I add a valid title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_valid_title
 end
 
 When("I add a valid description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_valid_description
 end
 
 When("I press save") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.click_save
 end
 
 Then("the certification is added") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_notice_text).to eq @certificate_added_message
 end
 
 When("I add an invalid title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_invalid_title
 end
 
 When("I add an invalid description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_invalid_description
+end
+
+When("I paste an invalid description") do
+  pm_certifications.paste_invalid
+end
+
+
+Then("too many words error is displayed") do
+  expect(pm_certifications.get_notice_text).to eq @too_many_words_error
 end
 
 Then("an error is displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.error?).to be true
 end
 
-When("I add an invalid description word count  greater than {int}") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I add an invalid title greater than {int} characters") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-When("I add some characters to the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I add some words to the description") do
+  pm_certifications.add_word 0
+  sleep 2
 end
 
 Then("the word count should decrease") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_word_count.to_i).to eq 99
 end
 
 When("I remove some words from the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.remove_word
 end
 
 Then("the word count should increase") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_word_count.to_i).to eq 100
 end
 
 Then("I should be able to view certifications") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.certificates_visible?).to be true
 end
 
-When("I press the title of a specific certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+When("I press edit for a specific certification") do
+  #Edit latest certificate
+  pm_certifications.click_last_edit
 end
 
 When("I edit the title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_edit_title @edit_title_text
 end
 
 When("I edit the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.input_edit_description @edit_description_text
 end
 
 Then("the changes should be reflected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.visit_certifications
+  expect(pm_certifications.check_edit_title).to eq @edit_title_text
+  # expect(pm_certifications.check_edit_description).to eq @edit_description_text
+  sleep 2
+  # Delete the certification
 end
 
 When("I press destroy for a single certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @last_id = pm_certifications.get_last_id
+  pm_certifications.delete_certificate
+end
+
+When("I press cancel") do
+  pm_certifications.click_cancel
+end
+
+When("I press confirm") do
+  pm_certifications.click_confirm
 end
 
 Then("the certification should be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.get_last_id).to_not eq @last_id
+end
+
+Then("the certification should not be removed") do
+  expect(pm_certifications.get_last_id).to eq @last_id
 end
