@@ -108,7 +108,11 @@ Then("the education should not be removed") do
 end
 
 When("I do not enter any details") do
-
+  expect(pm_education.get_institution_field).to eq ""
+  expect(pm_education.get_course_field).to eq ""
+  expect(pm_education.get_start_date_field).to eq ""
+  expect(pm_education.get_end_date_field).to eq ""
+  expect(pm_education.get_description_field).to eq ""
 end
 
 Then("I should get {int} errors") do |int|
