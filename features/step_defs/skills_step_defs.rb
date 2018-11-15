@@ -21,27 +21,32 @@ end
 
 # Scenario 2
 Given("I have created a skill") do
-  pending # Write code here that turns the phrase above into concrete actions
+
 end
 
 Given("I have a profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_profiles
+  pm_skills.click_new_profile
+  pm_skills.input_profile_details
+  pm_skills.click_save
+  sleep 4
 end
 
 Given("I am on the profiles page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_profiles
 end
 
 When("I edit my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_edit_profile
 end
 
 When("check the skill box") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_on_skill
+  pm_skills.click_save
 end
 
 Then("the skill should be added to my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_skills.expect_skill).to eq true
 end
 
 # Scenario 3
