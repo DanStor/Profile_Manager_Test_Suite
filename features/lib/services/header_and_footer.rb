@@ -4,11 +4,54 @@ class HeaderAndFooter
   include Capybara::DSL
 
   # Scenario 1
+  def log_in_page
+    visit('/login')
+  end
 
+  def sparta_global_sign
+    click_link('Sparta Global')
+  end
+
+  def click_profiles
+    click_link('Profiles')
+  end
+
+  def click_skills
+    click_link('Skills')
+  end
+
+  def click_projects
+    click_link('Projects')
+  end
+
+  def click_employment
+    click_link('Employment')
+  end
+
+  def click_education
+    click_link('Education')
+  end
+
+  def click_certifications
+    click_link('Certifications')
+  end
+
+  def click_custom_sections
+    click_link('Custom Sections')
+  end
+
+  def click_log_in
+    click_link('Login')
+  end
 
   # Scenario 2
+  def check_logged_in
+    page.has_content? ("Welcome , eng16 student")
+  end
 
-
+  def sparta_global_sign_click
+    page.has_content? ("Sparta Global")
+  end
   # Scenario 3
 
 
