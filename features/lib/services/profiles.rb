@@ -74,10 +74,6 @@ class Profiles
     page.has_content?("Not Applicable")
   end
 
-  def delete_profile_button
-    click_on('Delete')
-  end
-
   def confirm_delete_button
     click_on('Confirm')
   end
@@ -134,6 +130,20 @@ class Profiles
   def draft_status
     click_on("Back to Profiles")
     page.has_content?("Draft")
+  end
+
+  def delete_profile
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      click_link('Delete')
+    end
+  end
+
+  def get_last_id
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit')[:id]
+    end
   end
 
 end

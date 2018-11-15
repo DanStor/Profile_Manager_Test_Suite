@@ -67,7 +67,8 @@ Then("it should say not applicable under university degree") do
 end
 
 When("I click the delete button on a selected profile") do
-  pm_profiles.delete_profile_button
+  @last_id = pm_profiles.get_last_id
+  pm_profiles.delete_profile
 end
 
 When("I click the confirm button on the pop up") do
@@ -75,7 +76,7 @@ When("I click the confirm button on the pop up") do
 end
 
 Then("I can no longer access the profile link") do
-  expect(pm_profiles.profile_link_not_available).to be true
+  expect(pm_profiles.get_last_id).to_not eq @last_id
 end
 
 Then("A confirmation message will appear") do
@@ -87,7 +88,7 @@ When("I click the cancel button on the pop up") do
 end
 
 Then("I can still view the profile link on the profile page") do
-  pm_profiles.profile_link_available
+  expect(pm_profiles.get_last_id).to eq @last_id
 end
 
 When("I don't enter a summary") do
