@@ -72,4 +72,8 @@ class CustomSectionPage
   def check_dropdown name
     false
   end
+
+  def check_errors
+    puts all(:css, '#error_explanation li').length
+  end
 end

@@ -107,3 +107,7 @@ end
 Then("I should be taken to the corresponding show page for that custom item") do
   expect(current_url).to eq 'http://localhost:3000/customs/9'
 end
+
+Then("I should see three error messages") do
+  expect(custom_section_page.check_errors).to eq 3
+end

@@ -9,6 +9,12 @@ Feature: Custom Sections
   Given I am on the custom page
   When I click the new custom section button
   And I am taken to the the create new custom page
+  And I press the save button
+  Then I should see three error messages
+
+  Given I am on the custom page
+  When I click the new custom section button
+  And I am taken to the the create new custom page
   And I add valid custom section details
   And I press the save button
   Then the newly made custom item is listed
