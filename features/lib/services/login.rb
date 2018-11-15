@@ -32,4 +32,8 @@ class Login
     find(NOTICE_CLASS).text
   end
 
+  def click_profiles_nav
+    click_link('header-profiles')
+  end
+
 end
