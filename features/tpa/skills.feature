@@ -1,14 +1,14 @@
 Feature: Skills
 
-  @skills
+  @skills1
   Scenario: I should be able to add a skill
     Given I am on the skills page
     When I click on create skill
     And I enter a skill
-    And I press save
+    And I press save skill
     Then a skill should be created
 
-  @skills
+  @skills2
   Scenario: I should be able to add a skill to my profile
     Given I have created a skill
     And I have a profile
@@ -17,10 +17,25 @@ Feature: Skills
     And check the skill box
     Then the skill should be added to my profile
 
-  @skills
+  @skills3
   Scenario: I should get an error when I dont enter a skill
     Given I am on the skills page
     When I click on create skill
     And I dont enter a skill
     And I press save
     Then the error should be displayed
+
+  @skills4
+  Scenario: I am able to edit a skill
+    Given I am on the skills page
+    When I click the edit link
+    And edit some input details
+    And I press save skill
+    Then the skill is edited
+
+  @skills5
+  Scenario: I am able to delete a skill
+    Given I am on the skills page
+    When I click delete
+    And confirm delete
+    Then the skill is deleted

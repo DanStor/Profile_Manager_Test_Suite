@@ -83,6 +83,7 @@ Then("I should be able to see an eduction was updated") do
 end
 
 When("I click on destroy") do
+  @last_id = pm_education.get_last_id
   pm_education.click_destroy
 end
 
@@ -91,7 +92,7 @@ When("I click confirm") do
 end
 
 Then("the education should be removed") do
-  expect(pm_education.education_list valid_institution).to be false
+  expect(pm_education.get_last_id).to_not eq @last_id
 end
 
 Then("a confirmation message should appear") do
@@ -103,11 +104,15 @@ When("I click cancel") do
 end
 
 Then("the education should not be removed") do
-  expect(pm_education.education_list valid_institution).to eq true
+  expect(pm_education.get_last_id).to eq @last_id
 end
 
 When("I do not enter any details") do
-
+  expect(pm_education.get_institution_field).to eq ""
+  expect(pm_education.get_course_field).to eq ""
+  expect(pm_education.get_start_date_field).to eq ""
+  expect(pm_education.get_end_date_field).to eq ""
+  expect(pm_education.get_description_field).to eq ""
 end
 
 Then("I should get {int} errors") do |int|
@@ -130,6 +135,19 @@ Then("I should get an errors about the start and end dates") do
   expect(pm_education.get_errors).to eq 2
 end
 
+When("I press the backspace") do
+  @current_characters = pm_education.get_characters_remaining
+  pm_education.enter_institution :backspace
+end
+
 Then("the remaining characters should reduce") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_education.get_characters_remaining).to be < 100
+end
+
+Then("the remaining characters should increase") do
+  expect(pm_education.get_characters_remaining).to be > @current_characters
+end
+
+Then("the remaining words should reduce") do
+  expect(pm_education.get_words_remaining).to be < 100
 end

@@ -12,7 +12,7 @@ class Education
   end
 
   def enter_institution institution
-    fill_in(INSTITUTION_FIELD_ID, with: institution)
+    find_field(INSTITUTION_FIELD_ID).send_keys(institution)
   end
 
   def get_institution_field
@@ -44,7 +44,7 @@ class Education
   end
 
   def enter_description description
-    find(:xpath, DESCRIPTION_FIELD_XPATH).set(description)
+    find(:xpath, DESCRIPTION_FIELD_XPATH).send_keys(description)
 
   end
 
@@ -81,7 +81,10 @@ class Education
   end
 
   def click_destroy
-    click_link('Destroy')
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      click_link('Destroy')
+    end
   end
 
   def click_cancel
@@ -100,5 +103,18 @@ class Education
     find(ERRORS_ID).text.chars.first(2).join.to_i
   end
 
+  def get_characters_remaining
+    find(:xpath, INSTITUTION_CHAR_COUNT_XPATH).text.split(": ").last.to_i
+  end
 
+  def get_words_remaining
+    find(:xpath, DESCRIPTION_WORD_COUNT_XPATH).text.split(": ").last.to_i
+  end
+
+  def get_last_id
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit')[:id]
+    end
+  end
 end
