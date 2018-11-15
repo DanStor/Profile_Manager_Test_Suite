@@ -38,6 +38,24 @@ Before("@certification_view") do
   sleep 1
 end
 
+Before("@certification_edit") do
+  visit('/')
+  sign_in.sign_in_student
+
+  @certificate_added_message = "*Certification was successfully created."
+  @certificate_edit_message = " - edited"
+  sleep 1
+end
+
+Before("@certification_delete") do
+  visit('/')
+  sign_in.sign_in_student
+
+  @certificate_added_message = "*Certification was successfully created."
+  @certificate_edit_message = " - edited"
+  sleep 1
+end
+
 
 After("@certification") do
   sleep 2
