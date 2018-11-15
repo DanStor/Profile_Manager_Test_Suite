@@ -72,15 +72,20 @@ end
 
 # Scenario 5
 When("I click edit") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.click_edit_profile
 end
 
 When("I edit some details") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.edit_details
+  pm_projects.save
 end
 
 Then("the project should be edited") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_projects.check_if_project_added).to eq "*Project was successfully updated."
+  expect(pm_projects.get_title "PRINCE2").to eq true
+  expect(pm_projects.get_description "This is an edited description").to eq true
+  expect(pm_projects.get_startDate "2018-09-01").to eq true
+  expect(pm_projects.get_endDate "2018-10-01").to eq true
 end
 
 # Scenario 6

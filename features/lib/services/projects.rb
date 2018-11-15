@@ -47,6 +47,29 @@ class Projects
     click_link('Edit')
   end
 
+  def edit_details
+    fill_in("title", :with => "PRINCE2")
+    find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("This is an edited description")
+    fill_in("start-date", :with => "01/09/2018")
+    fill_in("end-date", :with => "01/10/2018")
+  end
+
+  def get_title word
+    find(:xpath, "/html/body/div/div[2]/p[1]").has_content?(word)
+  end
+
+  def get_description words
+    find(:xpath, "/html/body/div/div[2]/div").has_content?(words)
+  end
+
+  def get_startDate date
+    find(:xpath, "/html/body/div/div[2]/p[4]").has_content?(date)
+  end
+
+  def get_endDate date
+    find(:xpath, "/html/body/div/div[2]/p[5]").has_content?(date)
+  end
+
   def profile_checkbox
     check('profile_project_ids_1')
   end
