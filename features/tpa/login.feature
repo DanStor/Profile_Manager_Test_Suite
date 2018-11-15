@@ -31,3 +31,9 @@ Feature: Log in
     Given I am on the login page
     When I press submit
     Then I shouldn't be logged in and should get the error: your details are incorrect
+
+  @login_nav
+  Scenario: I shouldn't be able to go to the profiles page when I am not logged in
+    Given I am on the login page
+    When I click on the profiles nav
+    Then I should stay on the login page
