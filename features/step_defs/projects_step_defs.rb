@@ -71,10 +71,6 @@ Then("I should be presented with an error") do
 end
 
 # Scenario 5
-Given("I am on the projects page") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 When("I click edit") do
   pending # Write code here that turns the phrase above into concrete actions
 end
