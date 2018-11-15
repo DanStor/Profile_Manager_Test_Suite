@@ -73,7 +73,7 @@ Feature: Certifications
     Given I'm on the Certifications page
     Then I should be able to view certifications
 
-  @certification
+  @certification_edit
   Scenario: Editting Certifications
     Given I'm on the Certifications page
     When I press the title of a specific certification
@@ -82,8 +82,16 @@ Feature: Certifications
     And I press save
     Then the changes should be reflected
 
-  @certification
+  @certification_delete
   Scenario: Deleting Certifications
     Given I'm on the Certifications page
     When I press destroy for a single certification
+    When I press confirm
     Then the certification should be removed
+
+  @certification_delete
+  Scenario: Deleting Certifications
+    Given I'm on the Certifications page
+    When I press destroy for a single certification
+    When I press cancel
+    Then the certification should not be removed
