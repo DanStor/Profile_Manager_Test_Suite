@@ -59,15 +59,15 @@ end
 
 # Scenario 4
 When("I select an invalid start date") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.invalid_start_date
 end
 
 When("I select an invalid end date") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.invalid_end_date
 end
 
 Then("I should be presented with an error") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.invalid_start_date_error 
 end
 
 # Scenario 5
