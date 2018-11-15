@@ -61,7 +61,7 @@ Feature: Custom Sections
   | hobbies |
   | languages |
 
-  @wys
+  @dropdown
   Scenario: PM-134 Verify that the drop-down menu in the Custom Section shows ‘Hobbies’, ‘Volunteering’ and ‘Languages
 
   Given I am on the create new custom page
