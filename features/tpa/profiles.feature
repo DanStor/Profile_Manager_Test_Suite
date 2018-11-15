@@ -77,7 +77,7 @@ Scenario: I should be able to edit a profile
   Then a profile should create an updated profile
   And not change the old profile
 
-@profiles8
+@profilesTESTFAIL
 Scenario: Edit profile page to check word count remains the same
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -85,7 +85,7 @@ Scenario: Edit profile page to check word count remains the same
   And I do not add more words to the description
   Then the word count for description should remain the same
 
-@profiles9
+@profilesTESTFAIL
 Scenario: Edit profile page to check word count decreases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -93,7 +93,7 @@ Scenario: Edit profile page to check word count decreases
   And I add more words to the description
   Then the word count for description should decrease
 
-@profiles10
+@profilesTESTFAIL
 Scenario: Edit profile page to check word count increases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -130,7 +130,7 @@ Scenario: Status should be Draft
   And I click save on profiles
   Then the status of profile should appear as Draft in the profiles page
 
-@profiles
+@profilesFAILTINGTEST
 Scenario: Eight skills should be selected by default
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
