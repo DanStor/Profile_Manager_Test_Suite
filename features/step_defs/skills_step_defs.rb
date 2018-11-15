@@ -21,38 +21,90 @@ Then("a skill should be created") do
   expect(pm_skills.get_notice).to eq 'Skill was successfully created.'
 end
 
+<<<<<<< HEAD
+When("I click on create skill") do
+
+=======
 # Scenario 2
 Given("I have created a skill") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.visit_homepage
+  sign_in.sign_in_student
 end
 
 Given("I have a profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_profiles
+  pm_skills.click_new_profile
+  pm_skills.input_profile_details
+  pm_skills.click_save
 end
 
-Given("I am on the profiles page") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I am on the profiles page for skill") do
+  pm_skills.click_profiles
 end
 
 When("I edit my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_edit_profile
 end
 
 When("check the skill box") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.click_on_skill
+  pm_skills.click_save
+>>>>>>> 2c6c4f0391ba8959e98894de1b65aed5d506c0aa
 end
+#
+# When("I enter a skill") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# When("I press save skill") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("a skill should be created") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# # Scenario 2
+# Given("I have created a skill") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Given("I have a profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Given("I am on the profiles page") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# When("I edit my profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# When("check the skill box") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("the skill should be added to my profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-Then("the skill should be added to my profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
+<<<<<<< HEAD
 # Scenario 3
+When ("I click on create a skill") do
+  pm_skills.create_skill
+=======
+Then("the skill should be added to my profile") do
+  expect(pm_skills.expect_skill).to eq true
+>>>>>>> 2c6c4f0391ba8959e98894de1b65aed5d506c0aa
+end
+
 When("I dont enter a skill") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.input_blank_skill
 end
 
 Then("the error should be displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_skills.empty_skill_error
 end
 
 # Scenario 4
