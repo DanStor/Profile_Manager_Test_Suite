@@ -85,9 +85,24 @@ end
 
 # Scenario 6
 When("I click destroy") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_projects.delete_project_button
+  sleep 1
+end
+
+When("I click confirmed") do
+  pm_projects.confirm_delete
 end
 
 Then("the project should be destroyed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_projects.check_if_project_added).to eq '*Project was successfully destroyed.'
+  sleep 2
+end
+
+# Scenario 7
+When("I clicked cancel") do
+  pm_projects.confirm_delete_cancel
+end
+
+Then("the project should not be destroyed") do
+  expect(pm_projects.see_if_notice_is_on_page).to be true
 end

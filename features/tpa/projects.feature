@@ -48,5 +48,12 @@ Feature: Projects
     Scenario: I can destroy a project
     Given I am on the projects pages
     When I click destroy
-    And I click confirm
+    And I click confirmed
     Then the project should be destroyed
+
+  @projects7
+    Scenario: I can cancell destroying a project
+    Given I am on the projects pages
+    When I click destroy
+    And I clicked cancel
+    Then the project should not be destroyed

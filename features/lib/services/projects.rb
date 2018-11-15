@@ -51,4 +51,25 @@ class Projects
     check('profile_project_ids_1')
   end
 
+  def delete_project_button
+    click_link('Destroy')
+  end
+
+  def confirm_delete
+    click_button('Confirm')
+  end
+
+  def confirm_delete_cancel
+    click_button('Cancel')
+  end
+
+  def see_if_notice_is_on_page
+    foo = find('.notice').text
+    if foo == ""
+      return true
+    else
+      return false
+    end
+  end
+
 end
