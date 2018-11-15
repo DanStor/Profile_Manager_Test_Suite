@@ -29,31 +29,54 @@ class Skills
   end
 
   # Scenario 2
+  def visit_login
+    visit("http://localhost:3000/login")
+  end
 
+  def click_skills
+    click_on('Skills')
+  end
+
+  def click_profiles
+    click_on("Profiles")
+  end
+
+  def click_new_profile
+    click_on("Create a profile")
+  end
+
+  def input_profile_details
+    fill_in("profile-form-summary", :with => "Mock Profile")
+    fill_in("profile-form-degree", :with => "Computing")
+    find(:css, "#profile_section_ids_3").set(true)
+  end
+
+  def click_save
+    find(:xpath, "//*[@id='save-button']").click
+  end
+
+  def click_edit_profile
+    click_on("Edit")
+  end
+
+  def click_on_skill
+    find('label', text: 'Team Leader').click
+  end
+
+  def expect_skill
+    has_content?("Team Leader")
+  end
 
   # Scenario 3
-
-
-
-
-
-
-
-
-  # Scenario 4
-  def click_edit
-    click_link('Edit')
+  def create_skill
+      click_link('Create Skill')
   end
 
-  def fill_in_skill_edited
-    fill_in('skill[skills]', :with => 'Team Leader Edited')
-  end
-  # Scenario 5
-  def delete_skill_button
-    click_link('Destroy')
+  def input_blank_skill
+    click_button('save-button')
   end
 
-  def confirm_delete
-    click_button('Confirm')
+  def empty_skill_error
+    page.has_content? ('2 errors prohibited this skill from being saved:')
   end
 end
