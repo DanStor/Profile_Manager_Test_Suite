@@ -97,7 +97,7 @@ Before("@skills") do
   sleep 2
 end
 
-<<<<<<< HEAD
+
 Before('@all') do
   visit('/')
   fill_in('email', :with => 'eng16student@spartaglobal.com')
@@ -110,7 +110,8 @@ Before('@valid_custom_form') do
   HEADING = "Charity"
   BODY = "I was doing some charity work bro"
   CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
-=======
+end
+
 Before("@education_requires_created") do
   valid_institution = 'Exeter University'
   valid_course = 'Engineering'
@@ -157,5 +158,5 @@ Before('@login') do
   SUBMIT_BUTTON_ID = 'submit'
   WELCOME_XPATH = '/html/body/div/nav/ul/li[1]/a'
   NOTICE_CLASS = '.notice'
->>>>>>> tompindarobin
+
 end
