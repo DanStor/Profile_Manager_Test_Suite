@@ -26,7 +26,7 @@ Scenario: I should be able to check no degree
   Then a profile should be created
   And it should say not applicable under university degree
 
-@profiles
+@profiles3
 Scenario: Deleting a profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -35,7 +35,7 @@ Scenario: Deleting a profile
   Then I can no longer access the profile link
   And A confirmation message will appear
 
-@profiles
+@profiles4
 Scenario: Deleting a profile and aborting deletion
   Given I am logged in as a Trainee or Admin
   When I am on the profile page

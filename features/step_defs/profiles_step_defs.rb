@@ -75,7 +75,7 @@ When("I click the confirm button on the pop up") do
 end
 
 Then("I can no longer access the profile link") do
-  expect(pm_profiles.profile_link_not_available).to eq profile_destroyed
+  expect(pm_profiles.profile_link_not_available).to be true
 end
 
 Then("A confirmation message will appear") do
