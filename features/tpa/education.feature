@@ -114,3 +114,12 @@ Feature: Education
     When I click on add education
     And I fill in the description
     Then the remaining words should reduce
+
+  @education
+  @education_requires_created
+  @education_delete_education
+  @education_show
+  Scenario: I should be able to go to the view page for the education
+    Given I am on the education page
+    When I click on the name
+    Then I should be taken to the show page

@@ -155,3 +155,12 @@ end
 Then("the remaining words should reduce") do
   expect(pm_education.get_words_remaining).to be < 100
 end
+
+When("I click on the name") do
+  @last_id = pm_education.get_last_id.chars.last(2).join.to_i
+  pm_education.click_name
+end
+
+Then("I should be taken to the show page") do
+  expect(current_url).to eq "http://localhost:3000/educations/#{@last_id}"
+end
