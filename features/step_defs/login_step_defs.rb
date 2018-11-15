@@ -48,3 +48,11 @@ end
 Then("I shouldn't be logged in and should get the error: your details are incorrect") do
   expect(login.get_errors).to eq error_message
 end
+
+When("I click on the profiles nav") do
+  login.click_profiles_nav
+end
+
+Then("I should stay on the login page") do
+  expect(current_url).to eq login_url
+end

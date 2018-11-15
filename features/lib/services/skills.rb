@@ -69,4 +69,27 @@ class Skills
 
   # Scenario 3
 
+
+
+
+
+
+
+
+  # Scenario 4
+  def click_edit
+    click_link('Edit')
+  end
+
+  def fill_in_skill_edited
+    fill_in('skill[skills]', :with => 'Team Leader Edited')
+  end
+  # Scenario 5
+  def delete_skill_button
+    click_link('Destroy')
+  end
+
+  def confirm_delete
+    click_button('Confirm')
+  end
 end

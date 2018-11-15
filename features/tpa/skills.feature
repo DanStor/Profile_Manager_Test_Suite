@@ -24,3 +24,18 @@ Feature: Skills
     And I dont enter a skill
     And I press save
     Then the error should be displayed
+
+  @skills4
+  Scenario: I am able to edit a skill
+    Given I am on the skills page
+    When I click the edit link
+    And edit some input details
+    And I press save skill
+    Then the skill is edited
+
+  @skills5
+  Scenario: I am able to delete a skill
+    Given I am on the skills page
+    When I click delete
+    And confirm delete
+    Then the skill is deleted

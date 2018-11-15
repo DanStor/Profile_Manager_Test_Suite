@@ -59,3 +59,31 @@ end
 Then("the error should be displayed") do
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+# Scenario 4
+When("I click the edit link") do
+  pm_skills.click_edit
+end
+
+When("edit some input details") do
+  pm_skills.fill_in_skill_edited
+end
+
+Then("the skill is edited") do
+  expect(pm_skills.get_notice).to eq 'Skill was successfully updated.'
+  sleep 3
+end
+
+# Scenario 5
+When("I click delete") do
+pm_skills.delete_skill_button
+end
+
+When("confirm delete") do
+pm_skills.confirm_delete
+sleep 2
+end
+
+Then("the skill is deleted") do
+  expect(pm_skills.get_notice).to eq 'Skill was successfully destroyed.'
+end
