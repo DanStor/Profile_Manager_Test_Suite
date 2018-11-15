@@ -65,7 +65,7 @@ Scenario: I should be shown an error message when I don't enter a degree
   And I click save on profiles
   Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 1 characters)
 
-@profiles
+@profiles7
 Scenario: I should be able to edit a profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -77,7 +77,7 @@ Scenario: I should be able to edit a profile
   Then a profile should create an updated profile
   And not change the old profile
 
-@profiles
+@profiles8
 Scenario: Edit profile page to check word count remains the same
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -85,7 +85,7 @@ Scenario: Edit profile page to check word count remains the same
   And I do not add more words to the description
   Then the word count for description should remain the same
 
-@profiles
+@profiles9
 Scenario: Edit profile page to check word count decreases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -93,7 +93,7 @@ Scenario: Edit profile page to check word count decreases
   And I add more words to the description
   Then the word count for description should decrease
 
-@profiles
+@profiles10
 Scenario: Edit profile page to check word count increases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -101,14 +101,14 @@ Scenario: Edit profile page to check word count increases
   And I take some words out from the description
   Then the word count for description should increase
 
-@profiles
+@profiles11
 Scenario: I should be able to view as a pdf
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
   And I click on pdf
   Then I should be taken to the pdf of the profile
 
-@profiles
+@profiles12
 Scenario: Status should be pending
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -119,7 +119,7 @@ Scenario: Status should be pending
   And  I click save on profiles
   Then the status of profile should appear as pending in the profiles page
 
-@profiles
+@profiles13
 Scenario: Status should be Draft
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
