@@ -35,7 +35,6 @@ Feature: Projects
     And I select an invalid start date
     And I select an invalid end date
     And I clicked save
-    And I clicked save
     Then I should be presented with an error
 
   @projects5
