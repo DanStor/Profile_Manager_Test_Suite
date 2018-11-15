@@ -9,8 +9,16 @@ Feature: Custom Sections
   Given I am on the custom page
   When I click the new custom section button
   And I am taken to the the create new custom page
+  And I input a valid title
   And I press the save button
-  Then I should see three error messages
+  Then I should see one error messages
+
+  Given I am on the custom page
+  When I click the new custom section button
+  And I am taken to the the create new custom page
+  And I input a valid body
+  And I press the save button
+  Then I should see two error messages
 
   Given I am on the custom page
   When I click the new custom section button

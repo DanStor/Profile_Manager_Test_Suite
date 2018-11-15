@@ -74,6 +74,10 @@ class CustomSectionPage
   end
 
   def check_errors
-    puts all(:css, '#error_explanation li').length
+    all(:css, '#error_explanation li').length
+  end
+
+  def check_error_message i
+    all(:css, '#error_explanation li')[i].text
   end
 end

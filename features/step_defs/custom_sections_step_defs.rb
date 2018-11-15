@@ -108,6 +108,21 @@ Then("I should be taken to the corresponding show page for that custom item") do
   expect(current_url).to eq 'http://localhost:3000/customs/9'
 end
 
-Then("I should see three error messages") do
-  expect(custom_section_page.check_errors).to eq 3
+When("I input a valid title") do
+  custom_section_page.input_title "Title for Testing"
+end
+
+Then("I should see one error messages") do
+  expect(custom_section_page.check_errors).to eq 1
+  expect(custom_section_page.check_error_message 0).to eq "Body can't be blank"
+end
+
+When("I input a valid body") do
+  custom_section_page.input_body "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+end
+
+Then("I should see two error messages") do
+  expect(custom_section_page.check_errors).to eq 2
+  expect(custom_section_page.check_error_message 0).to eq "Title can't be blank"
+  expect(custom_section_page.check_error_message 1).to eq "Title is too short (minimum is 1 character)"
 end
