@@ -2,6 +2,7 @@ Feature: Education
 
   @education
   @education_add
+  @education_delete_education
   Scenario: I should be able to add an education
     Given I am on the education page
     When I click on add education
@@ -16,6 +17,7 @@ Feature: Education
   @education
   @education_add_to_profile
   @education_requires_created
+  @education_delete_education
   Scenario: I should be able to add education to my profile
     Given I go to the profiles page
     When I click on edit a profile
@@ -26,6 +28,7 @@ Feature: Education
   @education
   @education_edit
   @education_requires_created
+  @education_delete_education
   Scenario: I should be able to edit education
     Given I am on the education page
     When I click on the name or the edit button
@@ -34,6 +37,7 @@ Feature: Education
 
   @education
   @education_requires_created
+  @education_delete_education
   Scenario: I should be able to cancel a delete of an education
     Given I am on the education page
     When I click on destroy
@@ -43,6 +47,7 @@ Feature: Education
   @education
   @education_destroy
   @education_requires_created
+  @education_delete_education
   Scenario: I should be able to delete an education
     Given I am on the education page
     When I click on destroy

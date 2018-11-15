@@ -12,7 +12,7 @@ Feature: Skills
   Scenario: I should be able to add a skill to my profile
     Given I have created a skill
     And I have a profile
-    And I am on the profiles page
+    And I am on the profiles page for skill
     When I edit my profile
     And check the skill box
     Then the skill should be added to my profile

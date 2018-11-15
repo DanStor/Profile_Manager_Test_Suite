@@ -4,7 +4,29 @@ class Skills
   include Capybara::DSL
 
   # Scenario 1
+  def visit_homepage
+    visit('/')
+  end
 
+  def click_skills_tab
+    click_link('Skills')
+  end
+
+  def create_new_skill
+    click_link('Create Skill')
+  end
+
+  def fill_in_skill
+    fill_in('skill[skills]', :with => 'Team Leader')
+  end
+
+  def click_save
+    click_on('Save')
+  end
+
+  def get_notice
+    find('.notice').text
+  end
 
   # Scenario 2
   def visit_login
@@ -38,11 +60,11 @@ class Skills
   end
 
   def click_on_skill
-    find("Java").click
+    find('label', text: 'Team Leader').click
   end
 
   def expect_skill
-    has_content?("Java")
+    has_content?("Team Leader")
   end
 
   # Scenario 3
