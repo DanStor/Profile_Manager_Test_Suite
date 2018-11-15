@@ -100,21 +100,22 @@ end
 When("I don't enter a degree") do
 end
 
-Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
+#   pm_profiles.degree_error_mesaage
+#   pm_profiles.degree_short_error_mesaage
+# end
 
-When("I click the edit button on a selected profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("a profile should create an updated profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("not change the old profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I click the edit button on a selected profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("a profile should create an updated profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("not change the old profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 # When("I do not add more words to the description") do
 #   pending # Write code here that turns the phrase above into concrete actions
@@ -153,7 +154,7 @@ When("I select Pending radio button from the Status options") do
 end
 
 Then("the status of profile should appear as pending in the profiles page") do
-  pm_profiles.pending_status
+  expect(pm_profiles.pending_status).to be true
 end
 
 When("I select Draft radio button from the Status options") do
@@ -161,7 +162,7 @@ When("I select Draft radio button from the Status options") do
 end
 
 Then("the status of profile should appear as Draft in the profiles page") do
-  pm_profiles.draft_status
+  expect(pm_profiles.draft_status).to be true
 end
 
 Then("{int} skills should be selected") do |int|

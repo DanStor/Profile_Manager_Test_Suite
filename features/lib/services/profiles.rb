@@ -106,6 +106,10 @@ class Profiles
     page.has_content?("Degree can't be blank")
   end
 
+  def degree_short_error_mesaage
+    page.has_content?("Degree is too short (minimum is 1 character)")
+  end
+
   def click_PDF_link
     click_link('PDF')
   end
@@ -119,6 +123,7 @@ class Profiles
   end
 
   def pending_status
+    click_on("Back to Profiles")
     page.has_content?("Pending")
   end
 
@@ -127,6 +132,7 @@ class Profiles
   end
 
   def draft_status
+    click_on("Back to Profiles")
     page.has_content?("Draft")
   end
 

@@ -120,4 +120,12 @@ class Education
       find_link('Edit')[:id]
     end
   end
+
+  def click_name
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      name = all('a')[0].text
+      click_link(name)
+    end
+  end
 end
