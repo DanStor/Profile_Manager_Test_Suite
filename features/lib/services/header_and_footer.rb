@@ -46,7 +46,16 @@ class HeaderAndFooter
 
 
   # Scenario 15
+  def visit_website
+    visit("http://localhost:3000")
+  end
 
+  def click_linkedin
+    find(:xpath, "/html/body/footer/div/div[3]/div/a[3]/i").click
+    within_window(switch_to_window(windows.last)) do
+      puts current_url
+    end
+  end
 
   # Scenario 16
 

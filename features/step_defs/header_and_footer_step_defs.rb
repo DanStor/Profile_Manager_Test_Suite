@@ -1,6 +1,5 @@
 # Scenario 1
 Given("I am not logged in") do
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
 When("I click on the left sparta sign") do
@@ -127,7 +126,7 @@ end
 
 # Scenario 12
 Given("I am on the page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.visit_website
 end
 
 When("I click on the bottom left sparta logo") do
@@ -158,11 +157,11 @@ end
 
 # Scenario 15
 When("I click on the bottom linkedin logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_linkedin
 end
 
 Then("I will be redirected to the sparta global linkedin site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to include "https://www.linkedin.com"
 end
 
 # Scenario 16
@@ -215,6 +214,6 @@ When("I click the bottom links") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
