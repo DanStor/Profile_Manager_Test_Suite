@@ -86,9 +86,9 @@ When("I click the cancel button on the pop up") do
   pm_profiles.click_cancel_button
 end
 
-# Then("I can still view the profile link on the profile page") do
-#   pm_profiles.profile_link_available
-# end
+Then("I can still view the profile link on the profile page") do
+  pm_profiles.profile_link_available
+end
 
 When("I don't enter a summary") do
 end
