@@ -53,29 +53,57 @@ Then("the word count should increase") do
 end
 
 Then("I should be able to view certifications") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_certifications.certificates_visible?).to be true
 end
 
 When("I press the title of a specific certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+  #Add certification
+  pm_certifications.click_new_certification
+  pm_certifications.input_edit_title "A TITLE"
+  pm_certifications.input_edit_description "A DESCRIPTION"
+  pm_certifications.click_save
+  pm_certifications.visit_certifications
+  #Do the when
+  pm_certifications.click_title "A TITLE"
+  #Remove certification
+  # pm_certification.delete_certification ""
 end
 
 When("I edit the title") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.edit_title
 end
 
 When("I edit the description") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.edit_description
 end
 
 Then("the changes should be reflected") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pm_certifications.visit_certifications
+  expect(pm_certifications.check_edit_title).to eq @certificate_edit_message
+  expect(pm_certifications.check_edit_description).to eq @certificate_edit_message
+  sleep 2
+  # Delete the certification
 end
 
 When("I press destroy for a single certification") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @last_id = pm_certifications.get_last_id
+  pm_certifications.delete_certificate
+end
+
+When("I press confirm") do
+  pm_certifications.click_confirm
+end
+
+When("I press cancel") do
+  pm_certifications.click_cancel
 end
 
 Then("the certification should be removed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  #Press confirm
+  pm_certifications.click_confirm
+  expect(pm_certifications.get_last_id).to_not eq @last_id
+end
+
+Then("the certification should not be removed") do
+  expect(pm_certifications.get_last_id).to eq @last_id
 end
