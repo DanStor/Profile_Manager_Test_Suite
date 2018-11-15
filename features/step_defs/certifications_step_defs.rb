@@ -56,31 +56,23 @@ Then("I should be able to view certifications") do
   expect(pm_certifications.certificates_visible?).to be true
 end
 
-When("I press the title of a specific certification") do
-  #Add certification
-  pm_certifications.click_new_certification
-  pm_certifications.input_edit_title "A TITLE"
-  pm_certifications.input_edit_description "A DESCRIPTION"
-  pm_certifications.click_save
-  pm_certifications.visit_certifications
-  #Do the when
-  pm_certifications.click_title "A TITLE"
-  #Remove certification
-  # pm_certification.delete_certification ""
+When("I press edit for a specific certification") do
+  #Edit latest certificate
+  pm_certifications.click_last_edit
 end
 
 When("I edit the title") do
-  pm_certifications.edit_title
+  pm_certifications.input_edit_title @edit_title_text
 end
 
 When("I edit the description") do
-  pm_certifications.edit_description
+  pm_certifications.input_edit_description @edit_description_text
 end
 
 Then("the changes should be reflected") do
   pm_certifications.visit_certifications
-  expect(pm_certifications.check_edit_title).to eq @certificate_edit_message
-  expect(pm_certifications.check_edit_description).to eq @certificate_edit_message
+  expect(pm_certifications.check_edit_title).to eq @edit_title_text
+  # expect(pm_certifications.check_edit_description).to eq @edit_description_text
   sleep 2
   # Delete the certification
 end

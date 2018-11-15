@@ -76,7 +76,7 @@ Feature: Certifications
   @certification_edit
   Scenario: Editting Certifications
     Given I'm on the Certifications page
-    When I press the title of a specific certification
+    When I press edit for a specific certification
     And I edit the title
     And I edit the description
     And I press save

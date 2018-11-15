@@ -83,14 +83,6 @@ class Certifications
     click_link(title)
   end
 
-  def edit_title
-    fill_in('title', :with => " - edited")
-  end
-
-  def edit_description
-    find(:xpath, DESCRIPTION_XPATH).set(" - edited")
-  end
-
   def input_edit_title title
     fill_in('title', :with => title)
   end
@@ -99,15 +91,24 @@ class Certifications
     find(:xpath, DESCRIPTION_XPATH).set(description)
   end
 
+  def click_last_edit
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find_link('Edit').click
+    end
+  end
+
   def check_edit_title
-    within(:css, 'td') do
-      find('a', :text => " - edited").value
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find('a', :text => /.*/).text
     end
   end
 
   def check_edit_description
-    within(:css, '#description') do
-      find('div', :text => " - edited").text
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find('div', :text => /.*/).text
     end
   end
 

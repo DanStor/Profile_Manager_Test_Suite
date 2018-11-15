@@ -43,7 +43,10 @@ Before("@certification_edit") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  @certificate_edit_message = " - edited"
+
+  @edit_title_text = "TITLE EDITED"
+  @edit_description_text = "DESCRIPTION EDITED"
+  
   sleep 1
 end
 
@@ -52,7 +55,6 @@ Before("@certification_delete") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  @certificate_edit_message = " - edited"
   sleep 1
 end
 
