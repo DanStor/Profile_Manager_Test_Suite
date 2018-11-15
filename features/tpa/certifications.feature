@@ -14,6 +14,7 @@ Feature: Certifications
     Then the certification is added
 
   # All details invalid
+  @certification
   @certification_invalid_description
   Scenario: Adding Certifications with invalid details
     Given I'm on the Certifications page
@@ -32,11 +33,22 @@ Feature: Certifications
 
   # Only invalid description
   @certification
+  @certification_invalid_description
   Scenario: Adding Certifications with invalid description length
     Given I'm on the Certifications page
     When I press new Certification
     And I add a valid title
     And I add an invalid description
+    Then too many words error is displayed
+
+  # Only invalid description paste
+  @certification
+  @certification_invalid_description
+  Scenario: Adding Certifications with invalid description length pasted into the text box
+    Given I'm on the Certifications page
+    When I press new Certification
+    And I add a valid title
+    And I paste an invalid description
     Then too many words error is displayed
 
   #Only invalid title

@@ -13,13 +13,7 @@ Before("@certification") do
 end
 
 Before("@certification_invalid_description") do
-  visit('/')
-  sign_in.sign_in_student
 
-  @certificate_added_message = "*Certification was successfully created."
-
-  @too_many_words_error = "Too many words"
-  sleep 1
 end
 
 Before("@certification_word_count_decrease") do

@@ -133,5 +133,13 @@ class Certifications
   def click_cancel
     click_button('Cancel')
   end
-  
+
+  def paste_invalid
+
+    text_to_set = INVALID_DESCRIPTION
+
+    element = find(:xpath, DESCRIPTION_XPATH) # however you locate the element
+    execute_script('arguments[0].value = arguments[1]', element, text_to_set)
+  end
+
 end
