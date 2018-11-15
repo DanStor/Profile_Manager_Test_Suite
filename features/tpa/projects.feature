@@ -39,14 +39,14 @@ Feature: Projects
 
   @projects5
     Scenario: I can edit a project
-    Given I am on the projects page
+    Given I am on the projects pages
     When I click edit
     And I edit some details
     Then the project should be edited
 
   @projects6
     Scenario: I can destroy a project
-    Given I am on the projects page
+    Given I am on the projects pages
     When I click destroy
     And I click confirm
     Then the project should be destroyed
