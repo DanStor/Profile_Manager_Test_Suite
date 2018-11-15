@@ -74,4 +74,41 @@ class Projects
     check('profile_project_ids_1')
   end
 
+  def invalid_start_date
+    fill_in('start-date', with: '01/10/2014')
+  end
+
+  def invalid_end_date
+    fill_in('start-date', with:  '01/09/2014')
+  end
+
+  def invalid_start_date_error
+    page.has_content?('Start date must be before 2014-09-01 00:00:00')
+  end
+
+  def invalid_end_date_error
+    page.has_content?('End date must be after 2014-10-01 00:00:00')
+  end
+
+  def delete_project_button
+    click_link('Destroy')
+  end
+
+  def confirm_delete
+    click_button('Confirm')
+  end
+
+  def confirm_delete_cancel
+    click_button('Cancel')
+  end
+
+  def see_if_notice_is_on_page
+    foo = find('.notice').text
+    if foo == ""
+      return true
+    else
+      return false
+    end
+  end
+
 end
