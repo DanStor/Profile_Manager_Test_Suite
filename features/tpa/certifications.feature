@@ -14,14 +14,13 @@ Feature: Certifications
     Then the certification is added
 
   # All details invalid
-  @certification
+  @certification_invalid_description
   Scenario: Adding Certifications with invalid details
     Given I'm on the Certifications page
     When I press new Certification
     And I add an invalid title
     And I add an invalid description
-    And I press save
-    Then an error is displayed
+    Then too many words error is displayed
 
   # No details added
   @certification
@@ -38,8 +37,7 @@ Feature: Certifications
     When I press new Certification
     And I add a valid title
     And I add an invalid description
-    And I press save
-    Then an error is displayed
+    Then too many words error is displayed
 
   #Only invalid title
   @certification
@@ -82,14 +80,14 @@ Feature: Certifications
     And I press save
     Then the changes should be reflected
 
-  @certification_delete
+  @certification
   Scenario: Deleting Certifications then cancel
   Given I'm on the Certifications page
   When I press destroy for a single certification
   When I press cancel
   Then the certification should not be removed
 
-  @certification_delete
+  @certification
   Scenario: Deleting Certifications and confirm
     Given I'm on the Certifications page
     When I press destroy for a single certification

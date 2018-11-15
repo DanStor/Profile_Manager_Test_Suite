@@ -75,7 +75,7 @@ When("I click the confirm button on the pop up") do
 end
 
 Then("I can no longer access the profile link") do
-  expect(pm_profiles.profile_link_not_available).to eq profile_destroyed
+  expect(pm_profiles.profile_link_not_available).to be true
 end
 
 Then("A confirmation message will appear") do
@@ -86,37 +86,36 @@ When("I click the cancel button on the pop up") do
   pm_profiles.click_cancel_button
 end
 
-Then("I can still view the profile link on the profile page") do
-  pm_profiles.profile_link_available
-end
+# Then("I can still view the profile link on the profile page") do
+#   pm_profiles.profile_link_available
+# end
 
 When("I don't enter a summary") do
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("an error should appear saying: Summary can't be blank") do
-  pm_profiles.summary_error_message
+  expect(pm_profiles.summary_error_message).to be true
 end
 
 When("I don't enter a degree") do
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
+#   pm_profiles.degree_error_mesaage
+#   pm_profiles.degree_short_error_mesaage
+# end
 
-When("I click the edit button on a selected profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("a profile should create an updated profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then("not change the old profile") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When("I click the edit button on a selected profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("a profile should create an updated profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
+# Then("not change the old profile") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 # When("I do not add more words to the description") do
 #   pending # Write code here that turns the phrase above into concrete actions
@@ -155,7 +154,7 @@ When("I select Pending radio button from the Status options") do
 end
 
 Then("the status of profile should appear as pending in the profiles page") do
-  pm_profiles.pending_status
+  expect(pm_profiles.pending_status).to be true
 end
 
 When("I select Draft radio button from the Status options") do
@@ -163,7 +162,7 @@ When("I select Draft radio button from the Status options") do
 end
 
 Then("the status of profile should appear as Draft in the profiles page") do
-  pm_profiles.draft_status
+  expect(pm_profiles.draft_status).to be true
 end
 
 Then("{int} skills should be selected") do |int|
