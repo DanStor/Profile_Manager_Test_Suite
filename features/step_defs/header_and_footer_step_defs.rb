@@ -185,36 +185,42 @@ end
 
 # Scenario 18
 Given("I am logged in as an admin account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page
+  sign_in.sign_in_admin
 end
 
 When("I click the top left sparta logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_top_left_sparta_logo
+end
+
+Then("I am redirected to the profiles page") do
+  expect(current_url).to eq "http://localhost:3000/profiles"
 end
 
 # Scenario 20
 When("I click the sections tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_sections
 end
 
 Then("I am directed to the sections page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq "http://localhost:3000/sections"
 end
 
 # Scenario 21
 When("I click the teams tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_teams
+  sleep 4
 end
 
 Then("I am directed to the teams page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq "http://localhost:3000/teams"
 end
 
-# Scenario 22
-When("I click the bottom links") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
+# # Scenario 22
+# When("I click the bottom links") do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+#
 # Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
 #   pending # Write code here that turns the phrase above into concrete actions
 # end

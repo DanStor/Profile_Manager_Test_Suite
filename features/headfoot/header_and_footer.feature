@@ -117,7 +117,7 @@ Feature: Header and Footer
   Scenario: Logged in as an admin I should be able to get to the profiles page
     Given I am logged in as an admin account
     When I click the top left sparta logo
-    Then I am directed to the profiles page
+    Then I am redirected to the profiles page
 
   @headfoot19
   Scenario: Logged in as an admin I should be able to get to the profiles page

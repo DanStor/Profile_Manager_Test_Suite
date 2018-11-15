@@ -90,15 +90,22 @@ class HeaderAndFooter
 
 
   # Scenario 18
-
+  def click_top_left_sparta_logo
+    find(:xpath, '/html/body/div/nav/div[1]/a').click
+  end
 
   # Scenario 19 - Not in Step-Defs- Dont Need
 
 
   # Scenario 20
-
+  def click_sections
+    find("#header-sections").click
+  end
 
   # Scenario 21
+  def click_teams
+    find("a", :text => /\ATeams\z/).click
+  end
 
 
   # Scenario 22
