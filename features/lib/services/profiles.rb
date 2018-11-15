@@ -66,10 +66,6 @@ class Profiles
     page.has_content?("*Profile was successfully created.")
   end
 
-  def profile_created
-    #need to add code here
-  end
-
   def select_no_degree
     check(NO_DEGREE_BUTTON)
   end
@@ -104,6 +100,10 @@ class Profiles
 
   def summary_error_message
     page.has_content?("Summary can't be blank")
+  end
+
+  def degree_error_mesaage
+    page.has_content?("Degree can't be blank")
   end
 
   def click_PDF_link
