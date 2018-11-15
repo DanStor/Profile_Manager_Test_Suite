@@ -51,4 +51,20 @@ class Projects
     check('profile_project_ids_1')
   end
 
+  def invalid_start_date
+    fill_in('start-date', with: '01/10/2014')
+  end
+
+  def invalid_end_date
+    fill_in('start-date', with:  '01/09/2014')
+  end
+
+  def invalid_start_date_error
+    page.has_content?('Start date must be before 2014-09-01 00:00:00')
+  end
+
+  def invalid_end_date_error
+    page.has_content?('End date must be after 2014-10-01 00:00:00')
+  end
+
 end
