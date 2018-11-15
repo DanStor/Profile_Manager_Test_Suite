@@ -1,7 +1,5 @@
-
 @all
 Feature: Custom Sections
-
 
   # ADD IN THE DATA TABLE THING
   # ADDITIONAL POINT TO MAKE IS THAT THIS IS SUPPOSED TO BE A DROP DOWN RATHER THAN AN INPUT TEXT FIELD SO RAISE THIS ISSUE
@@ -23,7 +21,7 @@ Feature: Custom Sections
   Then I should be taken to the corresponding show page for that custom item
   # WILL FAIL AS TAKES YOU TO THE EDIT PAGE FOR THAT CUSTOM ITEM
   # SHOW PAGE DES EXIST HOWEVER HAVE TO MANUALLY ACCESS SUCH A PAGE
-  
+
   @custom_form @edit
   Scenario: PM-190 User must be able to edit a custom section
 
