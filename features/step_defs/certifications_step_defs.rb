@@ -82,17 +82,15 @@ When("I press destroy for a single certification") do
   pm_certifications.delete_certificate
 end
 
-When("I press confirm") do
-  pm_certifications.click_confirm
-end
-
 When("I press cancel") do
   pm_certifications.click_cancel
 end
 
-Then("the certification should be removed") do
-  #Press confirm
+When("I press confirm") do
   pm_certifications.click_confirm
+end
+
+Then("the certification should be removed") do
   expect(pm_certifications.get_last_id).to_not eq @last_id
 end
 
