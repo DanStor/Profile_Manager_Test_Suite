@@ -66,10 +66,6 @@ class Profiles
     page.has_content?("*Profile was successfully created.")
   end
 
-  def profile_created
-    #need to add code here
-  end
-
   def select_no_degree
     check(NO_DEGREE_BUTTON)
   end
@@ -79,11 +75,11 @@ class Profiles
   end
 
   def delete_profile_button
-    click_link('Delete')
+    click_on('Delete')
   end
 
   def confirm_delete_button
-    click_link('confirm')
+    click_on('Confirm')
   end
 
   def profile_link_not_available
@@ -95,7 +91,7 @@ class Profiles
   end
 
   def click_cancel_button
-    click_link('Cancel')
+    click_on('Cancel')
   end
 
   def profile_link_available
@@ -104,6 +100,10 @@ class Profiles
 
   def summary_error_message
     page.has_content?("Summary can't be blank")
+  end
+
+  def degree_error_mesaage
+    page.has_content?("Degree can't be blank")
   end
 
   def click_PDF_link

@@ -65,7 +65,10 @@ class Education
   end
 
   def click_edit
-    click_link('Edit')
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      click_link('Edit')
+    end
   end
 
   def check_education_box option
