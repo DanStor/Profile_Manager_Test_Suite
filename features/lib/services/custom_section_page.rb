@@ -64,4 +64,12 @@ class CustomSectionPage
   def click_save
     click_on('save-button')
   end
+
+  def select_title
+    click_on(find(:css,'#title'))
+  end
+
+  def check_dropdown name
+    false
+  end
 end

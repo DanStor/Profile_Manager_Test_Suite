@@ -33,11 +33,13 @@ Given("I am on the create new custom page") do
 end
 
 When("I click the dropdown bar for the title section") do
-  pending # Write code here that turns the phrase above into concrete actions
+  custom_section_page.select_title
 end
 
 Then("hobbies, volunteering and languages are listed in the dropdown menu") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(custom_section_page.check_dropdown "hobbies").to be true
+  expect(custom_section_page.check_dropdown "volunteering").to be true
+  expect(custom_section_page.check_dropdown "languages").to be true
 end
 
 When("I press the destroy button for a specific item") do
