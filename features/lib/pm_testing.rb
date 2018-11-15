@@ -50,4 +50,8 @@ module PMTesting
     Login.new
   end
 
+  def header_and_footer
+    HeaderAndFooter.new
+  end
+
 end
