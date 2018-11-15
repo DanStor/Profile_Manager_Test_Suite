@@ -52,15 +52,23 @@ class HeaderAndFooter
 
   def click_linkedin
     find(:xpath, "/html/body/footer/div/div[3]/div/a[3]/i").click
-    within_window(switch_to_window(windows.last)) do
-      puts current_url
-    end
+    sleep 2
+    within_window(switch_to_window(windows.last))
   end
 
   # Scenario 16
-
+  def click_fb
+    find(:xpath, "/html/body/footer/div/div[3]/div/a[2]/i").click
+    sleep 2
+    within_window(switch_to_window(windows.last))
+  end
 
   # Scenario 17
+  def click_github
+    find(:xpath, "/html/body/footer/div/div[3]/div/a[1]/i").click
+    sleep 2
+    within_window(switch_to_window(windows.last))
+  end
 
 
   # Scenario 18

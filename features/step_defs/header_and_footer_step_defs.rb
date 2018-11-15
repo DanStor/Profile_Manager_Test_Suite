@@ -166,20 +166,20 @@ end
 
 # Scenario 16
 When("I click on the bottom facebook logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_fb
 end
 
 Then("I will be redirected to the sparta global facebook site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to include "https://en-gb.facebook.com/spartaglobal/"
 end
 
 # Scenario 17
 When("I click on the bottom github logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_github
 end
 
 Then("I will be redirected to the sparta global github site") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to include "https://github.com/spartaglobal"
 end
 
 # Scenario 18
