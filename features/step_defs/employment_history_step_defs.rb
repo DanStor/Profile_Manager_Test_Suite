@@ -4,11 +4,14 @@ Given("I am on the employment page") do
 end
 
 When("I click on an item") do
-  click_link("A Business")
+  employment_items = find(".content-main").find_all("tr")
+  row = employment_items[-2].find_all("td")
+  @link_text = row[0].find("a").text
+  row[0].click_on(@link_text)
 end
 
 Then("I am now on the show page for that specific item") do
-  expect(find_by_id("company").value).to eq "A Business"
+  expect(find_by_id("company").value).to eq @link_text
 end
 
 When("I click the new employment button") do
@@ -47,6 +50,11 @@ Then("I press the back button") do
 end
 
 Then("I see the employment page") do
+  # find the id of the last and second to last employment item for later use when testing whether a new item has been created
+  employment_items = find(".content-main").find_all("tr")
+  # puts @second_last_employment_item = employment_items[-3].find_link("Edit")[:id]
+  puts @last_employment_item = employment_items[-2].find_link("Edit")[:id]
+
   expect(current_url).to eq "http://localhost:3000/employments"
 end
 
@@ -72,12 +80,22 @@ When("I click the back button") do
 end
 
 Then("I should not see a new item") do
-
+  last_tr = all('tr')[2]
+  within(last_tr) do
+    expect(find_link("Edit")[:id]).to eq @last_employment_item
+  end
 end
 
 When("I click the destroy button for a specific item") do
-  sleep 2
-  click_on("Destroy")
+  second_last_last_tr = all('tr')[-3]
+  within(second_last_last_tr) do
+    # puts @item_to_remain = find_link("Edit")[:id]
+  end
+  last_tr = all('tr')[-2]
+  within(last_tr) do
+    # puts @item_to_delete = find_link("Edit")[:id]
+    click_on("Destroy")
+  end
 end
 
 When("I press the confirm button on the delete entry alert") do
@@ -85,7 +103,9 @@ When("I press the confirm button on the delete entry alert") do
 end
 
 Then("the targeted item should no longer be displayed on the employment page") do
-  expect(has_link?("A Business")).to be false
+  # expect(has_link?("A Business")).to be false
+  employment_items = find(".content-main").find_all("tr")
+  expect(employment_items[-2]).not_to eq @last_employment_item
 end
 
 Then("I see a successfully destroyed message") do
