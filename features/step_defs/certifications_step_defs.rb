@@ -81,9 +81,7 @@ end
 Then("the changes should be reflected") do
   pm_certifications.visit_certifications
   expect(pm_certifications.check_edit_title).to eq @edit_title_text
-  # expect(pm_certifications.check_edit_description).to eq @edit_description_text
   sleep 2
-  # Delete the certification
 end
 
 When("I press destroy for a single certification") do
