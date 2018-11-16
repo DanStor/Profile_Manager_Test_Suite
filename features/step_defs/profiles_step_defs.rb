@@ -147,7 +147,7 @@ When("I click on pdf") do
 end
 
 Then("I should be taken to the pdf of the profile") do
-  pm_profiles.pdf_page
+  expect(current_url).to include '.pdf'
 end
 
 When("I select Pending radio button from the Status options") do
