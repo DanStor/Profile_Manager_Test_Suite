@@ -101,7 +101,6 @@ Before("@profiles") do
   STATUS_PENDING = 'profile_status_pending'
   STATUS_DRAFT = 'profile_status_draft'
   TEAM_LABEL = 'Team'
-
 end
 
 
