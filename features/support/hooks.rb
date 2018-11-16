@@ -9,11 +9,15 @@ Before("@certification") do
 
   @too_many_words_error = "Too many words"
 
-  sleep 1
+  # sleep 1
 end
 
 Before("@certification_invalid_description") do
+  ##
+end
 
+Before("@certification_invalid_title") do
+  ##
 end
 
 Before("@certification_word_count_decrease") do
@@ -21,7 +25,7 @@ Before("@certification_word_count_decrease") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  sleep 1
+  # sleep 1
 end
 
 Before("@certification_word_count_increase") do
@@ -29,7 +33,7 @@ Before("@certification_word_count_increase") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  sleep 1
+  # sleep 1
 end
 
 Before("@certification_view") do
@@ -37,7 +41,7 @@ Before("@certification_view") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  sleep 1
+  # sleep 1
 end
 
 Before("@certification_edit") do
@@ -49,7 +53,7 @@ Before("@certification_edit") do
   @edit_title_text = "TITLE EDITED"
   @edit_description_text = "DESCRIPTION EDITED"
 
-  sleep 1
+  # sleep 1
 end
 
 Before("@certification_delete") do
@@ -57,12 +61,12 @@ Before("@certification_delete") do
   sign_in.sign_in_student
 
   @certificate_added_message = "*Certification was successfully created."
-  sleep 1
+  # sleep 1
 end
 
 
 After("@certification") do
-  sleep 2
+  # sleep 2
 end
 
 Before("@education") do
