@@ -1,4 +1,4 @@
-Before("@certification") do
+Before("@certifications") do
   VALID_TITLE = "A title"
 
   VALID_DESCRIPTION = "A valid description"
@@ -14,6 +14,10 @@ Before("@certification") do
   WORD_COUNT_DISPLAY_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/p"
 
   THREE_LETTER_WORDS = ["dog","cat","pig"]
+
+end
+
+Before("@certification") do
 
   visit('/')
   sign_in.sign_in_student
@@ -62,7 +66,7 @@ After("@certification") do
 ##
 end
 
-Before("@education") do
+Before("@all_education") do
   EDUCATION_NAV_ID = 'header-education'
   NEW_BUTTON_ID = 'new-button'
   INSTITUTION_FIELD_ID = 'institution'
@@ -76,6 +80,10 @@ Before("@education") do
   ERRORS_ID = '#error_explanation'
   INSTITUTION_CHAR_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[1]/p'
   DESCRIPTION_WORD_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[4]/p'
+
+end
+
+Before("@education") do
 
   visit('/')
   sign_in.sign_in_student
@@ -159,11 +167,14 @@ After("@education_delete_education") do
     pm_education.click_confirm
 end
 
-Before('@login') do
+Before("@all_login") do
   EMAIL_FIELD_ID = 'email'
   PASSWORD_FIELD_ID = 'password'
   SUBMIT_BUTTON_ID = 'submit'
   WELCOME_XPATH = '/html/body/div/nav/ul/li[1]/a'
   NOTICE_CLASS = '.notice'
+end
+
+Before('@login') do
 
 end

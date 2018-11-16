@@ -1,3 +1,4 @@
+@certifications
 Feature: Certifications
 
   # Adding Certifications

@@ -1,3 +1,4 @@
+@all_login
 Feature: Log in
 
   @login
