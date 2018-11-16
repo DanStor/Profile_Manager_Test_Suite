@@ -106,7 +106,6 @@ Given("I am on the edit page for an employment item") do
   sleep 2
   row = employment.getCompanyRowAndName
   employment.clickRowEdit row
-  # expect(current_url).to eq "http://localhost:3000/employments/1/edit"
 end
 
 Then("I see the employment was successfully updated message") do
