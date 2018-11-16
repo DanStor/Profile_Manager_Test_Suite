@@ -3,20 +3,6 @@ require "capybara"
 class Profiles
   include Capybara::DSL
 
-  NEW_BUTTON_ID = 'new-button'
-  SUMMARY_FIELD_ID = 'profile-form-summary'
-  STREAM_FIELD_ID = 'Stream'
-  SELECT_TEAM = "profile_team"
-  DEGREE_FIELD_ID = 'profile-form-degree'
-  MODULE_ID = "profile_section_ids_2"
-  SAVE_BUTTON = 'save-button'
-  NO_DEGREE_BUTTON = 'profile-form-no-degree'
-  STATUS_PENDING = 'profile_status_pending'
-  STATUS_DRAFT = 'profile_status_draft'
-  TEAM_LABEL = 'Team'
-
-
-
   def visit_home
     visit('/')
   end

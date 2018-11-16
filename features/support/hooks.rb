@@ -82,16 +82,26 @@ Before("@education") do
 end
 
 Before("@profiles") do
+  NEW_BUTTON_ID = 'new-button'
+  SUMMARY_FIELD_ID = 'profile-form-summary'
+  STREAM_FIELD_ID = 'Stream'
+  SELECT_TEAM = "profile_team"
+  DEGREE_FIELD_ID = 'profile-form-degree'
+  MODULE_ID = "profile_section_ids_2"
+  SAVE_BUTTON = 'save-button'
+  NO_DEGREE_BUTTON = 'profile-form-no-degree'
+  STATUS_PENDING = 'profile_status_pending'
+  STATUS_DRAFT = 'profile_status_draft'
+  TEAM_LABEL = 'Team'
+
   visit('/')
   sign_in.sign_in_student
-  sleep 2
 end
 
 
 Before("@skills") do
   visit('/')
   sign_in.sign_in_student
-  sleep 2
 end
 
 
