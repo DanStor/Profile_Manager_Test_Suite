@@ -4,7 +4,6 @@ Given("the user is logged in and is an admin") do
   admin.admin_log_in_email
   admin.log_in_password
   admin.submit
-  sleep 5
 end
 
 When("a user clicks to add a member") do
@@ -13,7 +12,6 @@ end
 
 Then("all members should show and the user should be able to select one to go into a group") do
   admin.drop_down_menu
-  sleep 5
 end
 
 # _____ Scenario 2 _____
@@ -21,13 +19,11 @@ When("the user clicks to remove a member") do
   admin.profile_delete_button
   sleep 1
   admin.profile_delete_button_confirm
-  sleep 1
 end
 
 
 Then("the member should no longer be displayed in that group") do
   expect(admin.profile_removed).to eq '*Profile was successfully destroyed.'
-  sleep 3
 end
 #_____ Scenario 3 _____
 When("the user creates a group") do
@@ -35,7 +31,6 @@ When("the user creates a group") do
   admin.create_new_group
   admin.new_team_name
   admin.click_create_team
-  # sleep 2
 end
 
 Then("the group should be added to the database") do
@@ -46,9 +41,8 @@ end
 When("the user clicks to remove a group") do
   admin.add_group_as_admin
   admin.destroy_team
-  sleep 2
+  sleep 1
   admin.confirm_team_destroy
-  sleep 2
 end
 
 Then("the entire group should not be displayed, and the member disassociated with the group") do
@@ -61,7 +55,6 @@ Given("that the user is logged in") do
   admin.admin_log_in_email
   admin.log_in_password
   admin.submit
-  sleep 3
 end
 #
 And("is an admin") do
@@ -70,12 +63,10 @@ end
 
 When("navigating through the profile list") do
   admin.visit_profile_page
-  sleep 2
 end
 
 Then("the admin should be able to filter the profiles by teams.") do
   admin.filter_teams
-  sleep 2
 end
 
 # _____ Scenario 6 _____
@@ -180,7 +171,6 @@ end
 
 Then("as Pending is selected as a status, profiles with Draft status are shown as well as profiles with Pending status") do
   expect(admin.isOnlyDraftAndPending).to eq true
-  sleep 5
 end
 
 # ____ Scenario 10 ______

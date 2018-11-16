@@ -40,7 +40,6 @@ end
 
 Then("a notification is sent to the relevant student") do
   expect(comments.check_if_comment_added).to eq 'Comment was successfully updated.'
-  sleep 3
 end
 
 Given("that the user is logged in and is viewing their own profile") do
@@ -58,5 +57,4 @@ end
 
 Then("the user should be able to see the comments made and by which admin") do
   comments.click_comments_section
-  sleep 5
 end
