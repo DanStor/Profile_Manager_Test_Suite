@@ -106,10 +106,10 @@ end
 #   pm_profiles.degree_short_error_mesaage
 # end
 
-# When("I click the edit button on a selected profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
+When("I click the edit button on a selected profile") do
+  pm_profiles.click_edit_button
+end
+
 # Then("a profile should create an updated profile") do
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
@@ -118,13 +118,12 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 
-# When("I do not add more words to the description") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+When("I do not add more words to the description") do
+end
 
-# Then("the word count for description should remain the same") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Then("the word count for description should remain the same") do
+  expect(word_count).to eq word_count
+end
 
 # When("I add more words to the description") do
 #   pending # Write code here that turns the phrase above into concrete actions

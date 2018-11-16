@@ -98,6 +98,14 @@ class Profiles
     page.has_content?("Summary can't be blank")
   end
 
+  def word_count
+    #code needs to be added here if in future a word count is added
+  end
+
+  def click_edit_button
+    click_on('Edit')
+  end
+
   def degree_error_mesaage
     page.has_content?("Degree can't be blank")
   end

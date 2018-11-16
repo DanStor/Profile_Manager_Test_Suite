@@ -77,7 +77,7 @@ Scenario: I should be able to edit a profile
   Then a profile should create an updated profile
   And not change the old profile
 
-@profilesTESTFAIL
+@profiles8
 Scenario: Edit profile page to check word count remains the same
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
