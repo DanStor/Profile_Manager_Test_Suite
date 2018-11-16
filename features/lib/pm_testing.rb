@@ -6,6 +6,9 @@ require_relative "services/generic.rb"
 require_relative "services/comments.rb"
 require_relative "services/employment.rb"
 require_relative "services/custom_section_page.rb"
+require_relative "services/login.rb"
+require_relative "services/projects.rb"
+
 
 
 module PMTesting
@@ -30,6 +33,10 @@ module PMTesting
     Education.new
   end
 
+  def pm_projects
+    Projects.new
+  end
+
   def generic
     Generic.new
   end
@@ -42,12 +49,21 @@ module PMTesting
     Comments.new
   end
 
+
   def custom_section_page
     CustomSectionPage.new
   end
 
   def employment
     Employment.new
+  end
+
+  def login
+    Login.new
+  end
+
+  def header_and_footer
+    HeaderAndFooter.new
   end
 
 end
