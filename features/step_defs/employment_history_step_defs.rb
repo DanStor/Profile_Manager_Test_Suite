@@ -1,5 +1,6 @@
 Given("I am on the employment page") do
   visit("http://localhost:3000/employments")
+  @preTableLength = employment.getCompaniesTableLength
   expect(current_url).to eq "http://localhost:3000/employments"
 end
 
@@ -19,11 +20,7 @@ When("I click the new employment button") do
 end
 
 When("I enter valid details") do
-  fill_in "company", with: "A Business"
-  fill_in "role", with: "A Role"
-  fill_in "start-date", with: "27/08/2018"
-  fill_in "end-date", with: "12/10/2018"
-  find(:xpath, "/html/body/div/div[2]/div/div/form/div[4]/trix-editor").set("I did some business things here. You would be impressed.")
+  employment.enterValidDetails
 end
 
 When("I click the save button") do
@@ -31,14 +28,7 @@ When("I click the save button") do
 end
 
 Then("I am redirected to the employment show page") do
-  content = find(".content-main").find_all("p")
-  expect(content[0].text).to eq "Start date: 2018-08-27"
-  expect(content[1].text).to eq "End date: 2018-10-12"
-  expect(content[2].text).to eq "Company: A Business"
-  expect(content[3].text).to eq "Role: A Role"
-  expect(content[4].text).to eq "Description:"
-
-  expect(find(".content-main").find("div").text).to eq "I did some business things here. You would be impressed."
+  expect(employment.containsValidDetails?).to eq true
 end
 
 Then("I see the employment was successfully created message") do
@@ -50,16 +40,14 @@ Then("I press the back button") do
 end
 
 Then("I see the employment page") do
-  # find the id of the last and second to last employment item for later use when testing whether a new item has been created
   employment_items = find(".content-main").find_all("tr")
-  # puts @second_last_employment_item = employment_items[-3].find_link("Edit")[:id]
-  puts @last_employment_item = employment_items[-2].find_link("Edit")[:id]
+  @last_employment_item = employment_items[-2].find_link("Edit")[:id]
 
   expect(current_url).to eq "http://localhost:3000/employments"
 end
 
 Then("I can see the new item") do
-  expect(has_link?("A Business")).to eq true
+  expect(employment.getCompaniesTableLength).to eq @preTableLength + 1
 end
 
 Then("I see ten error messages displayed") do
@@ -68,6 +56,9 @@ Then("I see ten error messages displayed") do
 end
 
 Given("I have recieved error messages when creating a new employment item with invalid details") do
+  visit("http://localhost:3000/employments")
+  @preTableLength = employment.getCompaniesTableLength
+
   visit("http://localhost:3000/employments/new")
   click_on("Save")
 
@@ -80,20 +71,16 @@ When("I click the back button") do
 end
 
 Then("I should not see a new item") do
-  last_tr = all('tr')[2]
-  within(last_tr) do
-    expect(find_link("Edit")[:id]).to eq @last_employment_item
-  end
+  expect(employment.getCompaniesTableLength).to eq @preTableLength
+  # last_tr = all('tr')[2]
+  # within(last_tr) do
+  #   expect(find_link("Edit")[:id]).to eq @last_employment_item
+  # end
 end
 
 When("I click the destroy button for a specific item") do
-  second_last_last_tr = all('tr')[-3]
-  within(second_last_last_tr) do
-    # puts @item_to_remain = find_link("Edit")[:id]
-  end
   last_tr = all('tr')[-2]
   within(last_tr) do
-    # puts @item_to_delete = find_link("Edit")[:id]
     click_on("Destroy")
   end
 end
@@ -103,9 +90,7 @@ When("I press the confirm button on the delete entry alert") do
 end
 
 Then("the targeted item should no longer be displayed on the employment page") do
-  # expect(has_link?("A Business")).to be false
-  employment_items = find(".content-main").find_all("tr")
-  expect(employment_items[-2]).not_to eq @last_employment_item
+  expect(employment.getCompaniesTableLength).to eq @preTableLength - 1
 end
 
 Then("I see a successfully destroyed message") do
