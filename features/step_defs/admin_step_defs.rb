@@ -224,3 +224,13 @@ end
 Then("new section is not added") do
   expect(admin.check_if_section_added).to_not eq '*Section was successfully created.'
 end
+
+# ____ Scenario 13 _____
+When("the Destroy button for the last section is clicked") do
+  admin.destroy_last_section
+  admin.click_confirm
+end
+
+Then("new section is removed and notice is shown") do
+  expect(admin.check_message).to eq "*Section was successfully destroyed."
+end

@@ -90,3 +90,10 @@ Feature: Admin Features
   And details have been left blank
   And I have pressed save
   Then new section is not added
+
+  @admin13
+  Scenario: That Admins are able to delete sections
+  Given you are logged in as an admin
+  And you go into sections
+  When the Destroy button for the last section is clicked
+  Then new section is removed and notice is shown

@@ -207,4 +207,16 @@ class Admin
     return incorrect
   end
 
+# Scenario 13
+  def destroy_last_section
+    all("a", :text => /\Destroy\z/).last.click
+  end
+
+  def click_confirm
+    click_on("Confirm")
+  end
+
+  # def check_sections_length
+  #   all("a", :text => /\Destroy\z/)
+  # end
 end
