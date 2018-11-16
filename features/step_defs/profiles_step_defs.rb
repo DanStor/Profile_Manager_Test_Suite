@@ -122,7 +122,8 @@ When("I do not add more words to the description") do
 end
 
 Then("the word count for description should remain the same") do
-  expect(pm_profiles.word_count).to eq word_count
+  expect(pm_profiles.word_count).to eq pm_profiles.word_count
+  expect(pm_profiles.word_number).to eq pm_profiles.word_number
 end
 
 When("I add more words to the description") do
@@ -130,7 +131,8 @@ When("I add more words to the description") do
 end
 
 Then("the word count for description should decrease") do
-  expect(pm_profiles.word_count).to be < word_count
+  expect(pm_profiles.word_count).to be < pm_profiles.word_count
+    expect(pm_profiles.word_number).to be < pm_profiles.word_number
 end
 
 When("I take some words out from the description") do
@@ -138,7 +140,8 @@ When("I take some words out from the description") do
 end
 
 Then("the word count for description should increase") do
-  expect(pm_profiles.word_count).to be > word_count
+  expect(pm_profiles.word_count).to be > pm_profiles.word_count
+  expect(pm_profiles.word_number).to be > pm_profiles.word_number
 end
 
 When("I click on pdf") do

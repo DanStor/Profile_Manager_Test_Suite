@@ -105,7 +105,7 @@ class Profiles
   end
 
   def word_count
-    #code needs to be added here if in future a word count is added
+    find_field('profile-form-summary').text.length
   end
 
   def click_edit_button
