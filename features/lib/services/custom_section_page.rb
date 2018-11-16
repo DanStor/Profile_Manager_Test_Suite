@@ -3,6 +3,9 @@ require 'capybara'
 class CustomSectionPage
   include Capybara::DSL
 
+  @edit_id = ""
+
+
   def visit_custom_section_page
     visit('/customs')
   end
@@ -19,21 +22,24 @@ class CustomSectionPage
     find_link(name).visible?
   end
 
-  def check_custom_section name
-    has_link?(name)
+  def check_custom_section edit_id
+    page.has_css?("a[id=#{edit_id}]")
   end
 
   def find_notice_message
     find(:css, '.notice').text
   end
 
-  def destroy_section name
-    titles = all(:css ,'tr td')
+  def destroy_section num
+    titles = all(:css ,'tr td a')
     n=titles.length
     i=0
+    # puts titles[i][:id]
     while i<n do
-      if titles[i].text == name
+      if titles[i][:id] == "title-#{num}"
+        edit_id = titles[i+1][:id]
         click_on(find("a[data-id=destroy-#{i/3}]").text)
+        return edit_id
         break
       end
       i+=3

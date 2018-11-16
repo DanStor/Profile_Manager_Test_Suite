@@ -43,11 +43,12 @@ Then("hobbies, volunteering and languages are listed in the dropdown menu") do
 end
 
 When("I press the destroy button for a specific item") do
-  custom_section_page.destroy_section TITLE
+  @edit_id = custom_section_page.destroy_section 0
 end
 
 When("I click the confirm button on the delete entry alert") do
   custom_section_page.click_confirm
+  sleep 2
 end
 
 Then("the custom was successfully destroyed message is displayed") do
@@ -55,7 +56,7 @@ Then("the custom was successfully destroyed message is displayed") do
 end
 
 Then("the targeted item should no longer be displayed on the custom page") do
-  expect(custom_section_page.check_custom_section TITLE).to be false
+  expect(custom_section_page.check_custom_section @edit_id).to be false
 end
 
 When("I click the cancel button on the delete entry alert") do
