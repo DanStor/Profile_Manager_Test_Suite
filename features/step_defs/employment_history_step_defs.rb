@@ -72,10 +72,6 @@ end
 
 Then("I should not see a new item") do
   expect(employment.getCompaniesTableLength).to eq @preTableLength
-  # last_tr = all('tr')[2]
-  # within(last_tr) do
-  #   expect(find_link("Edit")[:id]).to eq @last_employment_item
-  # end
 end
 
 When("I click the destroy button for a specific item") do
@@ -110,7 +106,6 @@ Given("I am on the edit page for an employment item") do
   sleep 2
   row = employment.getCompanyRowAndName
   employment.clickRowEdit row
-  # expect(current_url).to eq "http://localhost:3000/employments/1/edit"
 end
 
 Then("I see the employment was successfully updated message") do
