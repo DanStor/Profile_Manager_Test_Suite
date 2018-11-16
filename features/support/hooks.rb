@@ -82,9 +82,7 @@ Before("@education") do
 end
 
 Before("@profiles") do
-  visit('/')
-  sign_in.sign_in_student
-  sleep 2
+  
 end
 
 
