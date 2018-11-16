@@ -1,4 +1,20 @@
 Before("@certification") do
+  VALID_TITLE = "A title"
+
+  VALID_DESCRIPTION = "A valid description"
+
+  # > 100 characters
+  INVALID_TITLE = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+  # > 100 words
+  INVALID_DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in"
+
+  DESCRIPTION_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/trix-editor"
+
+  WORD_COUNT_DISPLAY_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/p"
+
+  THREE_LETTER_WORDS = ["dog","cat","pig"]
+
   visit('/')
   sign_in.sign_in_student
 
@@ -9,11 +25,12 @@ Before("@certification") do
 
   @too_many_words_error = "Too many words"
 
+
   # sleep 1
 end
 
 Before("@certification_invalid_description") do
-  ##
+##
 end
 
 Before("@certification_invalid_title") do
@@ -21,52 +38,28 @@ Before("@certification_invalid_title") do
 end
 
 Before("@certification_word_count_decrease") do
-  visit('/')
-  sign_in.sign_in_student
-
-  @certificate_added_message = "*Certification was successfully created."
-  # sleep 1
+##
 end
 
 Before("@certification_word_count_increase") do
-  visit('/')
-  sign_in.sign_in_student
-
-  @certificate_added_message = "*Certification was successfully created."
-  # sleep 1
+##
 end
 
 Before("@certification_view") do
-  visit('/')
-  sign_in.sign_in_student
-
-  @certificate_added_message = "*Certification was successfully created."
-  # sleep 1
+##
 end
 
 Before("@certification_edit") do
-  visit('/')
-  sign_in.sign_in_student
-
-  @certificate_added_message = "*Certification was successfully created."
-
-  @edit_title_text = "TITLE EDITED"
-  @edit_description_text = "DESCRIPTION EDITED"
-
-  # sleep 1
+##
 end
 
 Before("@certification_delete") do
-  visit('/')
-  sign_in.sign_in_student
-
-  @certificate_added_message = "*Certification was successfully created."
-  # sleep 1
+  ##
 end
 
 
 After("@certification") do
-  # sleep 2
+##
 end
 
 Before("@education") do
