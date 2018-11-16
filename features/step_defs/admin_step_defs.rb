@@ -222,5 +222,5 @@ When("details have been left blank") do
 end
 
 Then("new section is not added") do
-  expect(admin.check_if_section_added).to eq '*Section was successfully created.'
+  expect(admin.check_if_section_added).to_not eq '*Section was successfully created.'
 end
