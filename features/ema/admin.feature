@@ -83,7 +83,7 @@ Feature: Admin Features
   Then new section is added
 
   @admin12
-  Scenario: PM-173 Test - That Admins are able to add blank sections
+  Scenario: PM-173 Test - That Admins arent able to add blank sections
   Given you are logged in as an admin
   And you go into sections
   When new section is clicked
