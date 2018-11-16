@@ -16,7 +16,7 @@ Then("I should be able to view the what I have typed") do
   generic.deleteSection
 end
 
-Given("I am logged in") do
+Given("I am logged in as a user") do
   generic.visitLoginPage
   sign_in.sign_in_admin
 end

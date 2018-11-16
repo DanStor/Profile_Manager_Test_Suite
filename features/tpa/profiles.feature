@@ -1,3 +1,4 @@
+@profiles
 Feature: Profiles
 
 @profiles1
