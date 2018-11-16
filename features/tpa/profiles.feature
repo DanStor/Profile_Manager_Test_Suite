@@ -93,7 +93,7 @@ Scenario: Edit profile page to check word count decreases
   And I add more words to the description
   Then the word count for description should decrease
 
-@profilesTESTFAIL
+@profiles10
 Scenario: Edit profile page to check word count increases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page

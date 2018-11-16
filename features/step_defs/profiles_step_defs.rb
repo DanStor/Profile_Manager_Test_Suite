@@ -122,7 +122,7 @@ When("I do not add more words to the description") do
 end
 
 Then("the word count for description should remain the same") do
-  expect(word_count).to eq word_count
+  expect(pm_profiles.word_count).to eq word_count
 end
 
 When("I add more words to the description") do
@@ -130,16 +130,16 @@ When("I add more words to the description") do
 end
 
 Then("the word count for description should decrease") do
-  expect(word_count).to be < word_count
+  expect(pm_profiles.word_count).to be < word_count
 end
 
-# When("I take some words out from the description") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("the word count for description should increase") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+When("I take some words out from the description") do
+  pm_profiles.remove_words
+end
+
+Then("the word count for description should increase") do
+  expect(pm_profiles.word_count).to be > word_count
+end
 
 When("I click on pdf") do
   pm_profiles.click_PDF_link
