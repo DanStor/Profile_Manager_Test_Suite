@@ -70,6 +70,7 @@ Feature:  Employment History
   Then I should see an invalid date error message
 
   @danRhys
+  @deletion
   Scenario: PM-193 As a user, I must be able to delete an employment history item
 
   Given I am on the employment page
