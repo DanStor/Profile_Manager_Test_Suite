@@ -41,23 +41,23 @@ Before('@all') do
   click_button('submit')
 end
 
-Before('@add') do
+Before('@custom_form') do
   TITLE = "Test Title"
   HEADING = "Charity"
   BODY = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
+  DELETED_MESSAGE = "*Custom was successfully destroyed."
+  UPDATED_MESSAGE = "*Custom was successfully updated."
   CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
 end
 
-Before('@delete') do
-  DELETED_MESSAGE = "*Custom was successfully destroyed."
-  TITLE = "Test Title"
-end
-Before('@edit') do
-  UPDATED_MESSAGE = "*Custom was successfully updated."
-  TITLE = "Test Title"
-end
-Before('@testing')do
-  HEADING = "Charity"
-  BODY = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
-end
+# Before('@delete') do
+#   TITLE = "Test Title"
+# end
+# Before('@edit') do
+#   TITLE = "Test Title"
+# end
+# Before('@testing')do
+#   HEADING = "Charity"
+#   BODY = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+# end

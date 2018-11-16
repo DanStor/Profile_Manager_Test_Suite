@@ -68,7 +68,8 @@ Then("the targeted item remains on the custom page") do
 end
 
 Given("I am on the edit page for a custom item") do
-  visit('http://localhost:3000/customs/9/edit')
+  custom_section_page.visit_custom_section_page
+  custom_section_page.click_custom_section TITLE
 end
 
 Then("I am taken to the custom page") do

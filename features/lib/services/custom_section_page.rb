@@ -3,8 +3,6 @@ require 'capybara'
 class CustomSectionPage
   include Capybara::DSL
 
-  @edit_id = ""
-
 
   def visit_custom_section_page
     visit('/customs')
@@ -85,5 +83,11 @@ class CustomSectionPage
 
   def check_error_message i
     all(:css, '#error_explanation li')[i].text
+  end
+  def check_on_edit
+    if current_url.include? "edit"
+      return true
+    end
+    return false
   end
 end
