@@ -97,3 +97,12 @@ Feature: Admin Features
   And you go into sections
   When the Destroy button for the last section is clicked
   Then new section is removed and notice is shown
+
+  @admin14
+  Scenario: That Admins are able to edit sections
+  Given you are logged in as an admin
+  And you go into sections
+  When the Edit button for the last section is clicked
+  And edit the section
+  And save the section
+  Then the section info should be changed and the notice is shown

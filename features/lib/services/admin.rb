@@ -216,7 +216,27 @@ class Admin
     click_on("Confirm")
   end
 
-  # def check_sections_length
-  #   all("a", :text => /\Destroy\z/)
-  # end
+# Scenario 14
+  def edit_last_section
+    all("a", :text => /Edit\z/).last.click
+  end
+
+  def change_info
+    fill_in("title", :with => "Changed Title")
+    find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("Changed Description")
+    find(:xpath, "//*[@id='skills']").set("ruby,java,html")
+  end
+
+  def check_title
+    has_content?("Title")
+  end
+
+  def check_description
+    has_content?("Changed Description")
+  end
+
+  def check_skills
+    has_content?("ruby,java,html")
+  end
+
 end
