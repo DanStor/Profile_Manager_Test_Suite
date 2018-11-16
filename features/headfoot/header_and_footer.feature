@@ -117,7 +117,7 @@ Feature: Header and Footer
   Scenario: Logged in as an admin I should be able to get to the profiles page
     Given I am logged in as an admin account
     When I click the top left sparta logo
-    Then I am directed to the profiles page
+    Then I am redirected to the profiles page
 
   @headfoot19
   Scenario: Logged in as an admin I should be able to get to the profiles page
@@ -140,7 +140,9 @@ Feature: Header and Footer
   # This test is slightly weird- when logged in as admin and you click the bottom links then you should
   # be taken to http://localhost:3000/profiles/20/edit for some reason so just check those links take you there
   @headfoot22
-  Scenario: Logged in as an admin I click the bottom links
+  Scenario: Logged in as an admin I shouldn't be able to click on Projects, Employment, Education or Certifications
     Given I am logged in as an admin account
-    When I click the bottom links
-    Then I am directed to the http://localhost:3000/profiles/20/edit page
+    Then I shouldn't have a footer link to Projects
+    And I shouldn't have a footer link to Employment
+    And I shouldn't have a footer link to Education
+    And I shouldn't have a footer link to Certifications

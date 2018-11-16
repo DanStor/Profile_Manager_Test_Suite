@@ -149,18 +149,54 @@ class HeaderAndFooter
 
 
   # Scenario 18
-
+  def click_top_left_sparta_logo
+    find(:xpath, '/html/body/div/nav/div[1]/a').click
+  end
 
   # Scenario 19 - Not in Step-Defs- Dont Need
 
 
   # Scenario 20
-
+  def click_sections
+    find("#header-sections").click
+  end
 
   # Scenario 21
-
+  def click_teams
+    find("a", :text => /\ATeams\z/).click
+  end
 
   # Scenario 22
+  def check_projects
+    if find(:css, "#footer-projects")
+      return true
+    else
+      return false
+    end
+  end
 
+  def check_employment
+    if find(:css, "#footer-employment")
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_education
+    if find(:css, "#footer-education")
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_certifications
+    if find(:css, "#footer-certifications")
+      return true
+    else
+      return false
+    end
+  end
 
 end

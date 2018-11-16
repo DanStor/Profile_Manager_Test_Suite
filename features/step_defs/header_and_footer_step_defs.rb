@@ -46,7 +46,11 @@ Given("I am logged in") do
   header_and_footer.log_in_page
   sign_in.sign_in_student
   header_and_footer.check_logged_in
-  #
+  
+  # comments.visit_page #Arun added for his tests to work
+  # sign_in.sign_in_student #Arun added for his tests to work
+
+  # header_and_footer.check_logged_in
   # comments.visit_page #Arun added for his tests to work
   # sign_in.sign_in_student #Arun added for his tests to work
 
@@ -100,6 +104,7 @@ end
 Then("I am directed to the educations page") do
   expect(current_url).to eq 'http://localhost:3000/educations'
 end
+<<<<<<< HEAD
 
 #
 # # Scenario 8
@@ -225,6 +230,8 @@ end
 # end
 #
 
+=======
+>>>>>>> 70e9c4781145da0c047959bb5023fae5eef38888
 
 # Scenario 8
 When("I click the certifications tab") do
@@ -318,36 +325,56 @@ end
 
 # Scenario 18
 Given("I am logged in as an admin account") do
-  pending # Write code here that turns the phrase above into concrete actions
+  comments.visit_page
+  sign_in.sign_in_admin
 end
 
 When("I click the top left sparta logo") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_top_left_sparta_logo
+end
+
+Then("I am redirected to the profiles page") do
+  expect(current_url).to eq "http://localhost:3000/profiles"
 end
 
 # Scenario 20
 When("I click the sections tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_sections
 end
 
 Then("I am directed to the sections page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq "http://localhost:3000/sections"
 end
 
 # Scenario 21
 When("I click the teams tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_teams
+  sleep 4
 end
 
 Then("I am directed to the teams page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq "http://localhost:3000/teams"
 end
 
 # Scenario 22
-When("I click the bottom links") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I shouldn't have a footer link to Projects") do
+  expect(header_and_footer.check_projects).to eq false
 end
 
+Then("I shouldn't have a footer link to Employment") do
+  expect(header_and_footer.check_employment).to eq false
+end
+
+<<<<<<< HEAD
 # Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
+=======
+Then("I shouldn't have a footer link to Education") do
+  expect(header_and_footer.check_education).to eq false
+end
+
+Then("I shouldn't have a footer link to Certifications") do
+  expect(header_and_footer.check_certifications).to eq false
+end
+>>>>>>> 70e9c4781145da0c047959bb5023fae5eef38888
