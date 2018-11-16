@@ -220,12 +220,19 @@ Then("I am directed to the teams page") do
   expect(current_url).to eq "http://localhost:3000/teams"
 end
 
-# # Scenario 22
-# When("I click the bottom links") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
+# Scenario 22
+Then("I shouldn't have a footer link to Projects") do
+  expect(header_and_footer.check_projects).to eq false
+end
 
-# Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+Then("I shouldn't have a footer link to Employment") do
+  expect(header_and_footer.check_employment).to eq false
+end
+
+Then("I shouldn't have a footer link to Education") do
+  expect(header_and_footer.check_education).to eq false
+end
+
+Then("I shouldn't have a footer link to Certifications") do
+  expect(header_and_footer.check_certifications).to eq false
+end

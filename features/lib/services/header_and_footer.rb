@@ -150,8 +150,37 @@ class HeaderAndFooter
     find("a", :text => /\ATeams\z/).click
   end
 
-
   # Scenario 22
+  def check_projects
+    if find(:css, "#footer-projects")
+      return true
+    else
+      return false
+    end
+  end
 
+  def check_employment
+    if find(:css, "#footer-employment")
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_education
+    if find(:css, "#footer-education")
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_certifications
+    if find(:css, "#footer-certifications")
+      return true
+    else
+      return false
+    end
+  end
 
 end
