@@ -11,7 +11,7 @@ Capybara.configure do |config|
   config.default_max_wait_time = 10
   config.match = :prefer_exact
   config.default_driver = :chrome
-  config.app_host = "http://localhost:3000/"
+  config.app_host = "http://localhost:3000"
 end
 
 # Sets up the module from super class- Means we dont have
