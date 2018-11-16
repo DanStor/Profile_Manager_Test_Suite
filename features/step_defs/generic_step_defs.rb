@@ -30,6 +30,5 @@ When("I open PDF of the first profile") do
 end
 
 Then("I should see the PDF") do
-  generic.checkIfPDF
-  expect(generic.checkIfPDF).to eq true
+  expect(current_url).to include '.pdf'
 end

@@ -55,13 +55,7 @@ class Generic
 
   def openPDFOfProfile
     click_on("PDF")
+    within_window(switch_to_window(windows.last))
   end
 
-  def checkIfPDF
-    # switch_to_window { title == 'SpartaProfiles' }
-    if !page.has_css?('toolbar')
-      return false
-    end
-    return true
-  end
 end
