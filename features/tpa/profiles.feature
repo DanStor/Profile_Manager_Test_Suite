@@ -85,7 +85,7 @@ Scenario: Edit profile page to check word count remains the same
   And I do not add more words to the description
   Then the word count for description should remain the same
 
-@profilesTESTFAIL
+@profiles9
 Scenario: Edit profile page to check word count decreases
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
