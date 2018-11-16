@@ -53,13 +53,14 @@ Feature: Certifications
 
   #Only invalid title
   @certification
-  Scenario: Adding Certifications with invalid title length
+  @certification_invalid_title
+  Scenario: Adding Certifications with invalid title length - should be added
     Given I'm on the Certifications page
     When I press new Certification
     And I add an invalid title
     And I add a valid description
     And I press save
-    Then an error is displayed
+    Then the certification is added
 
   #Word count display decrease
   @certification
