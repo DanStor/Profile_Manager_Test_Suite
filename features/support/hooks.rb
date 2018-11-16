@@ -183,6 +183,10 @@ Before("@all_login") do
   NOTICE_CLASS = '.notice'
 end
 
+Before("@deletion") do
+  employment.preTestDatabase
+end
+
 Before('@login') do
 
 end

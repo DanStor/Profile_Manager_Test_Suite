@@ -103,4 +103,11 @@ class Employment
 
   end
 
+  def preTestDatabase
+    visit("/employments/new")
+    enterValidDetails
+    click_on("Save")
+    click_on("Back")
+  end
+
 end
