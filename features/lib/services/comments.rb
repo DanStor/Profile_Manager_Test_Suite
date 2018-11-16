@@ -7,12 +7,6 @@ class Comments
     visit('/')
   end
 
-  def sign_in_admin
-    fill_in('email', :with => 'eng16admin@spartaglobal.com')
-    fill_in('password', :with => 'Password123')
-    click_button('submit')
-  end
-
   def click_on_students_profile
     click_link('eng16 student')
     # find(:xpath, '//*[@id="profile-index-stream-3"]').click
@@ -40,6 +34,25 @@ class Comments
 
   def log_out
     click_link('Logout')
+  end
+
+  def comments_checkbox
+    check('sum0')
+  end
+
+  def comments_save
+    click_button('Save')
+  end
+
+  # Section added so I can create a profile- incase it is deleted via the admin.rb
+  def click_new_profile
+    click_link('Create a profile')
+  end
+
+  def fill_in_new_profile
+    fill_in('profile-form-summary', with: 'Please write a summary for your profile.')
+    select('DevOps', :from => 'Stream')
+    fill_in('profile-form-degree', with: 'Computer Science')
   end
 
 end
