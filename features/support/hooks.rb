@@ -102,8 +102,6 @@ Before("@profiles") do
   STATUS_DRAFT = 'profile_status_draft'
   TEAM_LABEL = 'Team'
 
-  visit('/')
-  sign_in.sign_in_student
 end
 
 
