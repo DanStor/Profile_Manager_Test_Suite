@@ -108,11 +108,9 @@ class Profiles
 
   def click_PDF_link
     click_link('PDF')
+    within_window(switch_to_window(windows.last))
   end
 
-  def pdf_page
-    #need to add code for this
-  end
 
   def choose_pending
     choose(STATUS_PENDING)
