@@ -5,7 +5,7 @@ class HeaderAndFooter
 
   # Scenario 1
   def log_in_page
-    visit('/login')
+    visit('/')
   end
 
   def sparta_global_sign
@@ -50,22 +50,38 @@ class HeaderAndFooter
   end
 
   def sparta_global_sign_click
-    page.has_content? ("Sparta Global")
+    click_link("Sparta Global")
+  end
+
+  def directed_to_profiles
+    page.has_content?('Profiles')
   end
   # Scenario 3
 
-
+  def click_profile_header
+    click_link('Profiles')
+  end
   # Scenario 4
 
-
+  def click_skills_header
+    click_link('Skills')
+  end
   # Scenario 5
 
+  def click_projects_header
+    click_link('Projects')
+  end
 
   # Scenario 6
 
-
+  def click_employment_header
+    click_link('Employment')
+  end
   # Scenario 7
 
+  def click_education_header
+    click_link('Education')
+  end
 
   # Scenario 8
   def click_certifications

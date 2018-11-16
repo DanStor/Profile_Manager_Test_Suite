@@ -43,12 +43,13 @@ end
 
 # Scenario 2
 Given("I am logged in") do
-<<<<<<< HEAD
+  header_and_footer.log_in_page
+  sign_in.sign_in_student
   header_and_footer.check_logged_in
-=======
-  comments.visit_page #Arun added for his tests to work
-  sign_in.sign_in_student #Arun added for his tests to work
->>>>>>> 56da12fb8cc930a9c0d28d47f9e36aedf9996b36
+  #
+  # comments.visit_page #Arun added for his tests to work
+  # sign_in.sign_in_student #Arun added for his tests to work
+
 end
 
 When("I click the left top sparta sign") do
@@ -56,50 +57,50 @@ When("I click the left top sparta sign") do
 end
 
 Then("I am directed to the profiles page") do
-  expect(header_and_footer.sparta_global_sign).to eq "http://localhost:3000/profiles"
+  header_and_footer.directed_to_profiles
 end
 
 # Scenario 3
 When("I click the profiles tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_profile_header
 end
 
 # Scenario 4
 When("I click the skills tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_skills_header
 end
 
 Then("I am directed to the skills page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/skills'
 end
 
 # Scenario 5
 When("I click the projects tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_projects_header
 end
 
 Then("I am directed to the projects page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/projects'
 end
 
 # Scenario 6
 When("I click the employement tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_employment_header
 end
 
 Then("I am directed to the employement page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/employments'
 end
 
 # Scenario 7
 When("I click the educations tab") do
-  pending # Write code here that turns the phrase above into concrete actions
+  header_and_footer.click_education_header
 end
 
 Then("I am directed to the educations page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_url).to eq 'http://localhost:3000/educations'
 end
-<<<<<<< HEAD
+
 #
 # # Scenario 8
 # When("I click the certifications tab") do
@@ -223,7 +224,7 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 #
-=======
+
 
 # Scenario 8
 When("I click the certifications tab") do
@@ -347,7 +348,6 @@ When("I click the bottom links") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
->>>>>>> 56da12fb8cc930a9c0d28d47f9e36aedf9996b36
 # Then("I am directed to the http:\/\/localhost:{int}\/profiles\/{int}\/edit page") do |int, int2|
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
