@@ -1,3 +1,4 @@
+@headfoot
 Feature: Header and Footer
 
 # Before Logging In
