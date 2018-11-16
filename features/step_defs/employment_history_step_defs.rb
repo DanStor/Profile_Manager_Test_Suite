@@ -72,10 +72,6 @@ end
 
 Then("I should not see a new item") do
   expect(employment.getCompaniesTableLength).to eq @preTableLength
-  # last_tr = all('tr')[2]
-  # within(last_tr) do
-  #   expect(find_link("Edit")[:id]).to eq @last_employment_item
-  # end
 end
 
 When("I click the destroy button for a specific item") do
