@@ -1,3 +1,4 @@
+@all_education
 Feature: Education
 
   @education

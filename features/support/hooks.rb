@@ -1,4 +1,4 @@
-Before("@certification") do
+Before("@certifications") do
   VALID_TITLE = "A title"
 
   VALID_DESCRIPTION = "A valid description"
@@ -14,6 +14,10 @@ Before("@certification") do
   WORD_COUNT_DISPLAY_XPATH = "/html/body/div/div[2]/div/div/form/div[2]/p"
 
   THREE_LETTER_WORDS = ["dog","cat","pig"]
+
+end
+
+Before("@certification") do
 
   visit('/')
   sign_in.sign_in_student
@@ -66,7 +70,7 @@ After("@certification") do
 ##
 end
 
-Before("@education") do
+Before("@all_education") do
   EDUCATION_NAV_ID = 'header-education'
   NEW_BUTTON_ID = 'new-button'
   INSTITUTION_FIELD_ID = 'institution'
@@ -81,23 +85,39 @@ Before("@education") do
   INSTITUTION_CHAR_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[1]/p'
   DESCRIPTION_WORD_COUNT_XPATH = '/html/body/div/div[2]/div/div/form/div[4]/p'
 
+end
+
+Before("@education") do
+
   visit('/')
   sign_in.sign_in_student
 end
 
 Before("@profiles") do
-  visit('/')
-  sign_in.sign_in_student
-  sleep 2
+  NEW_BUTTON_ID = 'new-button'
+  SUMMARY_FIELD_ID = 'profile-form-summary'
+  STREAM_FIELD_ID = 'Stream'
+  SELECT_TEAM = "profile_team"
+  DEGREE_FIELD_ID = 'profile-form-degree'
+  MODULE_ID = "profile_section_ids_2"
+  SAVE_BUTTON = 'save-button'
+  NO_DEGREE_BUTTON = 'profile-form-no-degree'
+  STATUS_PENDING = 'profile_status_pending'
+  STATUS_DRAFT = 'profile_status_draft'
+  TEAM_LABEL = 'Team'
 end
 
 
 Before("@skills") do
   visit('/')
   sign_in.sign_in_student
-  sleep 2
 end
 
+Before("@danRhys") do
+  visit('/')
+  sign_in.sign_in_student
+  sleep 2
+end
 
 Before('@all') do
   visit('/')
@@ -106,10 +126,13 @@ Before('@all') do
   click_button('submit')
 end
 
-Before('@valid_custom_form') do
-  TITLE = "Volunteering"
+Before('@custom_form') do
+  TITLE = "Test Title"
   HEADING = "Charity"
-  BODY = "I was doing some charity work bro"
+  BODY = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
+  DELETED_MESSAGE = "*Custom was successfully destroyed."
+  UPDATED_MESSAGE = "*Custom was successfully updated."
   CUSTOM_CREATED_MESSAGE = "*Custom was successfully created."
 end
 
@@ -153,11 +176,18 @@ After("@education_delete_education") do
     pm_education.click_confirm
 end
 
-Before('@login') do
+Before("@all_login") do
   EMAIL_FIELD_ID = 'email'
   PASSWORD_FIELD_ID = 'password'
   SUBMIT_BUTTON_ID = 'submit'
   WELCOME_XPATH = '/html/body/div/nav/ul/li[1]/a'
   NOTICE_CLASS = '.notice'
+end
+
+Before("@deletion") do
+  employment.preTestDatabase
+end
+
+Before('@login') do
 
 end
