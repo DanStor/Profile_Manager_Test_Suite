@@ -10,8 +10,8 @@ When("a user clicks to add a member") do
   admin.create_profile_button
 end
 
-Then("all members should show and the user should be able to select one to go into a group") do
-  admin.drop_down_menu
+Then("the user should see the Team dropdown menu and the user should be able to select a group to go into") do
+  expect(admin.drop_down_menu).to eq true
 end
 
 # _____ Scenario 2 _____

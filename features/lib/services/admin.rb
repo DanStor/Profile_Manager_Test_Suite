@@ -25,7 +25,10 @@ class Admin
   end
 
   def drop_down_menu
-    select('testing team', :from => 'profile_team')
+    if select('testing team', :from => 'profile_team')
+      return true
+    end
+      return false
   end
 #_____Scenario 2_____
   def profile_delete_button

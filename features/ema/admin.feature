@@ -10,7 +10,7 @@ Feature: Admin Features
   Scenario: PM-116 As an admin user, I should be able to add members to any group.
   Given the user is logged in and is an admin
   When a user clicks to add a member
-  Then all members should show and the user should be able to select one to go into a group
+  Then the user should see the Team dropdown menu and the user should be able to select a group to go into
 
   @admin2
   Scenario: PM-111 As an admin user, I should be able to remove members from a group.
