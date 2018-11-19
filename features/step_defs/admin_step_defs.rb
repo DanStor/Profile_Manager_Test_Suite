@@ -67,7 +67,7 @@ end
 
 Then("the admin should be able to filter the profiles by teams.") do
   admin.filter_teams "Testing 2"
-  expect(admin.filtered_name).to be true
+  expect(admin.filtered_name NAME).to be true
 end
 
 # _____ Scenario 6 _____
