@@ -131,7 +131,7 @@ Scenario: Status should be Draft
   And I click save on profiles
   Then the status of profile should appear as Draft in the profiles page
 
-@profilesFAILTINGTEST
+@profiles14
 Scenario: Eight skills should be selected by default
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
