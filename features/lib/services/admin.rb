@@ -52,6 +52,9 @@ class Admin
   def new_team_name
     fill_in('team_team', with: 'testing team')
   end
+  def team_name name
+    fill_in('team_team', with: name)
+  end
 
   def click_create_team
     click_button('Create Team')
@@ -79,8 +82,11 @@ class Admin
     visit('/profiles')
   end
 
-  def filter_teams
-    select('testing team', :from => 'team')
+  def filter_teams name
+    select(name, :from => 'team')
+  end
+  def filter_a_team name
+    select(name, :from => 'profile[team]')
   end
 
 # _____ Scenario 6 _____
@@ -237,6 +243,18 @@ class Admin
 
   def check_skills
     has_content?("ruby,java,html")
+  end
+
+  def click_edit
+    click_on('Edit')
+  end
+
+  def log_out
+    click_on('Logout')
+  end
+
+  def filtered_name
+    find_link('Anne Cooke').visible?
   end
 
 end

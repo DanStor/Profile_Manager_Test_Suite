@@ -187,3 +187,19 @@ end
 Before('@login') do
 
 end
+
+Before('@admin5')do
+  admin.visit_login
+  admin.admin_log_in_email
+  admin.log_in_password
+  admin.submit
+  admin.add_group_as_admin
+  admin.create_new_group
+  admin.team_name "Testing 2"
+  admin.click_create_team
+  admin.visit_profile_page
+  admin.click_edit
+  admin.filter_a_team "Testing 2"
+  admin.save_new_section
+  admin.log_out
+end
