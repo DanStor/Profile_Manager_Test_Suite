@@ -90,7 +90,7 @@ Given("pending is selected") do
 end
 
 Then("user should only see profiles with a status of pending") do
-  admin.show_pending_profiles
+  expect(admin.shows_only_pending_profiles?).to be true
 end
 
 # _____ Scenario 7 _____

@@ -99,18 +99,14 @@ class Admin
     select('Pending', :from => 'status')
   end
 
-  def show_pending_profiles
+  def shows_only_pending_profiles?
     within "#approved" do
-      if has_css?(".Approved")
+      if has_css?(".Approved") || has_css?(".Rejected") || has_css?(".Draft")
         return false
-      elsif has_css?(".Rejected")
-        return false
-      elsif has_css?(".Draft")
-        return false
-      else (".Pending")
-        return true
       end
     end
+
+    return true
   end
 
 # Scenario 10
@@ -163,16 +159,12 @@ class Admin
 
   def isOnlyDraft
     within "#approved" do
-      if has_css?(".Approved")
+      if has_css?(".Approved") || has_css?(".Rejected") || has_css?(".Pending")
         return false
-      elsif has_css?(".Rejected")
-        return false
-      elsif has_css?(".Pending")
-        return false
-      elsif has_css?(".Draft")
-        return true
       end
     end
+    
+    return true
   end
 
 # Scenario 8
