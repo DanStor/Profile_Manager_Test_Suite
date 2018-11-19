@@ -92,6 +92,7 @@ Then("I can still view the profile link on the profile page") do
 end
 
 When("I don't enter a summary") do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("an error should appear saying: Summary can't be blank") do
@@ -99,10 +100,11 @@ Then("an error should appear saying: Summary can't be blank") do
 end
 
 When("I don't enter a degree") do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
-
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 When("I click the edit button on a selected profile") do
@@ -110,14 +112,15 @@ When("I click the edit button on a selected profile") do
 end
 
 When("a profile should create an updated profile") do
-
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("not change the old profile") do
-
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 When("I do not add more words to the description") do
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then("the word count for description should remain the same") do

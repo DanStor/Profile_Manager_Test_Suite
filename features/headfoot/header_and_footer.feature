@@ -101,11 +101,11 @@ Feature: Header and Footer
     When I click on the bottom linkedin logo
     Then I will be redirected to the sparta global linkedin site
 
-  @headfoot16
-  Scenario: I should be directed to the sparta facebook site
-    Given I am on the page
-    When I click on the bottom facebook logo
-    Then I will be redirected to the sparta global facebook site
+  # @headfoot16
+  # Scenario: I should be directed to the sparta facebook site
+  #   Given I am on the page
+  #   When I click on the bottom facebook logo
+  #   Then I will be redirected to the sparta global facebook site
 
   @headfoot17
   Scenario: I should be directed to the sparta github site
