@@ -103,3 +103,13 @@ end
 Then("the certification should not be removed") do
   expect(pm_certifications.get_last_id).to eq @last_id
 end
+
+# Individual certificate
+When("I press the title of an individual certificate") do
+  @certificate_id = pm_certifications.get_last_id_formatted
+  pm_certifications.click_last_title
+end
+
+Then("I should be taken to the view page") do
+  expect(current_url).to eq "http://localhost:3000/certifications/#{@certificate_id}"
+end

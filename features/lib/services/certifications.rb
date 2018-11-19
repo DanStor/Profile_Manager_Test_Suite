@@ -111,6 +111,10 @@ class Certifications
     end
   end
 
+  def get_last_id_formatted
+    get_last_id.split("n").last
+  end
+
   def click_confirm
     click_button('Confirm')
   end
@@ -125,6 +129,13 @@ class Certifications
 
     element = find(:xpath, DESCRIPTION_XPATH) # however you locate the element
     execute_script('arguments[0].value = arguments[1]', element, text_to_set)
+  end
+
+  def click_last_title
+    last_tr = all('tr')[-2]
+    within(last_tr) do
+      find(:id => /title-.*/).click
+    end
   end
 
 end

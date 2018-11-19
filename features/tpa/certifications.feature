@@ -87,6 +87,14 @@ Feature: Certifications
     Then I should be able to view certifications
 
   @certification
+  @certification_individual_view
+  Scenario: Viewing Certifications
+    Given I'm on the Certifications page
+    When I press the title of an individual certificate
+    Then I should be taken to the view page
+
+
+  @certification
   Scenario: Editting Certifications
     Given I'm on the Certifications page
     When I press edit for a specific certification
