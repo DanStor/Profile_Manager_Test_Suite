@@ -66,16 +66,15 @@ end
 
 # Scenario 4
 When("I click the edit link") do
-  pm_skills.click_edit
+  pm_skills.click_edit_profile
 end
 
 When("edit some input details") do
-  pm_skills.fill_in_skill_edited
+  pm_skills.fill_in_skill
 end
 
 Then("the skill is edited") do
   expect(pm_skills.get_notice).to eq 'Skill was successfully updated.'
-  sleep 3
 end
 
 # Scenario 5

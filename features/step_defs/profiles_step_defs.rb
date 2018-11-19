@@ -110,13 +110,6 @@ When("I click the edit button on a selected profile") do
   pm_profiles.click_edit_button
 end
 
-# Then("a profile should create an updated profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("not change the old profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
 
 When("I do not add more words to the description") do
 end
