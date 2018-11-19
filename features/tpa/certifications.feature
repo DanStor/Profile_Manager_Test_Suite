@@ -44,6 +44,7 @@ Feature: Certifications
   # Only invalid description paste
   @certification
   @certification_invalid_description
+  @certification_invalid_description_paste
   Scenario: Adding Certifications with invalid description length pasted into the text box
     Given I'm on the Certifications page
     When I press new Certification
@@ -101,6 +102,7 @@ Feature: Certifications
   Then the certification should not be removed
 
   @certification
+  @certification_delete
   Scenario: Deleting Certifications and confirm
     Given I'm on the Certifications page
     When I press destroy for a single certification

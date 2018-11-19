@@ -54,7 +54,11 @@ Before("@certification_edit") do
 end
 
 Before("@certification_delete") do
-  ##
+  pm_certifications.visit_certifications
+  pm_certifications.click_new_certification
+  pm_certifications.input_valid_title
+  pm_certifications.input_valid_description
+  pm_certifications.click_save
 end
 
 
