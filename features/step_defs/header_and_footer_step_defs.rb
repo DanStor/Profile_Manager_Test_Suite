@@ -35,10 +35,11 @@ end
 
 When("I click on the log in tab") do
   header_and_footer.click_log_in
+  header_and_footer.log_in_page
 end
 
 Then("I will be redirected back to the login page") do
-  header_and_footer.log_in_page
+  expect(current_url).to eq 'http://localhost:3000/login'
 end
 
 # Scenario 2
@@ -46,14 +47,6 @@ Given("I am logged in") do
   header_and_footer.log_in_page
   sign_in.sign_in_student
   header_and_footer.check_logged_in
-
-  # comments.visit_page #Arun added for his tests to work
-  # sign_in.sign_in_student #Arun added for his tests to work
-
-  # header_and_footer.check_logged_in
-  # comments.visit_page #Arun added for his tests to work
-  # sign_in.sign_in_student #Arun added for his tests to work
-
 end
 
 When("I click the left top sparta sign") do
