@@ -35,9 +35,8 @@ When("I paste an invalid description") do
   pm_certifications.paste_invalid
 end
 
-
 Then("too many words error is displayed") do
-  expect(pm_certifications.get_notice_text).to eq @too_many_words_error
+  expect(pm_certifications.get_notice_text).to eq "Too many words"
 end
 
 Then("an error is displayed") do
