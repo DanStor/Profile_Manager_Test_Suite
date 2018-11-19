@@ -58,13 +58,13 @@ Feature: Admin Features
   And then verify “Comment was successfully created.” shows in green at the top of the screen when the comment has been made
   Then Go back to the profile that you made a comment on and check that the comment is visible underneath the section that you commented on
 
-  @admin9
-  Scenario: PM-151 Pending is selected as a status, profiles with Draft status are shown as well
-  Given the user goes to the site URL
-  And logs into the admin profiles
-  And clicks on profiles
-  And the status drop down menu is selected
-  Then as Pending is selected as a status, profiles with Draft status are shown as well as profiles with Pending status
+  # @admin9
+  # Scenario: Pending is selected as a status, profiles with Draft status are shown as well
+  # Given the user goes to the site URL
+  # And logs into the admin profiles
+  # And clicks on profiles
+  # And the status drop down menu is selected
+  # Then as Pending is selected as a status, profiles with Draft status are shown as well as profiles with Pending status
 
   @admin10
   Scenario: PM-152 Draft is selected as a status, all profiles, regardless of allocated status are shown as well
