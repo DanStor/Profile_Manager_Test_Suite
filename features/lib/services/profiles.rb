@@ -70,7 +70,7 @@ class Profiles
   end
 
   def delete_confirmation_message
-    page.has_content?("Profile was successully destroyed.")
+    page.has_content?("*Profile was successfully destroyed.")
   end
 
   def click_cancel_button
