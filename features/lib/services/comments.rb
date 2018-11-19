@@ -55,4 +55,8 @@ class Comments
     fill_in('profile-form-degree', with: 'Computer Science')
   end
 
+  def check_comment_notification
+    return false
+  end
+
 end
