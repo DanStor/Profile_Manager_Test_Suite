@@ -52,7 +52,7 @@ Feature: Projects
     Then the project should be destroyed
 
   @projects7
-    Scenario: I can cancell destroying a project
+    Scenario: I can cancel destroying a project
     Given I am on the projects pages
     When I click destroy
     And I clicked cancel
