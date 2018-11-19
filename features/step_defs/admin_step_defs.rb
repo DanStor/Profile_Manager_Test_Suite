@@ -254,3 +254,13 @@ Then("the section info should be changed and the notice is shown") do
   expect(admin.check_description).to eq true
   expect(admin.check_skills).to eq true
 end
+
+When("you try to create a team with a blank name") do
+  admin.add_group_as_admin
+  admin.create_new_group
+  admin.click_create_team
+end
+
+Then("the team shouldn't be created") do
+  expect(admin.check_message).to_not eq 'Team was successfully created.'
+end

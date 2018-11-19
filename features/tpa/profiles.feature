@@ -77,30 +77,30 @@ Scenario: I should be able to edit a profile
   And I click save on profiles
   Then a profile should create an updated profile
   And not change the old profile
+#
+# @profiles8 --- UPDATE- There is no word count to check
+# Scenario: Edit profile page to check word count remains the same
+#   Given I am logged in as a Trainee or Admin
+#   When I am on the profile page
+#   And I click the edit button on a selected profile
+#   And I do not add more words to the description
+#   Then the word count for description should remain the same
 
-@profiles8
-Scenario: Edit profile page to check word count remains the same
-  Given I am logged in as a Trainee or Admin
-  When I am on the profile page
-  And I click the edit button on a selected profile
-  And I do not add more words to the description
-  Then the word count for description should remain the same
-
-@profiles9
-Scenario: Edit profile page to check word count decreases
-  Given I am logged in as a Trainee or Admin
-  When I am on the profile page
-  And I click the edit button on a selected profile
-  And I add more words to the description
-  Then the word count for description should decrease
-
-@profiles10
-Scenario: Edit profile page to check word count increases
-  Given I am logged in as a Trainee or Admin
-  When I am on the profile page
-  And I click the edit button on a selected profile
-  And I take some words out from the description
-  Then the word count for description should increase
+# @profiles9  --- UPDATE- There is no word count to check
+# Scenario: Edit profile page to check word count decreases
+#   Given I am logged in as a Trainee or Admin
+#   When I am on the profile page
+#   And I click the edit button on a selected profile
+#   And I add more words to the description
+#   Then the word count for description should decrease
+#
+# @profiles10  --- UPDATE- There is no word count to check
+# Scenario: Edit profile page to check word count increases
+#   Given I am logged in as a Trainee or Admin
+#   When I am on the profile page
+#   And I click the edit button on a selected profile
+#   And I take some words out from the description
+#   Then the word count for description should increase
 
 @profiles11
 Scenario: I should be able to view as a pdf
