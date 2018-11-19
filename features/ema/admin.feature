@@ -59,7 +59,7 @@ Feature: Admin Features
   Then Go back to the profile that you made a comment on and check that the comment is visible underneath the section that you commented on
 
   # @admin9
-  # Scenario: Pending is selected as a status, profiles with Draft status are shown as well
+  # Scenario: PM-151 Pending is selected as a status, profiles with Draft status are shown as well
   # Given the user goes to the site URL
   # And logs into the admin profiles
   # And clicks on profiles

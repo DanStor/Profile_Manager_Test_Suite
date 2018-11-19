@@ -4,7 +4,7 @@ Feature: Custom Sections
   # ADD IN THE DATA TABLE THING
   # ADDITIONAL POINT TO MAKE IS THAT THIS IS SUPPOSED TO BE A DROP DOWN RATHER THAN AN INPUT TEXT FIELD SO RAISE THIS ISSUE
   @custom_form @add
-  Scenario: PM-180 18M-User must be able to create a custom section
+  Scenario: PM-180a 18M-User must NOT be able to create a custom section without valid body
 
   Given I am on the custom page
   When I click the new custom section button
@@ -13,12 +13,16 @@ Feature: Custom Sections
   And I press the save button
   Then I should see one error messages
 
+  Scenario: PM-180b 18M-User must NOT be able to create a custom section without valid title
+
   Given I am on the custom page
   When I click the new custom section button
   And I am taken to the the create new custom page
   And I input a valid body
   And I press the save button
   Then I should see two error messages
+
+  Scenario: PM-180c 18M-User must be able to create a custom section
 
   Given I am on the custom page
   When I click the new custom section button

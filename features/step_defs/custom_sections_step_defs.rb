@@ -85,7 +85,7 @@ Given(/^ am on the create new custom page$/) do
 end
 
 When(/^I add a (\w*) to my profile$/)do |section|
-  @regex=section
+  @regex = section
 end
 
 When("I input valid custom section details")do
