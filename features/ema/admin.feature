@@ -106,3 +106,35 @@ Feature: Admin Features
   And edit the section
   And save the section
   Then the section info should be changed and the notice is shown
+
+  @admin15
+  Scenario: Admins are able to add teams
+  Given you are logged in as an admin
+  And you go to teams
+  When new team is clicked
+  And the team name is entered
+  And save the team is clicked
+  Then the team should be created
+
+  @admin16
+  Scenario: Admins are able to edit teams
+  Given you are logged in as an admin
+  And you go to teams
+  When I click edit
+  And save the team is clicked
+  Then the team should be updated
+
+  @admin17
+  Scenario: Admins are able to delete teams
+  Given you are logged in as an admin
+  And you go to teams
+  When I click on destroy
+  Then the team should be destroyed
+
+  @admin18
+  Scenario: Admins shouldn't be able to add an empty team name
+  Given you are logged in as an admin
+  And you go to teams
+  When new team is clicked
+  And save the team is clicked
+  Then the team shouldn't be created
