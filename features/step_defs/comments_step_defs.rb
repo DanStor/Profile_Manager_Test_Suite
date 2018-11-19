@@ -57,4 +57,5 @@ end
 
 Then("the user should be able to see the comments made and by which admin") do
   comments.click_comments_section
+  expect(comments.check_comment_notification).to eq true
 end
