@@ -23,6 +23,14 @@ class Projects
     find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("This is some description")
   end
 
+  def clear_description
+    path = find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor')
+    # find(:xpath, '/html/body/div/div[2]/div/div/form/div[2]/trix-editor').set("")
+    (0..24).each do
+      path.send_keys(:backspace)
+    end
+  end
+
   def valid_input_start_date
     fill_in('start-date', :with => '01/09/2014')
   end
@@ -60,6 +68,10 @@ class Projects
 
   def get_description words
     find(:xpath, "/html/body/div/div[2]/div").has_content?(words)
+  end
+
+  def get_description_word_count
+    find(:xpath, "/html/body/div/div[2]/div/div/form/div[2]/p").text.split(": ").last
   end
 
   def get_startDate date

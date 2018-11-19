@@ -57,3 +57,18 @@ Feature: Projects
     When I click destroy
     And I clicked cancel
     Then the project should not be destroyed
+
+  @projects8
+    Scenario: Adding words to the description for projects should decrease the remaining words count
+      Given I am on the projects pages
+      When I click on add project
+      When I add some words to the projects description
+      Then the remaining words count should decrease
+
+  @projects9
+    Scenario: Removing words from the description for projects should increase the remaining words count
+      Given I am on the projects pages
+      When I click on add project
+      When I add some words to the projects description
+      When I remove those words
+      Then the remaining words count should increase

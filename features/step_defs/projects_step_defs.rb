@@ -111,3 +111,23 @@ end
 Then("the project should not be destroyed") do
   expect(pm_projects.see_if_notice_is_on_page).to be true
 end
+
+# Scenario 8-9
+When("I add some words to the projects description") do
+  @word_count = pm_projects.get_description_word_count.to_i
+  pm_projects.fill_in_description
+end
+
+When("I remove those words") do
+  pm_projects.clear_description
+end
+
+Then("the remaining words count should decrease") do
+  expect(pm_projects.get_description_word_count.to_i).to eq 96
+  sleep 5
+end
+
+Then("the remaining words count should increase") do
+  expect(pm_projects.get_description_word_count.to_i).to eq @word_count
+  sleep 5
+end
