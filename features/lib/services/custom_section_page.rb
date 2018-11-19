@@ -38,7 +38,6 @@ class CustomSectionPage
         edit_id = titles[i+1][:id]
         click_on(find("a[data-id=destroy-#{i/3}]").text)
         return edit_id
-        break
       end
       i+=3
     end
