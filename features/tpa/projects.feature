@@ -44,19 +44,19 @@ Feature: Projects
     And I edit some details
     Then the project should be edited
 
+    @projects7
+    Scenario: I can cancel destroying a project
+    Given I am on the projects pages
+    When I click destroy
+    And I clicked cancel
+    Then the project should not be destroyed
+
   @projects6
     Scenario: I can destroy a project
     Given I am on the projects pages
     When I click destroy
     And I click confirmed
     Then the project should be destroyed
-
-  @projects7
-    Scenario: I can cancel destroying a project
-    Given I am on the projects pages
-    When I click destroy
-    And I clicked cancel
-    Then the project should not be destroyed
 
   @projects8
     Scenario: Adding words to the description for projects should decrease the remaining words count
