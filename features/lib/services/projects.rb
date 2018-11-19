@@ -71,7 +71,7 @@ class Projects
   end
 
   def profile_checkbox
-    check('profile_project_ids_1')
+    check('ISTQB')
   end
 
   def invalid_start_date

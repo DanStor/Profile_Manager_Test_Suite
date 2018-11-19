@@ -67,7 +67,7 @@ When("I select an invalid end date") do
 end
 
 Then("I should be presented with an error") do
-  pm_projects.invalid_start_date_error 
+  pm_projects.invalid_start_date_error
 end
 
 # Scenario 5
