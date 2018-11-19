@@ -57,7 +57,8 @@ class Profiles
   end
 
   def degree_not_applicable
-    page.has_content?("Not Applicable")
+    find(:xpath, '//*[@id="pdf"]/div[2]/div[1]/p').text
+    # page.has_content?("Not Applicable")
   end
 
   def confirm_delete_button

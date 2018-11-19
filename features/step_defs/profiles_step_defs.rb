@@ -54,7 +54,7 @@ end
 
 Then("a profile should be created") do
   # expect(current_url).to eq profile_url
-  pm_profiles.profile_created_message
+  expect(pm_profiles.profile_created_message).to be true
 end
 
 When("I click on no degree") do
@@ -63,7 +63,7 @@ When("I click on no degree") do
 end
 
 Then("it should say not applicable under university degree") do
-  pm_profiles.degree_not_applicable
+  expect(pm_profiles.degree_not_applicable).to eq 'Not Applicable'
 end
 
 When("I click the delete button on a selected profile") do
@@ -80,7 +80,7 @@ Then("I can no longer access the profile link") do
 end
 
 Then("A confirmation message will appear") do
-  pm_profiles.delete_confirmation_message
+  expect(pm_profiles.delete_confirmation_message).to be true
 end
 
 When("I click the cancel button on the pop up") do
