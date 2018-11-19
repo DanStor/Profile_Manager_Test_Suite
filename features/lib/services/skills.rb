@@ -79,4 +79,13 @@ class Skills
   def empty_skill_error
     page.has_content? ('2 errors prohibited this skill from being saved:')
   end
+
+  # Scenario 5
+  def delete_skill_button
+    click_link('Destroy')
+  end
+
+  def confirm_delete
+    click_on('Confirm')
+  end
 end

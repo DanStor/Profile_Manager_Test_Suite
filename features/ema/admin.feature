@@ -1,5 +1,11 @@
 Feature: Admin Features
 
+  @admin3
+  Scenario: PPM-114 As an admin user, I should be able to create groups.
+  Given the user is logged in and is an admin
+  When the user creates a group
+  Then the group should be added to the database
+
   @admin1
   Scenario: PM-116 As an admin user, I should be able to add members to any group.
   Given the user is logged in and is an admin
@@ -11,12 +17,6 @@ Feature: Admin Features
   Given the user is logged in and is an admin
   When the user clicks to remove a member
   Then the member should no longer be displayed in that group
-
-  @admin3
-  Scenario: PPM-114 As an admin user, I should be able to create groups.
-  Given the user is logged in and is an admin
-  When the user creates a group
-  Then the group should be added to the database
 
   @admin4
   Scenario: PM-112 As an admin user, I should be able to delete an entire group.

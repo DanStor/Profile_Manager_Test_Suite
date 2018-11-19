@@ -101,22 +101,21 @@ end
 When("I don't enter a degree") do
 end
 
-# Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
-#   pm_profiles.degree_error_mesaage
-#   pm_profiles.degree_short_error_mesaage
-# end
+Then("an error should appear saying: Degree can't be blank and Degree is too short minimum is {int} characters") do |int|
+
+end
 
 When("I click the edit button on a selected profile") do
   pm_profiles.click_edit_button
 end
 
-# Then("a profile should create an updated profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
-#
-# Then("not change the old profile") do
-#   pending # Write code here that turns the phrase above into concrete actions
-# end
+When("a profile should create an updated profile") do
+
+end
+
+Then("not change the old profile") do
+
+end
 
 When("I do not add more words to the description") do
 end
