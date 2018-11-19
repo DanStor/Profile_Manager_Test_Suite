@@ -1,6 +1,7 @@
 Feature:  Employment History
 
   @danRhys
+  @employment_history1
   Scenario: PM-192 As a user, I must be able to create a new employment history item
 
   Given I am on the employment page
@@ -22,6 +23,7 @@ Feature:  Employment History
   When I click the back button
   Then I should not see a new item
 
+  @employment_history2
   @danRhys
   Scenario: PM-191 - As a user, I must be able to view employment history item
 
@@ -29,6 +31,7 @@ Feature:  Employment History
   When I click on an item
   Then I am now on the show page for that specific item
 
+  @employment_history3
   @danRhys
   Scenario: PM-194 As a user, I must be able to edit an employment history item
 
@@ -38,6 +41,7 @@ Feature:  Employment History
   Then I am redirected to the employment show page
   And I see the employment was successfully updated message
 
+  @employment_history4
   @danRhys
   Scenario: PM-196 As a user, when I am adding employment history I should be able to select an option that I am currently employed.
 
@@ -46,6 +50,7 @@ Feature:  Employment History
   And I click the currently employed checkbox
   Then the currently employed checkbox should be selected
 
+  @employment_history5
   @danRhys
   Scenario: PM-202 As a user, I shouldn't be able to put a date after the current date, in the employments page, unless I check the still employed box.
 
@@ -59,6 +64,7 @@ Feature:  Employment History
   And I click on an item
   Then the end date should display the date that was just input
 
+  @employment_history6
   @danRhys
   Scenario: PM-203 Failed Test - User is able to enter a data after the current date when the still employed option is not clicked, in the employments page
 
@@ -69,6 +75,7 @@ Feature:  Employment History
   And I click the save button
   Then I should see an invalid date error message
 
+  @employment_history7
   @danRhys
   @deletion
   Scenario: PM-193 As a user, I must be able to delete an employment history item

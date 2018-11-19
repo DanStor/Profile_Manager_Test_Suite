@@ -38,7 +38,8 @@ When("the changes are saved") do
   comments.comments_save
 end
 
-Then("a notification is sent to the relevant student") do
+Then("the comments is saved and a notice appears") do
+
   expect(comments.check_if_comment_added).to eq 'Comment was successfully updated.'
 end
 
@@ -55,6 +56,7 @@ When("the profile is displayed") do
   sleep 1
 end
 
-Then("the user should be able to see the comments made and by which admin") do
+Then("the user should get a notification that a comment has been made") do
   comments.click_comments_section
+  expect(comments.check_comment_notification).to eq true
 end
