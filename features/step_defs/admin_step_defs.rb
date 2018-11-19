@@ -66,7 +66,8 @@ When("navigating through the profile list") do
 end
 
 Then("the admin should be able to filter the profiles by teams.") do
-  admin.filter_teams
+  admin.filter_teams "Testing 2"
+  expect(admin.filtered_name).to be true
 end
 
 # _____ Scenario 6 _____
@@ -100,7 +101,7 @@ Given("a user is logged in as an admin") do
 end
 
 Given("the profiles section has been selected") do
-  # Already on page
+  admin.visit_profile_page
 end
 
 Given("from the drop down status is clicked") do
