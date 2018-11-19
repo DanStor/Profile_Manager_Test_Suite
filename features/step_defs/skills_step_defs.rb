@@ -84,7 +84,6 @@ end
 
 When("confirm delete") do
 pm_skills.confirm_delete
-sleep 2
 end
 
 Then("the skill is deleted") do
