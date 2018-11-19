@@ -198,6 +198,7 @@ Before('@admin5')do
   admin.team_name "Testing 2"
   admin.click_create_team
   admin.visit_profile_page
+  NAME = admin.get_first_name
   admin.click_edit
   admin.filter_a_team "Testing 2"
   admin.save_new_section

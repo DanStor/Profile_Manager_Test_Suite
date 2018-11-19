@@ -169,7 +169,7 @@ class Admin
         return false
       end
     end
-    
+
     return true
   end
 
@@ -248,8 +248,12 @@ class Admin
     click_on('Logout')
   end
 
-  def filtered_name
-    find_link('Anne Cooke').visible?
+  def filtered_name name
+    find_link(name).visible?
+  end
+
+  def get_first_name
+    find(:css, 'tr td a').text
   end
 
 end
