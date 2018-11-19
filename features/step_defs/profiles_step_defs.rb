@@ -103,9 +103,9 @@ When("I don't enter a degree") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then("an error should appear saying: Degree can't be blank and Degree is too short \(minimum is {int} characters)") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then("an error should appear saying: Degree can't be blank and Degree is too short \(minimum is {int} characters)") do |int|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 When("I click the edit button on a selected profile") do
   pm_profiles.click_edit_button
