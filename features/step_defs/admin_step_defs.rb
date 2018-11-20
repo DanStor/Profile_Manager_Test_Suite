@@ -16,6 +16,7 @@ end
 
 # _____ Scenario 2 _____
 When("the user clicks to remove a member") do
+  pending
   admin.profile_delete_button
   sleep 1
   admin.profile_delete_button_confirm
@@ -23,6 +24,7 @@ end
 
 
 Then("the member should no longer be displayed in that group") do
+  pending
   expect(admin.profile_removed).to eq '*Profile was successfully destroyed.'
 end
 #_____ Scenario 3 _____
