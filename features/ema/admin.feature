@@ -1,3 +1,4 @@
+@admin
 Feature: Admin Features
 
   @admin3
