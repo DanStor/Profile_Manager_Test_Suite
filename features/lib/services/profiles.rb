@@ -52,6 +52,10 @@ class Profiles
     page.has_content?("*Profile was successfully created.")
   end
 
+  def profile_updated_message
+    page.has_content?("*Profile was successfully updated.")
+  end
+
   def select_no_degree
     check(NO_DEGREE_BUTTON)
   end
@@ -143,6 +147,19 @@ class Profiles
     within(last_tr) do
       find_link('Edit')[:id]
     end
+  end
+
+  def get_id
+    within('#approved') do
+      first_tr = all('tr')[0]
+      within(first_tr) do
+        find_link('Edit')[:id]
+      end
+    end
+  end
+
+  def press_back_button
+    click_link('Back to Profiles')
   end
 
 end

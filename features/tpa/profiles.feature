@@ -49,7 +49,6 @@ Scenario: I should be shown an error message when I don't enter a summary
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
   And I click on new profile
-  And I don't enter a summary
   And I select a stream
   And I enter a degree
   And I click save on profiles
@@ -62,9 +61,8 @@ Scenario: I should be shown an error message when I don't enter a degree
   And I click on new profile
   And I enter a summary
   And I select a stream
-  And I don't enter a degree
   And I click save on profiles
-  Then an error should appear saying: Degree can't be blank and Degree is too short (minimum is 1 characters)
+  Then an error should appear saying: Degree can't be blank and Degree is too short
 
 @profiles7
 Scenario: I should be able to edit a profile

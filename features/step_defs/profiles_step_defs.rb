@@ -17,6 +17,7 @@ end
 When("I am on the profile page") do
   pm_profiles.visit_profile_page
   expect(current_url).to eq profile_url
+  @first_id = pm_profiles.get_id
 end
 
 When("I click on new profile") do
@@ -91,32 +92,31 @@ Then("I can still view the profile link on the profile page") do
   expect(pm_profiles.get_last_id).to eq @last_id
 end
 
-When("I don't enter a summary") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
 Then("an error should appear saying: Summary can't be blank") do
   expect(pm_profiles.summary_error_message).to be true
-end
-
-When("I don't enter a degree") do
-  pending # Write code here that turns the phrase above into concrete actions
 end
 
 # Then("an error should appear saying: Degree can't be blank and Degree is too short \(minimum is {int} characters)") do |int|
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 
+Then("an error should appear saying: Degree can't be blank and Degree is too short") do
+   expect(pm_profiles.degree_short_error_mesaage).to eq true
+end
+
+
 When("I click the edit button on a selected profile") do
   pm_profiles.click_edit_button
 end
 
-When("a profile should create an updated profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("a profile should create an updated profile") do
+  expect(pm_profiles.profile_updated_message).to eq true
+  pm_profiles.press_back_button
 end
 
 Then("not change the old profile") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(pm_profiles.get_id).to_not eq @first_id
 end
 
 When("I do not add more words to the description") do
