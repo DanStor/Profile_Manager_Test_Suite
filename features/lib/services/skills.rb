@@ -48,7 +48,12 @@ class Skills
   def input_profile_details
     fill_in("profile-form-summary", :with => "Mock Profile")
     fill_in("profile-form-degree", :with => "Computing")
-    find(:css, "#profile_section_ids_3").set(true)
+    # all("profile[skill_ids][]").last.set(true)
+    form = all(".form-group")[5]
+    within(form) do
+      checkbox = all("checkbox")[-1]
+      end
+
   end
 
   def click_save

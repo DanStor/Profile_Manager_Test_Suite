@@ -31,6 +31,7 @@ Given("I have a profile") do
   pm_skills.click_profiles
   pm_skills.click_new_profile
   pm_skills.input_profile_details
+  sleep 2
   pm_skills.click_save
 end
 
