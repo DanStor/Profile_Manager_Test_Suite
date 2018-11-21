@@ -1,6 +1,9 @@
 Feature: Skills
 
   @skills1
+  @skills2
+  @skills4
+  @skills5
   Scenario: I should be able to add a skill
     Given I am on the skills page
     When I click on create skill
