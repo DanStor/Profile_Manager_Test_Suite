@@ -7,6 +7,7 @@ When I am typing an entry which is larger than the text field
 Then I should be able to view the what I have typed
 
 @generic2
+@admin_requires_profile
 Scenario: PM-198 Failed Test - Cannot view PDF version of page
 Given I am logged in as a user
 And I am on the page of profiles
