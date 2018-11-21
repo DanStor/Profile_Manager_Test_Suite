@@ -17,6 +17,11 @@ end
 When("I am on the profile page") do
   pm_profiles.visit_profile_page
   expect(current_url).to eq profile_url
+end
+
+When("Im on the profile page") do
+  pm_profiles.visit_profile_page
+  expect(current_url).to eq profile_url
   @first_id = pm_profiles.get_id
 end
 

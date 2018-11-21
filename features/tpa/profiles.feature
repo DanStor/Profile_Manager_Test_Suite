@@ -2,15 +2,17 @@
 Feature: Profiles
 
 @profiles1
+@profiles3
+@profiles4
+@profiles7
+@profiles11
 Scenario: I should be able to add a new profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
   And I click on new profile
   And I enter a summary
   And I select a stream
-  And I select a team
   And I enter a degree
-  And I click on modules
   And I click save on profiles
   Then a profile should be created
 
@@ -21,13 +23,13 @@ Scenario: I should be able to check no degree
   And I click on new profile
   And I enter a summary
   And I select a stream
-  And I select a team
   And I click on no degree
   And I click save on profiles
   Then a profile should be created
   And it should say not applicable under university degree
 
 @profiles3
+@admin_requires_profile
 Scenario: Deleting a profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
@@ -67,7 +69,7 @@ Scenario: I should be shown an error message when I don't enter a degree
 @profiles7
 Scenario: I should be able to edit a profile
   Given I am logged in as a Trainee or Admin
-  When I am on the profile page
+  When Im on the profile page
   And I click the edit button on a selected profile
   And I enter a summary
   And I select a stream
