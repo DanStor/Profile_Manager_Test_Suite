@@ -2,6 +2,8 @@ Feature:  Employment History
 
   @danRhys
   @employment_history1
+  @employment_history2
+  @employment_history3
   Scenario: PM-192 As a user, I must be able to create a new employment history item
 
   Given I am on the employment page
@@ -14,6 +16,9 @@ Feature:  Employment History
   And I see the employment page
   And I can see the new item
 
+  @employment_history8
+  @danRhys
+  Scenario: Shouldnt be able to save an empty employment
   Given I am on the employment page
   When I click the new employment button
   And I click the save button

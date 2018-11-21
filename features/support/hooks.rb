@@ -112,7 +112,6 @@ end
 Before("@danRhys") do
   visit('/')
   sign_in.sign_in_student
-  sleep 2
 end
 
 Before('@all') do
@@ -202,5 +201,31 @@ Before('@admin5')do
   admin.click_edit
   admin.filter_a_team "Testing 2"
   admin.save_new_section
+  admin.log_out
+end
+
+Before('@admin_requires_profile') do
+  NEW_BUTTON_ID = 'new-button'
+  SUMMARY_FIELD_ID = 'profile-form-summary'
+  STREAM_FIELD_ID = 'Stream'
+  SELECT_TEAM = "profile_team"
+  DEGREE_FIELD_ID = 'profile-form-degree'
+  MODULE_ID = "profile_section_ids_2"
+  SAVE_BUTTON = 'save-button'
+  NO_DEGREE_BUTTON = 'profile-form-no-degree'
+  STATUS_PENDING = 'profile_status_pending'
+  STATUS_DRAFT = 'profile_status_draft'
+  TEAM_LABEL = 'Team'
+  form_summary = "This is a summary"
+  form_degree = "Technical Consultant"
+
+  pm_profiles.visit_home
+  sign_in.sign_in_student
+  pm_profiles.visit_profile_page
+  pm_profiles.click_create_profile
+  pm_profiles.enter_summary form_summary
+  pm_profiles.select_stream
+  pm_profiles.enter_degree form_degree
+  pm_profiles.click_save_button
   admin.log_out
 end

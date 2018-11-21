@@ -2,18 +2,22 @@
 Feature: Admin Features
 
   @admin3
+  @admin1
+  @admin4
   Scenario: PPM-114 As an admin user, I should be able to create groups.
   Given the user is logged in and is an admin
   When the user creates a group
   Then the group should be added to the database
 
   @admin1
+  @admin_requires_profile
   Scenario: PM-116 As an admin user, I should be able to add members to any group.
   Given the user is logged in and is an admin
   When a user clicks to add a member
   Then the user should see the Team dropdown menu and the user should be able to select a group to go into
 
   @admin2
+  @admin_requires_profile
   Scenario: PM-111 As an admin user, I should be able to remove members from a group.
   Given the user is logged in and is an admin
   When the user clicks to remove a member
@@ -26,6 +30,7 @@ Feature: Admin Features
   Then the entire group should not be displayed, and the member disassociated with the group
 
   @admin5
+  @admin_requires_profile
   Scenario: PM-124 As a admin I should be able to filter profiles by team.
   Given that the user is logged in
   And is an admin
@@ -33,6 +38,7 @@ Feature: Admin Features
   Then the admin should be able to filter the profiles by teams.
 
   @admin6
+  @admin_requires_profile
   Scenario: PM-129 Verify that the ‘Status’ option ‘PENDING’ shows profiles that are ‘Pending’.
   Given an admin is logged in
   And profiles has been selected
@@ -41,6 +47,7 @@ Feature: Admin Features
   Then user should only see profiles with a status of pending
 
   @admin7
+  @admin_requires_profile
   Scenario: PM-130 Verify that the ‘Status’ option ‘DRAFT’ shows the profiles that are in ‘Draft’.
   Given a user is logged in as an admin
   And the profiles section has been selected
@@ -49,6 +56,7 @@ Feature: Admin Features
   Then the user should only see profiles with a status of draft.
 
   @admin8
+  @admin_requires_profile
   Scenario: PM-140 Verify that an admin user can comment on a specific part of any profile
   Given a user is on sparta profiles
   When a profile is selected
@@ -67,14 +75,16 @@ Feature: Admin Features
   # And the status drop down menu is selected
   # Then as Pending is selected as a status, profiles with Draft status are shown as well as profiles with Pending status
 
-  @admin10
-  Scenario: PM-152 Draft is selected as a status, all profiles, regardless of allocated status are shown as well
-  Given the user goes to the site URL
-  And has logged in on an admin account
-  When draft has been selected from the drop down menu
-  Then Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft status
+  # @admin10
+  # Scenario: PM-152 Draft is selected as a status, all profiles, regardless of allocated status are shown as well
+  # Given the user goes to the site URL
+  # And has logged in on an admin account
+  # When draft has been selected from the drop down menu
+  # Then Draft is selected as a status, all profiles, regardless of allocated status are shown as well as profiles with Draft status
 
   @admin11
+  @admin13
+  @admin14
   Scenario: PM-173 Test - That Admins are able to add sections
   Given you are logged in as an admin
   And you go into sections
