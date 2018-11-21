@@ -6,6 +6,7 @@ Feature: Profiles
 @profiles4
 @profiles7
 @profiles11
+@projects3
 Scenario: I should be able to add a new profile
   Given I am logged in as a Trainee or Admin
   When I am on the profile page
